@@ -148,7 +148,7 @@ gulp.task('styles', function () {
       .pipe(newer(destDir + '/styles/' + constant.destFile))
       .pipe(concat(constant.destFile))
       .pipe(autoprefixer('last 1 version'))
-      .pipe(replace(/([\/\w\._-]+\/)*([\w\._-]+\.(ttf|eot|woff|svg))/g, '../fonts/$2'))
+      .pipe(replace(/([\/\w\._-]+\/)*([\w\._-]+\.(ttf|eot|woff|woff2|svg))/g, '../fonts/$2'))
       .pipe(replace(/([\/\w\._-]+\/)*([\w\._-]+\.(png|jpg|gif))/g, '../images/$2'))
       .pipe(gulpIf(minify, csso()))
       .pipe(gulp.dest(destDir + '/styles'));
@@ -221,7 +221,7 @@ gulp.task('fonts', function () {
   var files = mainBowerFiles();
   files.push(appPublicDir + '/fonts/**/*');
   return gulp.src(files)
-    .pipe(filter('**/*.{eot,svg,ttf,woff}'))
+    .pipe(filter('**/*.{eot,svg,ttf,woff,woff2}'))
     .pipe(cached('fonts'))
     .pipe(flatten())
     .pipe(gulp.dest(destDir + '/fonts'));
