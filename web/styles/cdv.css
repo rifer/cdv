@@ -1,0 +1,281 @@
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden],
+template {
+  display: none;
+}
+a {
+  background-color: transparent;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: bold;
+}
+dfn {
+  font-style: italic;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+mark {
+  background: #ff0;
+  color: #000;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  border: 0;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+figure {
+  margin: 1em 40px;
+}
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+pre {
+  overflow: auto;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+button {
+  overflow: visible;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+input {
+  line-height: normal;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  border: 0;
+  padding: 0;
+}
+textarea {
+  overflow: auto;
+}
+optgroup {
+  font-weight: bold;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@font-face {
+  font-family: "Roboto";
+  src: url('../fonts/RobotoCondensed-Regular.eot?1409849071');
+  src: url('../fonts/RobotoCondensed-Regular.eot?&1409849071#iefix') format('embedded-opentype'), url('../fonts/RobotoCondensed-Regular.woff?1409849071') format('woff'), url('../fonts/RobotoCondensed-Regular.ttf?1409849071') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  background: #EEE;
+  color: #222;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+}
+h1,
+h2 {
+  line-height: 1.2;
+  margin: 0 0 .5em;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 21px;
+  margin-bottom: 1em;
+}
+p {
+  margin: 0 0 1em 0;
+}
+a {
+  color: #0000F0;
+}
+a:hover {
+  text-decoration: none;
+}
+code {
+  background: #F5F5F5;
+  max-width: 100px;
+  padding: 2px 6px;
+  word-wrap: break-word;
+}
+#wrapper {
+  background: #FFF;
+  margin: 1em auto;
+  max-width: 800px;
+  width: 95%;
+}
+#container {
+  padding: 2em;
+}
+#welcome,
+#status {
+  margin-bottom: 2em;
+}
+#welcome h1 span {
+  display: block;
+  font-size: 75%;
+}
+#icon-status,
+#icon-book {
+  float: left;
+  height: 64px;
+  margin-right: 1em;
+  margin-top: -4px;
+  width: 64px;
+}
+#icon-book {
+  display: none;
+}
+@media (min-width: 768px) {
+  #wrapper {
+    width: 80%;
+    margin: 2em auto;
+  }
+  #icon-book {
+    display: inline-block;
+  }
+  #status a,
+  #next a {
+    display: block;
+  }
+  @-webkit-keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .sf-toolbar {
+    opacity: 0;
+    -webkit-animation: fade-in 1s 0.2s forwards;
+    animation: fade-in 1s 0.2s forwards;
+  }
+}
