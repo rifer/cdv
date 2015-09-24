@@ -1,0 +1,6 @@
+styles:
+  foo.css:
+    - app/Resources/public/styles/bar.less
+scripts:
+  foo.js:
+    - app/Resources/public/scripts/bar.js
