@@ -1,1 +1,6 @@
-!function(){"use strict";console.log("Log message from app/Resources/public/scripts/cvs.js")}();
+'use strict';
+$(document).ready(function(){
+    setTimeout(function(){
+        $('h1.animated').addClass('bounceInDown').removeClass('hidden');          
+    },1000);
+});
