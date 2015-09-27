@@ -2,5 +2,5 @@ styles:
   cdv.css:
     - app/Resources/public/styles/theme_wrapper.less
 scripts:
-  foo.js:
-    - app/Resources/public/scripts/bar.js
+  cdv.js:
+    - app/Resources/public/scripts/cdv.js

@@ -141,7 +141,7 @@ gulp.task('styles', function () {
       .pipe(cached(constant.destFile))
       .pipe(cssPreProcessorFilter)
       .pipe(less({
-        paths: [appPublicDir + '/styles/includes']
+        paths: [appPublicDir + '/styles']
       }))
       .pipe(cssPreProcessorFilter.restore())
       .pipe(remember(constant.destFile))
