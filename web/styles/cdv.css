@@ -2714,8 +2714,68 @@ h4 {
     font-size: 1.5rem;
   }
 }
+a {
+  text-decoration: none;
+}
 header h1 {
+  color: #d75c37;
+  font-weight: 400;
+}
+header a {
+  font-weight: 700;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  position: relative;
+  padding: 5px 10px;
+  margin-bottom: 0px;
+  text-align: center;
   color: #ffffff;
+}
+header a:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #c3d7df;
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: 50% 0;
+  -ms-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform,-moz-transform,-o-transform,transform;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+header a:hover,
+header a:focus,
+header a:active {
+  color: #6991ac;
+}
+header a:hover:before,
+header a:focus:before,
+header a:active:before {
+  -webkit-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  transform: scaleY(1);
+  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
 /* Color Variables*/
 /*END Color Variables*/
@@ -3007,7 +3067,7 @@ body {
 header {
   width: 100%;
   margin: 0;
-  background-color: #687536;
+  background-color: #c3d7df;
 }
 header .title {
   display: -webkit-box;
@@ -3032,10 +3092,16 @@ header .title {
   align-items: center;
   height: 450px;
 }
-header .main-nav {
-  background: #b3b4b0;
+header .title img {
+  width: 90px;
 }
-header .main-nav ul {
+header .title h1 {
+  margin: 0 0 0 .4em;
+}
+header .main-nav {
+  background: #6991ac;
+}
+header .main-nav .container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3051,15 +3117,16 @@ header .main-nav ul {
   justify-content: flex-end;
   margin-bottom: 0;
 }
-header .main-nav ul li {
+header .main-nav .container a {
   display: inline-block;
-  background: #6d821a;
-  padding: 5px 10px;
-  margin-bottom: 0px;
-  text-align: center;
+  background: #6991ac;
+  font-size: .9em;
 }
-header .main-nav ul li a {
+footer.main-footer {
+  background: #67727a;
   color: #ffffff;
+  height: 80px;
+  margin-top: 20px;
 }
 /* Larger than mobile */
 /* Larger than phablet (also point when grid becomes active) */

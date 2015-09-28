@@ -27,6 +27,7 @@ var beeper = require('beeper');
 var chalk = require('chalk');
 var gulpIf = require('gulp-if');
 var jquery = require('gulp-jquery');
+var livereload = require('gulp-livereload');
 
 function logTime() {
   var date = new Date();
@@ -137,7 +138,8 @@ gulp.task('styles', function () {
   var task = function (constant) {
     var src = configs.styles[constant.destFile].map(function (file) {
       return getAbsolutePath(file, true);
-    });var cssPreProcessorFilter = filter('**/*.less');
+    });
+    var cssPreProcessorFilter = filter('**/*.less');
     gulp.src(src)
       .pipe(cached(constant.destFile))
       .pipe(cssPreProcessorFilter)
@@ -162,6 +164,10 @@ gulp.task('styles', function () {
   }
   return mux.createAndRunTasks(gulp, task, 'styles', targets, '', constants);
 });
+
+
+
+
 
 gulp.task('scripts', function () {
   var configs = getConfigs();
@@ -255,7 +261,11 @@ gulp.task('preServe', function (callback) {
   minify = false;
   runSequence('clean', 'styles', 'jquery', 'scripts', 'fonts', 'images', callback);
 });
-
+gulp.task('stream', function (callback) {
+  minify = false;
+  runSequence('clean', 'styles');
+  gulp.watch(appPublicDir + '/styles/**/*', ['styles']);
+});
 gulp.task('serve', ['preServe'], function () {
 
   var stylesWatcher = gulp.watch(appPublicDir + '/styles/**/*', ['styles']);

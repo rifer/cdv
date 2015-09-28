@@ -4,17 +4,16 @@
     {% block header %}
     <header>
         <div class="container title">
+            <img src="{{ asset('images/logo_w_min.png')}}" alt="Logo Carcel de Ventas">
             <h1 class="animated hidden">Carcel de Ventas</h1>           
         </div>
-        <nav class="main-nav">
-            <div class="container">
-                <ul>
-                    <li><a href="">HISTORIA</a></li>
-                    <li><a href="">TESTIMONIOS</a></li>
-                    <li><a href="">LISTADOS</a></li>
-                    <li><a href="">VARIOS</a></li>
-                </ul>
-            </div>
+        <div class="main-nav">
+            <nav class="container">
+                <a href="">HISTORIA</a>
+                <a href="">TESTIMONIOS</a>
+                <a href="">LISTADOS</a>
+                <a href="">VARIOS</a>
+            </nav>
         </nav>
     </header>
     {% endblock %}
@@ -33,8 +32,8 @@
                 <div class="twelve columns test" style="background:pink;">Linea Uno</div>
             </aside>
         </div>
-        <div class="row">
-            <footer class="twelve columns" style="background:black;height:80px;color:white;">FOOTER</footer>
-        </div>
     </div>
+    <footer class="main-footer">
+        FOOTER
+    </footer>
 {% endblock %}
