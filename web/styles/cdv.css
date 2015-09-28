@@ -2783,6 +2783,13 @@ header a:active:before {
 .hidden {
   display: none;
 }
+.hide {
+  zoom: 1;
+  filter: alpha(opacity=0);
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+}
 /*Animations*/
 .animated {
   -webkit-animation-duration: 1s;
@@ -3061,13 +3068,26 @@ header a:active:before {
   animation-name: fadeInUp;
 }
 /*END Animations*/
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 body {
   background: #ffffff;
+}
+#wrapper {
+  min-height: 100%;
+  position: relative;
 }
 header {
   width: 100%;
   margin: 0;
   background-color: #c3d7df;
+  /* background: url('../images/03_01_1.preview_0.jpg') no-repeat;
+ background-size: cover;
+ background-position: 0 -300px;*/
 }
 header .title {
   display: -webkit-box;
@@ -3098,8 +3118,44 @@ header .title img {
 header .title h1 {
   margin: 0 0 0 .4em;
 }
+header .title p {
+  margin: 0 0 0 1.5em;
+}
 header .main-nav {
   background: #6991ac;
+  -webkit-transition: all 0.3s ease-in 0.3s;
+  transition: all 0.3s ease-in 0.3s;
+  font-size: 1em;
+  height: 35px;
+}
+header .main-nav.stuck {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  height: 60px;
+  font-size: 1.1em;
+  -webkit-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: all 0.3s ease-in 0.3s;
+  transition: all 0.3s ease-in 0.3s;
+}
+header .main-nav.stuck .container .nav-bar-info {
+  zoom: 1;
+  filter: alpha(opacity=100);
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in 0.3s;
+  transition: opacity 0.3s ease-in 0.3s;
+}
+header .main-nav.stuck .container a {
+  padding: 15px 10px;
+  -webkit-transition: padding 0.3s ease-in 0.3s;
+  transition: padding 0.3s ease-in 0.3s;
 }
 header .main-nav .container {
   display: -webkit-box;
@@ -3111,22 +3167,53 @@ header .main-nav .container {
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  -webkit-justify-content: flex-end;
-  justify-content: flex-end;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
   margin-bottom: 0;
+}
+header .main-nav .container .nav-bar-info {
+  color: white;
+  zoom: 1;
+  filter: alpha(opacity=0);
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in 0.3s;
+  transition: opacity 0.3s ease-in 0.3s;
+}
+header .main-nav .container .nav-bar-info img {
+  width: 20px;
+  vertical-align: middle;
+}
+header .main-nav .container nav {
+  margin-left: auto;
+}
+header .main-nav .container nav .menu-icon {
+  color: #ffffff;
+  cursor: pointer;
+  display: none;
 }
 header .main-nav .container a {
   display: inline-block;
   background: #6991ac;
   font-size: .9em;
+  -webkit-transition: padding 0.3s ease-in 0.3s;
+  transition: padding 0.3s ease-in 0.3s;
+}
+.main {
+  padding-bottom: 80px;
 }
 footer.main-footer {
   background: #67727a;
   color: #ffffff;
   height: 80px;
-  margin-top: 20px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px 0 10px;
 }
 /* Larger than mobile */
 /* Larger than phablet (also point when grid becomes active) */

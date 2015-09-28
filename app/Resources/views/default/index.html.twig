@@ -4,36 +4,53 @@
     {% block header %}
     <header>
         <div class="container title">
-            <img src="{{ asset('images/logo_w_min.png')}}" alt="Logo Carcel de Ventas">
-            <h1 class="animated hidden">Carcel de Ventas</h1>           
+            <img  class="hr-image animated hide" src="{{ asset('images/logo_w_min.png')}}" alt="Logo Carcel de Ventas">
+            <div class="text-title">
+                <h1>Cárcel de Ventas</h1>
+                <p>Madrid, 1904-1976</p>
+            </div>  
         </div>
-        <div class="main-nav">
-            <nav class="container">
-                <a href="">HISTORIA</a>
-                <a href="">TESTIMONIOS</a>
-                <a href="">LISTADOS</a>
-                <a href="">VARIOS</a>
-            </nav>
+        <div class="main-nav sticky-wrapper" id="navigation">
+            <div class="container">
+                <a href="#" class="nav-bar-info">
+                    <img src="{{ asset('images/logo_xs.png')}}" alt="Logo Carcel de Ventas">
+                    <span>Carcel de Ventas</span>
+                </a>
+                <nav>
+                    <i class="fa fa-bars menu-icon"></i>
+                    <a href="">HISTORIA</a>
+                    <a href="">TESTIMONIOS</a>
+                    <a href="">LISTADOS</a>
+                    <a href="">VARIOS</a>
+                </nav>
+            </div>
         </nav>
     </header>
     {% endblock %}
-    <div class="container">
+    <div class="main container">
         <div class="row">
-            <main class="eight columns test" style="color:white;">
-                <div class="twelve columns test" style="background:blue;">Linea Uno</div>
-                <div class="twelve columns test" style="background:blue;">Linea Uno</div>
-                <div class="twelve columns test" style="background:blue;">Linea Uno</div>
-                <div class="twelve columns test" style="background:blue;">Linea Uno</div>
+            <main class="eight columns" style="color:white;height:1500px;">
+{#                 <div class="twelve columns" style="background:blue;">Linea Uno</div>
+                <div class="twelve columns" style="background:blue;">Linea Uno</div>
+                <div class="twelve columns" style="background:blue;">Linea Uno</div>
+                <div class="twelve columns" style="background:blue;">Linea Uno</div> #}
             </main>
-            <aside class="four columns test" style="background:red;">
-                <div class="twelve columns test" style="background:pink;">Linea Uno</div>
-                <div class="twelve columns test" style="background:pink;">Linea Uno</div>
-                <div class="twelve columns test" style="background:pink;">Linea Uno</div>
-                <div class="twelve columns test" style="background:pink;">Linea Uno</div>
+            <aside class="four columns" style="background:red;">
+{#                 <div class="twelve columns" style="background:pink;">Linea Uno</div>
+                <div class="twelve columns" style="background:pink;">Linea Uno</div>
+                <div class="twelve columns" style="background:pink;">Linea Uno</div>
+                <div class="twelve columns" style="background:pink;">Linea Uno</div> #}
             </aside>
         </div>
     </div>
     <footer class="main-footer">
-        FOOTER
+        <div class="container">
+            FOOTER
+        </div>
     </footer>
 {% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('scripts/jquery.waypoints.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('scripts/sticky.min.js')}}"></script>
+{% endblock %}
+

@@ -1,6 +1,11 @@
 'use strict';
 $(document).ready(function(){
     setTimeout(function(){
-        $('h1.animated').addClass('bounceInDown').removeClass('hidden');          
-    },1000);
+        $('.hr-image.animated').addClass('bounceInDown').removeClass('hide');          
+    },500);
+
+	var sticky = new Waypoint.Sticky({
+	  element: $('.main-nav')[0]
+	})
+
 });

@@ -27,7 +27,6 @@ var beeper = require('beeper');
 var chalk = require('chalk');
 var gulpIf = require('gulp-if');
 var jquery = require('gulp-jquery');
-var livereload = require('gulp-livereload');
 
 function logTime() {
   var date = new Date();
