@@ -10,15 +10,18 @@
         {% endblock %}
         {% block commonjs %}
             <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-            <script type="text/javascript" src="{{ asset('scripts/cdv.js')}}"></script>
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         <div id="wrapper">
+            {% include 'default/header.html.twig' %}
             {% block body %}{% endblock %}
+            {% include 'default/footer.html.twig'%}
         </div>
+        {% block commonJavascripts %}
+            <script type="text/javascript" src="{{ asset('scripts/cdv.js')}}"></script>
+        {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
-
 </html>
