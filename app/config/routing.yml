@@ -4,3 +4,7 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    
+_testimonial:
+    path:      /testimonial
+    defaults:  { _controller: AppBundle:Testimonial:index }
