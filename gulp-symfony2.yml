@@ -2,5 +2,9 @@ styles:
   cdv.css:
     - app/Resources/public/styles/theme_wrapper.less
 scripts:
-  foo.js:
-    - app/Resources/public/scripts/bar.js
+  cdv.js:
+    - app/Resources/public/scripts/cdv.js
+  jquery.waypoints.js:
+  	- app/Resources/public/scripts/jquery.waypoints.min.js
+  sticky.min.js:
+  	- app/Resources/public/scripts/sticky.js

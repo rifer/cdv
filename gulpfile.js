@@ -26,6 +26,7 @@ var path = require('path');
 var beeper = require('beeper');
 var chalk = require('chalk');
 var gulpIf = require('gulp-if');
+var jquery = require('gulp-jquery');
 
 function logTime() {
   var date = new Date();
@@ -136,12 +137,13 @@ gulp.task('styles', function () {
   var task = function (constant) {
     var src = configs.styles[constant.destFile].map(function (file) {
       return getAbsolutePath(file, true);
-    });var cssPreProcessorFilter = filter('**/*.less');
+    });
+    var cssPreProcessorFilter = filter('**/*.less');
     gulp.src(src)
       .pipe(cached(constant.destFile))
       .pipe(cssPreProcessorFilter)
       .pipe(less({
-        paths: [appPublicDir + '/styles/includes']
+        paths: [appPublicDir + '/styles']
       }))
       .pipe(cssPreProcessorFilter.restore())
       .pipe(remember(constant.destFile))
@@ -159,8 +161,12 @@ gulp.task('styles', function () {
       targets.push(destFile);
     }
   }
-  return mux.createAndRunTasks(gulp, task, 'style', targets, '', constants);
+  return mux.createAndRunTasks(gulp, task, 'styles', targets, '', constants);
 });
+
+
+
+
 
 gulp.task('scripts', function () {
   var configs = getConfigs();
@@ -202,6 +208,14 @@ gulp.task('scripts', function () {
   return mux.createAndRunTasks(gulp, task, 'script', targets, '', constants);
 });
 
+gulp.task('jquery', function () {
+    return jquery.src({
+        release: 2, //jQuery 2 
+        flags: ['-deprecated', '-event/alias', '-ajax/script', '-ajax/jsonp', '-exports/global']
+    })
+      .pipe(gulpIf(minify, uglify()))
+      .pipe(gulp.dest(destDir + '/scripts'));
+});
 gulp.task('images', function () {
   var sources = [
     appPublicDir + '/images/**/*.{png,jpg,gif}',
@@ -239,20 +253,19 @@ gulp.task('clean', function () {
 
 gulp.task('build', function (callback) {
   minify = true;
-  runSequence('clean', 'styles', 'scripts', 'fonts', 'images', callback);
+  runSequence('clean', 'styles', 'jquery', 'scripts', 'fonts', 'images', callback);
 });
 
 gulp.task('preServe', function (callback) {
   minify = false;
-  runSequence('clean', 'styles', 'scripts', 'fonts', 'images', callback);
+  runSequence('clean', 'styles', 'jquery', 'scripts', 'fonts', 'images', callback);
 });
-
+gulp.task('stream', function (callback) {
+  minify = false;
+  runSequence('clean', 'styles');
+  gulp.watch(appPublicDir + '/styles/**/*', ['styles']);
+});
 gulp.task('serve', ['preServe'], function () {
-  browserSync({
-    files: [appDir + '/**/*.twig', srcDir + '/**/*.twig', destDir + '/**/*'],
-    startPath: '/app_dev.php',
-    proxy: parameters.gulp_symfony2_proxy // jshint ignore:line
-  });
 
   var stylesWatcher = gulp.watch(appPublicDir + '/styles/**/*', ['styles']);
   stylesWatcher.on('change', function (event) {
