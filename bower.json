@@ -2,6 +2,7 @@
   "name": "cdv",
   "version": "0.0.0",
   "dependencies": {
-    "waypoints": "~4.0.0"
+    "waypoints": "~4.0.0",
+    "lightgallery": "~1.2.4"
   }
 }

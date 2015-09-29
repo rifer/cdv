@@ -1,19 +1,111 @@
 {% extends 'base.html.twig' %}
-
+{% block moreStyles %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/plyr/dist/plyr.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/lightgallery/dist/css/lightgallery.min.css')}}" />
+{% endblock %}
 {% block body %}
     <div class="main container">
         <div class="row">
-            <main class="twelve columns" style="height:1500px;">
-                <h2>Testimoniooooooossss</h2>
+            <main class="nine columns">
+                <article>
+                    <header class="top-article">
+                        <h2>Soledad Real López</h2>
+                    </header>
+                    <p class="intro">Soledad Real tenia vint-i-quatre anys quan va ingressar a la presó de les Corts. pertanyia a les Joventuts Socialistes Unificades de Catalunya (JSUC). A les Corts hi va ingressar juntament amb set companyes més: les germanes Cinta i Dolors Brugalada, Isabel Imbert, María Antonia Madueño, Julia Chantrero, Clara Pueyo i Leonor Zalabardo. Allà hi va romandre fins l’estiu del 1943, que la van traslladar a la presó central de Ventas (Madrid).</p>
+                    <p class="caption"><i class="fa fa-file-audio-o"></i> Primera entrevista a Sole</p>
+                     <div class="player">
+                        <audio controls>
+                            <!-- Audio files -->
+                            <source src="{{asset('audio/01sreal.mp3')}}" type="audio/mp3">
+                            <a href="{{asset('audio/01sreal.mp3')}}">Download</a>
+                        </audio>
+                    </div>
+                    <p>l 1944 fou jutjada i condemnada a trenta anys de presó, dels quals en va complir setze. A més de les Corts i Ventas, va conèixer les presons de Torrero (Saragossa), Màlaga, Segòvia i Alcalá de Henares, de la qual en va sortir desterrada el 1957, amb la prohibició expressa de tornar a Barcelona y província.</p>
+                    <p class="caption"><i class="fa fa-file-video-o"></i>
+ Primer video de Sole</p>
+                    <div class="player">
+                        <div data-video-id="L1h9xxCU20g" data-type="youtube"></div>
+                    </div>
+                    <p>Sole va reconstruir la seva vida al barri del Lucero de Madrid, en companyia del seu marit Francisco Rebato, que també havia patit una llarga condemna de presó. Va passar els darrers anys de la vida a la seva ciutat nadiua, Barcelona, on va morir la matinada del 6 de febrer de 2007.</p>
+                    <p class="caption"><i class="fa fa-picture-o"></i> Primera galería de Sole</p>
+                    <div class="caption2" style="display:none">
+                        <h4>Bowness Bay</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>
+                    </div>
+                    <div class="caption3" style="display:none">
+                        <h4>Sunset Serenity</h4><p>A gorgeous Sunset tonight captured at Coniston Water....</p>
+                    </div>   
+                    <div class="gallery">
+                      <a href="{{ asset('images/sr1.jpg')}}" data-sub-html=".caption3">
+                          <img class="thumbnail" src="{{ asset('images/sr1.jpg')}}" />
+                      </a>
+                      <a href="{{ asset('images/sr2.jpg')}}" data-sub-html=".caption2">
+                          <img class="thumbnail" src="{{ asset('images/sr2.jpg')}}" />
+                      </a>
+                      <a href="{{ asset('images/sr3.jpg')}}">
+                          <img class="thumbnail" src="{{ asset('images/sr3.jpg')}}" />
+                      </a>
+                      <a href="{{ asset('images/sr4.jpg')}}">
+                          <img class="thumbnail" src="{{ asset('images/sr4.jpg')}}" />
+                      </a>
+                      <a href="{{ asset('images/sr5.jpg')}}">
+                          <img class="thumbnail" src="{{ asset('images/sr5.jpg')}}" />
+                      </a>
+                      <a href="{{ asset('images/sr6.jpg')}}">
+                          <img class="thumbnail" src="{{ asset('images/sr6.jpg')}}" />
+                      </a>
+                    </div>
+                </article>
             </main>
-            <aside class="twelve columns">
-                <h3>Otras coooooosaaassss</h3>
+            <aside class="three columns">
+                <div class="documents">
+                    <h3>Documentación</h3>
+                    <ul>
+                        <li><a href=""><i class="fa fa-file-archive-o"></i>Archivo personal de Soledad Real López</a></li>
+                        <li><a href=""><i class="fa fa-file-text-o"></i>Biografía completa</a></li>
+                        <li><a href=""><i class="fa fa-file-pdf-o"></i>Bibliografía</a></li>
+                    </ul>
+                </div>
+                <div class="documents">
+                    <h3>Relacionadas</h3>
+                    <ul>
+                        <li><a href="">María Andrés López</a></li>
+                        <li><a href="">Javiera Dominguez de Santillán</a></li>
+                        <li><a href="">Inés Iglesias Fernández</a></li>
+                    </ul>
+                </div>
             </aside>
         </div>
     </div>
 {% endblock %}
 {% block javascripts %}
-    <script type="text/javascript" src="{{ asset('assets/waypoints/lib/jquery.waypoints.min.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('assets/waypoints/lib/shortcuts/sticky.min.js')}}"></script>
+            <script>
+        (function(d, u){
+            var a = new XMLHttpRequest(),
+                b = d.body;
+            // Check for CORS support
+            // If you're loading from same domain, you can remove the if statement
+            if("withCredentials" in a) {
+                a.open("GET", u, true);
+                a.send();
+                a.onload = function(){
+                    var c = d.createElement("div");
+                    c.setAttribute("hidden", "");
+                    c.innerHTML = a.responseText;
+                    b.insertBefore(c, b.childNodes[0]);
+                }
+            }
+        })(document, "{{ asset('assets/plyr/dist/sprite.svg')}}");
+        </script>
+    <script type="text/javascript" src="{{ asset('assets/plyr/dist/plyr.js')}}"></script>
+    <script type="text/javascript">plyr.setup({});</script>
+    <script src="{{ asset('assets/lightgallery/dist/js/lightgallery.min.js')}}"></script>
+    <!-- lightgallery plugins -->
+    <script src="{{ asset('assets/lightgallery/dist/js/lg-thumbnail.min.js')}}"></script>
+    <script src="{{ asset('assets/lightgallery/dist/js/lg-fullscreen.min.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".gallery").lightGallery(); 
+        });
+    </script>
 {% endblock %}
 

@@ -3082,12 +3082,14 @@ body {
   position: relative;
 }
 header {
-  width: 100%;
-  margin: 0;
-  background-color: #c3d7df;
   /* background: url('../images/03_01_1.preview_0.jpg') no-repeat;
  background-size: cover;
  background-position: 0 -300px;*/
+}
+header.main-header {
+  width: 100%;
+  margin: 0;
+  background-color: #c3d7df;
 }
 header .title {
   display: -webkit-box;
@@ -3215,6 +3217,67 @@ header .main-nav .container a {
 .clear-footer {
   height: 80px;
 }
+.top-article {
+  margin-top: 2.5rem;
+  height: 380px;
+  width: 100%;
+  background: url('../images/sr1.jpg') no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.top-article h2 {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding-left: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  color: #67727a;
+}
+.caption {
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.caption i {
+  padding-right: 10px;
+}
+.documents {
+  margin-top: 4em;
+  font-size: 1.4rem;
+  border-top: 10px solid #c3d7df;
+  padding-top: .7em;
+}
+.documents h3 {
+  font-size: 2.5rem;
+}
+.documents ul {
+  list-style: none;
+}
+.documents ul li a {
+  color: #67727a;
+}
+.documents ul li a:hover {
+  border-bottom: 3px solid #6991ac;
+  color: #6991ac;
+}
+.documents ul li a i {
+  color: #6991ac;
+  padding-right: 5px;
+}
+.gallery img.thumbnail {
+  width: 80px;
+  height: 80px;
+}
+.lg-sub-html {
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+.lg-sub-html h4 {
+  font-size: 1.15em !important;
+}
+.lg-sub-html p {
+  font-size: 1em !important;
+}
 footer.main-footer {
   background: #67727a;
   color: #ffffff;
@@ -3255,6 +3318,7 @@ footer.main-footer {
   header .main-nav .container nav .menu-wrapper.show-menu {
     display: block;
     position: absolute;
+    z-index: 1;
     left: 0;
     -webkit-transition: all 0.3s ease-in 0.3s;
     transition: all 0.3s ease-in 0.3s;
