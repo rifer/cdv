@@ -2,25 +2,24 @@
 /**
  * Created by diphda.net.
  * User: paco
- * Date: 29/09/15
- * Time: 12:29
+ * Date: 30/09/15
+ * Time: 21:22
  */
 
 namespace AppBundle\Entity;
+
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 
-
 /**
- * AppBundle\Entity\Womam
+ * AppBundle\Entity\Galery
  *
- * @ORM\Table(name="woman")
- * @ORM\Entity(repositoryClass="AppBundle\Entity\WomanRepository")
- * @Gedmo\TranslationEntity(class="AppBundle\Entity\WomanTranslation")
+ * @ORM\Table(name="galery")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\GaleryRepository")
  */
-class Woman
+class Galery
 {
     /**
      * @var integer $id
@@ -32,30 +31,36 @@ class Woman
     private $id;
 
     /**
-     * @Assert\NotBlank
-     * @ORM\Column(name="name", type="string", length=128)
+     * @var string $objectClass
+     *
+     * @ORM\Column(name="object_class", type="string", length=255)
      */
-    private $name;
+    protected $objectClass;
 
     /**
-     * @Assert\NotBlank
-     * @ORM\Column(name="surname", type="string", length=128)
+     * @var string $foreignKey
+     *
+     * @ORM\Column(name="foreign_key", type="string", length=64)
      */
-    private $surname;
+    protected $foreignKey;
+
 
     /**
+     * @var string $title
      * @Assert\NotBlank
+     * @Assert\Length(max="255", min="5")
      * @Gedmo\Translatable
-     * @ORM\Column(name="biography", type="text")
+     * @ORM\Column(name="title", type="string", length=255)
      */
-    private $biography;
+    private $title;
+
 
     /**
-     * @Gedmo\Locale
-     * Used locale to override Translation listener`s locale
-     * this is not a mapped field of entity metadata, just a simple property
+     * @var string $content
+     * @Assert\NotBlank
+     * @ORM\Column(name="content", type="text")
      */
-    private $locale;
+    private $content;
 
     /**
      * @var dateTime $created
@@ -75,14 +80,15 @@ class Woman
 
     /**
      * @var string $slug
-     * @Gedmo\Slug(fields={"name","surname"})
+     * @Gedmo\Slug(fields={"title"})
      * @Gedmo\Translatable
      * @ORM\Column(name="slug", type="string", length=255)
      */
     private $slug;
 
-    public function setTranslatableLocale($locale)
-    {
-        $this->locale = $locale;
-    }
+
+    /**
+     * @ORM\OneToMany(targetEntity="Image", mappedBy="galery")
+     */
+    protected $images;
 }
