@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+{% block moreJavascripts %}
+    <script type="text/javascript" src="{{ asset('assets/underscore/underscore-min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('assets/angular/angular.min.js')}}"></script>
+{% endblock %}
+{% block body %}
+<div class="main table-data container" ng-app="myApp">
+	<div class="twelve columns">
+		<h2>Listado de fallecidas entre 1910 y 1940</h2>
+		<p>El presente listado muestra el número de personas fallecidas entre las fechas señaladas en la Cárcel de Ventas.</p>
+		<p>El objeto de este listado es hacer publicidad de estos fallecimientos como forma de homenaje y reparación a las víctimas, así como para facilitar la búsqueda de información tanto a familiares y amigos como a investigadores. </p>
+	</div>
+    <div ng-controller="TableCtrl">
+    	<div class="row">
+	        <input class="six columns" ng-model="searchText" placeholder="Buscar" type="search" ng-change="search()" /> 
+	    	<span class="six columns results">
+				Resultados: <b>{{ '{{filteredList.length}}' }}</b>
+	    	</span>
+    	</div>
+        <table class="table  table-hover data-table sort display">
+            <thead>
+                <tr>
+                    <th class="name">
+                    	<a href="" ng-click="columnToOrder='name';reverse=!reverse">Nombre <i class="fa fa-sort"></i></a>
+                    </th>
+                    <th class="old"> 
+                    	<a href="" ng-click="columnToOrder='old';reverse=!reverse"> Edad <i class="fa fa-sort"></i></a>
+                    </th>
+                    <th class="data"> 
+                    	<a href="" ng-click="columnToOrder='data';reverse=!reverse"> Fecha muerte <i class="fa fa-sort"></i></a>
+                    </th>
+                    <th class="kind"> 
+                    	<a href="" ng-click="columnToOrder='kind';reverse=!reverse"> Forma muerte <i class="fa fa-sort"></i></a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in filteredList | orderBy:columnToOrder:reverse">
+                	<td>{{ '{{item.name}}' }}</td>
+                	<td>{{ '{{item.old}}' }}</td>
+                	<td>{{ '{{item.data}}' }}</td>
+                	<td>{{ '{{item.kind}}' }}</td>
+                </tr>
+            </tbody>
+        </table>
+{# 	    <div class="row">
+            <div class="three columns">
+                <input type="text" ng-model="newName" class="form-control" placeholder="Nombre">
+            </div>
+            <div class="three columns">
+                <input type="number" ng-model="newOld" class="form-control" placeholder="Edad">
+            </div>
+            <div class="two columns">
+                <input type="date" ng-model="newData" class="form-control" placeholder="Fecha">
+            </div>
+            <div class="three columns">
+                <input type="text" ng-model="newKind" class="form-control" placeholder="Muerte">
+            </div>
+            <div class="one columns">
+                <button ng-click="add()" type="button" class="button-primary"><i class="fa fa-plus-circle"></i>
+                </button>
+            </div>
+        </div> #}
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('scripts/table_controller.min.js')}}"></script>
+{% endblock %}

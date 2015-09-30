@@ -8,19 +8,25 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('styles/cdv.css')}}" />
         <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
         {% endblock %}
-        {% block commonjs %}
+        {% block moreStyles %}{% endblock %}
+        {% block commonJs %}
             <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
         {% endblock %}
+        {% block moreJavascripts %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         <div id="wrapper">
-            {% include 'default/header.html.twig' %}
+            {% block header %}
+                {% include 'default/header.html.twig' %}
+            {% endblock %}
             {% block body %}{% endblock %}
             {% include 'default/footer.html.twig'%}
         </div>
         {% block commonJavascripts %}
             <script type="text/javascript" src="{{ asset('scripts/cdv.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('assets/waypoints/lib/jquery.waypoints.min.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('assets/waypoints/lib/shortcuts/sticky.min.js')}}"></script>
         {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
