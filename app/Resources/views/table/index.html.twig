@@ -12,41 +12,38 @@
 	</div>
     <div ng-controller="TableCtrl">
     	<div class="row">
-            <input class="ten columns" ng-model="searchText" placeholder="Buscar" type="search" ng-change="search()" /> 
-            <span class="two columns">
-      			<span class="fa fa-search"></span>
-			</span>
+	        <input class="six columns" ng-model="searchText" placeholder="Buscar" type="search" ng-change="search()" /> 
+	    	<span class="six columns results">
+				Resultados: <b>{{ '{{filteredList.length}}' }}</b>
+	    	</span>
     	</div>
-    	<div class="twelve columns">
-			<p>Resultados: {{ '{{filteredList.length}}' }}</p>
-    	</div>
-	        <table class="table  table-hover data-table sort display">
-	            <thead>
-	                <tr>
-	                    <th class="name">
-	                    	<a href="" ng-click="columnToOrder='name';reverse=!reverse">Nombre <i class="fa fa-sort"></i></a>
-	                    </th>
-	                    <th class="old"> 
-	                    	<a href="" ng-click="columnToOrder='old';reverse=!reverse"> Edad <i class="fa fa-sort"></i></a>
-	                    </th>
-	                    <th class="data"> 
-	                    	<a href="" ng-click="columnToOrder='data';reverse=!reverse"> Fecha muerte <i class="fa fa-sort"></i></a>
-	                    </th>
-	                    <th class="kind"> 
-	                    	<a href="" ng-click="columnToOrder='kind';reverse=!reverse"> Forma muerte <i class="fa fa-sort"></i></a>
-	                    </th>
-	                </tr>
-	            </thead>
-	            <tbody>
-	                <tr ng-repeat="item in filteredList | orderBy:columnToOrder:reverse">
-	                	<td>{{ '{{item.name}}' }}</td>
-	                	<td>{{ '{{item.old}}' }}</td>
-	                	<td>{{ '{{item.data}}'	}}</td>
-	                	<td>{{ '{{item.kind}}' }}</td>
-	                </tr>
-	            </tbody>
-	        </table>
-	    <div class="row">
+        <table class="table  table-hover data-table sort display">
+            <thead>
+                <tr>
+                    <th class="name">
+                    	<a href="" ng-click="columnToOrder='name';reverse=!reverse">Nombre <i class="fa fa-sort"></i></a>
+                    </th>
+                    <th class="old"> 
+                    	<a href="" ng-click="columnToOrder='old';reverse=!reverse"> Edad <i class="fa fa-sort"></i></a>
+                    </th>
+                    <th class="data"> 
+                    	<a href="" ng-click="columnToOrder='data';reverse=!reverse"> Fecha muerte <i class="fa fa-sort"></i></a>
+                    </th>
+                    <th class="kind"> 
+                    	<a href="" ng-click="columnToOrder='kind';reverse=!reverse"> Forma muerte <i class="fa fa-sort"></i></a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in filteredList | orderBy:columnToOrder:reverse">
+                	<td>{{ '{{item.name}}' }}</td>
+                	<td>{{ '{{item.old}}' }}</td>
+                	<td>{{ '{{item.data}}' }}</td>
+                	<td>{{ '{{item.kind}}' }}</td>
+                </tr>
+            </tbody>
+        </table>
+{# 	    <div class="row">
             <div class="three columns">
                 <input type="text" ng-model="newName" class="form-control" placeholder="Nombre">
             </div>
@@ -63,7 +60,7 @@
                 <button ng-click="add()" type="button" class="button-primary"><i class="fa fa-plus-circle"></i>
                 </button>
             </div>
-        </div>
+        </div> #}
     </div>
 </div>
 {% endblock %}

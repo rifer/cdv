@@ -17,7 +17,9 @@
     </head>
     <body>
         <div id="wrapper">
-            {% include 'default/header.html.twig' %}
+            {% block header %}
+                {% include 'default/header.html.twig' %}
+            {% endblock %}
             {% block body %}{% endblock %}
             {% include 'default/footer.html.twig'%}
         </div>
