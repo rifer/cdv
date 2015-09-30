@@ -8,3 +8,6 @@ fos_user:
 _testimonial:
     path:      /testimonial
     defaults:  { _controller: AppBundle:Testimonial:index }
+_table_data:
+    path: /list
+    defaults: { _controller: AppBundle:TableData:index}
