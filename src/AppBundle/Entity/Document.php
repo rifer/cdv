@@ -47,8 +47,7 @@ class Document
     private $document;
 
     /**
-     * @Gedmo\Translatable
-     * @Assert\Document(maxSize="6000000", mimeTypes={"application/pdf"})
+     * @Assert\File(maxSize="6000000", mimeTypes={"application/pdf"})
      */
     protected $file;
 
@@ -179,6 +178,28 @@ class Document
     public function getId()
     {
         return $this->id;
+    }
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Document
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
     }
 
     /**

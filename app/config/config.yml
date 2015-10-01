@@ -94,10 +94,10 @@ swiftmailer:
     spool:     { type: memory }
 
 #FOSUserBundle
-fos_user:
-    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
-    firewall_name: main
-    user_class: AppBundle\Entity\User
+# fos_user:
+#     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+#     firewall_name: main
+#     user_class: AppBundle\Entity\User
 
 stof_doctrine_extensions:
     orm:
@@ -105,3 +105,20 @@ stof_doctrine_extensions:
             sluggable: true
             timestampable: true
             translatable: true
+#EasyAdmin
+easy_admin:
+    entities:
+        Audio:
+            class: AppBundle\Entity\Audio
+        Document:
+            class: AppBundle\Entity\Document
+        Galery:
+            class: AppBundle\Entity\Galery
+        Image:
+            class: AppBundle\Entity\Image
+        Video:
+            class: AppBundle\Entity\Video
+        Woman:
+            class: AppBundle\Entity\Woman
+        WomanTranslation:
+            class: AppBundle\Entity\WomanTranslation
