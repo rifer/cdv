@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: @AppBundle/Resources/config/admin.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -105,20 +106,10 @@ stof_doctrine_extensions:
             sluggable: true
             timestampable: true
             translatable: true
-#EasyAdmin
-easy_admin:
-    entities:
-        Audio:
-            class: AppBundle\Entity\Audio
-        Document:
-            class: AppBundle\Entity\Document
-        Galery:
-            class: AppBundle\Entity\Galery
-        Image:
-            class: AppBundle\Entity\Image
-        Video:
-            class: AppBundle\Entity\Video
-        Woman:
-            class: AppBundle\Entity\Woman
-        WomanTranslation:
-            class: AppBundle\Entity\WomanTranslation
+#SonataAdmin
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]

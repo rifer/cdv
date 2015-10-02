@@ -87,4 +87,182 @@ class Audio
     private $slug;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set objectClass
+     *
+     * @param string $objectClass
+     *
+     * @return Audio
+     */
+    public function setObjectClass($objectClass)
+    {
+        $this->objectClass = $objectClass;
+
+        return $this;
+    }
+
+    /**
+     * Get objectClass
+     *
+     * @return string
+     */
+    public function getObjectClass()
+    {
+        return $this->objectClass;
+    }
+
+    /**
+     * Set foreignKey
+     *
+     * @param string $foreignKey
+     *
+     * @return Audio
+     */
+    public function setForeignKey($foreignKey)
+    {
+        $this->foreignKey = $foreignKey;
+
+        return $this;
+    }
+
+    /**
+     * Get foreignKey
+     *
+     * @return string
+     */
+    public function getForeignKey()
+    {
+        return $this->foreignKey;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Audio
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set htmlContent
+     *
+     * @param string $htmlContent
+     *
+     * @return Audio
+     */
+    public function setHtmlContent($htmlContent)
+    {
+        $this->html_content = $htmlContent;
+
+        return $this;
+    }
+
+    /**
+     * Get htmlContent
+     *
+     * @return string
+     */
+    public function getHtmlContent()
+    {
+        return $this->html_content;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     *
+     * @return Audio
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return Audio
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Audio
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
 }
