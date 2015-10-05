@@ -13,3 +13,6 @@ _testimonial:
 _table_data:
     path: /list
     defaults: { _controller: AppBundle:TableData:index}
+admin:
+  resource: "@AppBundle/Resources/config/admin.yml"
+  prefix: /admin

@@ -23,20 +23,20 @@ use Gedmo\Translatable\Entity\MappedSuperclass\AbstractPersonalTranslation;
 
 class WomanTranslation extends AbstractPersonalTranslation
 {
-
     /**
-     * Convinient constructor
+     * Convenient constructor
      *
      * @param string $locale
      * @param string $field
-     * @param string $content
+     * @param string $value
      */
-    public function __construct($locale = null, $field = null, $content = null)
+    public function __construct($locale, $field, $value)
     {
         $this->setLocale($locale);
         $this->setField($field);
-        $this->setContent($content);
+        $this->setContent($value);
     }
+
     /**
      * @ORM\ManyToOne(targetEntity="Woman", inversedBy="translations")
      * @ORM\JoinColumn(name="object_id", referencedColumnName="id", onDelete="CASCADE")

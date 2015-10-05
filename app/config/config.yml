@@ -6,7 +6,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: es
 
 framework:
     #esi:             ~
@@ -100,8 +100,15 @@ fos_user:
     user_class: AppBundle\Entity\User
 
 stof_doctrine_extensions:
+    default_locale: es
+    translation_fallback: true
     orm:
         default:
             sluggable: true
             timestampable: true
             translatable: true
+a2lix_translation_form:
+    locales: [es,en,fr]       # [1]
+    default_required: true      # [2]
+    manager_registry: doctrine      # [3]
+    templating: "A2lixTranslationFormBundle::default.html.twig"      # [4]

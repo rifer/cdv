@@ -1,0 +1,8 @@
+app_woman:
+    resource: "@AppBundle/Resources/config/routing/woman.xml"
+    prefix:   /woman
+
+app_galery:
+    resource: "@AppBundle/Resources/config/routing/gallery.xml"
+    prefix:   /gallery
+

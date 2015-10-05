@@ -24,11 +24,11 @@ class Image
      */
     private $id;
 
-    /** @ORM\ManyToOne(targetEntity="AppBundle\Entity\Gallery", inversedBy="images")
-     * @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
+    /** @ORM\ManyToOne(targetEntity="AppBundle\Entity\Galery", inversedBy="images")
+     * @ORM\JoinColumn(name="galery_id", referencedColumnName="id")
      * @Assert\NotBlank
      **/
-    private $gallery;
+    private $galery;
 
     /**
      * @var string $title
@@ -94,26 +94,26 @@ class Image
     }
 
     /**
-     * Set gallery
+     * Set galery
      *
-     * @param Gallery $gallery
+     * @param Galery $galery
      * @return Image
      */
-    public function setGallery(Gallery $gallery)
+    public function setGalery(Galery $galery)
     {
-        $this->gallery = $gallery;
+        $this->galery = $galery;
 
         return $this;
     }
 
     /**
-     * Get gallery
+     * Get galery
      *
-     * @return Gallery
+     * @return Galery
      */
-    public function getGallery()
+    public function getGalery()
     {
-        return $this->gallery;
+        return $this->galery;
     }
 
     /**
@@ -281,7 +281,7 @@ class Image
     protected function getUploadDir()
     {
         // se libra del __DIR__ para no desviarse al mostrar `doc/image` en la vista.
-        return 'uploads/gallery/images';
+        return 'uploads/galery/images';
     }
 
     /**

@@ -9,17 +9,20 @@
 namespace AppBundle\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Translatable\Translatable;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * AppBundle\Entity\Video
+ * AppBundle\Entity\Gallery
  *
- * @ORM\Table(name="video")
- * @ORM\Entity(repositoryClass="AppBundle\Entity\VideoRepository")
+ * @ORM\Table(name="gallery")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\GalleryRepository").
+ * @Gedmo\TranslationEntity(class="AppBundle\Entity\GalleryTranslation")
  */
-class Video
+class Gallery implements Translatable
 {
     /**
      * @var integer $id
@@ -56,11 +59,12 @@ class Video
 
 
     /**
-     * @var string $html_content
+     * @var string $content
      * @Assert\NotBlank
-     * @ORM\Column(name="html_content", type="text")
+     * @Gedmo\Translatable
+     * @ORM\Column(name="content", type="text")
      */
-    private $html_content;
+    private $content;
 
     /**
      * @var dateTime $created
@@ -87,6 +91,56 @@ class Video
     private $slug;
 
 
+    /**
+     * @ORM\OneToMany(targetEntity="Image", mappedBy="gallery")
+     */
+    protected $images;
+
+    /**
+     * @ORM\OneToMany(
+     *   targetEntity="GalleryTranslation",
+     *   mappedBy="object",
+     *   cascade={"persist", "remove"}
+     * )
+     */
+    private $translations;
+
+    /**
+     * @Gedmo\Locale
+     * Used locale to override Translation listener`s locale
+     * this is not a mapped field of entity metadata, just a simple property
+     */
+    private $locale;
+
+
+    public function setTranslatableLocale($locale)
+    {
+        $this->locale = $locale;
+    }
+
+
+    public function getTranslations()
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(GalleryTranslation $t)
+    {
+        if (!$this->translations->contains($t))
+        {
+            $this->translations[] = $t;
+            $t->setObject($this);
+        }
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->translations = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -103,7 +157,7 @@ class Video
      *
      * @param string $objectClass
      *
-     * @return Video
+     * @return Gallery
      */
     public function setObjectClass($objectClass)
     {
@@ -127,7 +181,7 @@ class Video
      *
      * @param string $foreignKey
      *
-     * @return Video
+     * @return Gallery
      */
     public function setForeignKey($foreignKey)
     {
@@ -151,7 +205,7 @@ class Video
      *
      * @param string $title
      *
-     * @return Video
+     * @return Gallery
      */
     public function setTitle($title)
     {
@@ -171,27 +225,27 @@ class Video
     }
 
     /**
-     * Set htmlContent
+     * Set content
      *
-     * @param string $htmlContent
+     * @param string $content
      *
-     * @return Video
+     * @return Gallery
      */
-    public function setHtmlContent($htmlContent)
+    public function setContent($content)
     {
-        $this->html_content = $htmlContent;
+        $this->content = $content;
 
         return $this;
     }
 
     /**
-     * Get htmlContent
+     * Get content
      *
      * @return string
      */
-    public function getHtmlContent()
+    public function getContent()
     {
-        return $this->html_content;
+        return $this->content;
     }
 
     /**
@@ -199,7 +253,7 @@ class Video
      *
      * @param \DateTime $created
      *
-     * @return Video
+     * @return Gallery
      */
     public function setCreated($created)
     {
@@ -223,7 +277,7 @@ class Video
      *
      * @param \DateTime $updated
      *
-     * @return Video
+     * @return Gallery
      */
     public function setUpdated($updated)
     {
@@ -247,7 +301,7 @@ class Video
      *
      * @param string $slug
      *
-     * @return Video
+     * @return Gallery
      */
     public function setSlug($slug)
     {
@@ -264,5 +318,49 @@ class Video
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Add image
+     *
+     * @param \AppBundle\Entity\Image $image
+     *
+     * @return Gallery
+     */
+    public function addImage(\AppBundle\Entity\Image $image)
+    {
+        $this->images[] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param \AppBundle\Entity\Image $image
+     */
+    public function removeImage(\AppBundle\Entity\Image $image)
+    {
+        $this->images->removeElement($image);
+    }
+
+    /**
+     * Get images
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * Remove translation
+     *
+     * @param \AppBundle\Entity\GalleryTranslation $translation
+     */
+    public function removeTranslation(\AppBundle\Entity\GalleryTranslation $translation)
+    {
+        $this->translations->removeElement($translation);
     }
 }
