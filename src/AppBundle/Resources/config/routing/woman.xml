@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="woman" path="/">
+        <default key="_controller">AppBundle:Woman:index</default>
+    </route>
+
+    <route id="woman_show" path="/{id}/show">
+        <default key="_controller">AppBundle:Woman:show</default>
+    </route>
+
+    <route id="woman_new" path="/new">
+        <default key="_controller">AppBundle:Woman:new</default>
+    </route>
+
+    <route id="woman_create" path="/create" methods="POST">
+        <default key="_controller">AppBundle:Woman:create</default>
+    </route>
+
+    <route id="woman_edit" path="/{id}/edit">
+        <default key="_controller">AppBundle:Woman:edit</default>
+    </route>
+
+    <route id="woman_update" path="/{id}/update" methods="POST|PUT">
+        <default key="_controller">AppBundle:Woman:update</default>
+    </route>
+
+    <route id="woman_delete" path="/{id}/delete" methods="POST|DELETE">
+        <default key="_controller">AppBundle:Woman:delete</default>
+    </route>
+
+</routes>

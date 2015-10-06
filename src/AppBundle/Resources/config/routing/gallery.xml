@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="gallery" path="/">
+        <default key="_controller">AppBundle:Gallery:index</default>
+    </route>
+
+    <route id="gallery_show" path="/{id}/show">
+        <default key="_controller">AppBundle:Gallery:show</default>
+    </route>
+
+    <route id="gallery_new" path="/new">
+        <default key="_controller">AppBundle:Gallery:new</default>
+    </route>
+
+    <route id="gallery_create" path="/create" methods="POST">
+        <default key="_controller">AppBundle:Gallery:create</default>
+    </route>
+
+    <route id="gallery_edit" path="/{id}/edit">
+        <default key="_controller">AppBundle:Gallery:edit</default>
+    </route>
+
+    <route id="gallery_update" path="/{id}/update" methods="POST|PUT">
+        <default key="_controller">AppBundle:Gallery:update</default>
+    </route>
+
+    <route id="gallery_delete" path="/{id}/delete" methods="POST|DELETE">
+        <default key="_controller">AppBundle:Gallery:delete</default>
+    </route>
+
+</routes>
