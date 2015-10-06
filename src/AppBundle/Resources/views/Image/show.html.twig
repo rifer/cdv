@@ -1,7 +1,7 @@
 {% extends 'AppBundle:default:layout_admin.html.twig' %}
 
 {% block admin_content -%}
-    <h1>Gallery</h1>
+    <h1>Image</h1>
 
     <table class="record_properties">
         <tbody>
@@ -10,20 +10,12 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Objectclass</th>
-                <td>{{ entity.objectClass }}</td>
-            </tr>
-            <tr>
-                <th>Foreignkey</th>
-                <td>{{ entity.foreignKey }}</td>
-            </tr>
-            <tr>
                 <th>Title</th>
                 <td>{{ entity.title }}</td>
             </tr>
             <tr>
-                <th>Content</th>
-                <td>{{ entity.content }}</td>
+                <th>Image</th>
+                <td>{{ entity.image }}</td>
             </tr>
             <tr>
                 <th>Created</th>
@@ -37,21 +29,24 @@
                 <th>Slug</th>
                 <td>{{ entity.slug }}</td>
             </tr>
+            <tr>
+                <th>Modified</th>
+                <td>{{ entity.modified }}</td>
+            </tr>
         </tbody>
     </table>
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('gallery') }}">
+        <a href="{{ path('image') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('gallery_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('image_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
-            <li><a href="{{ path('image_new', {'gallery_id': entity.id}) }}">{{ "Añadir Imagen"|trans }}</a> </li>
 </ul>
 {% endblock %}

@@ -10,4 +10,35 @@ namespace AppBundle\Entity;
  */
 class WomanRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllByLocale($locale = 'en')
+    {
+        //Make a Select query
+        $qb = $this->createQueryBuilder('a');
+        $qb->select('a');
+        //->orderBy(...) customize it
+
+        // Use Translation Walker
+        $query = $qb->getQuery();
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        // Force the locale
+        $query->setHint(
+            \Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE,
+            $locale
+        );
+        return $query->getResult();
+    }
+
+    public function findGalleries($foreign_key,$object_class)
+    {
+        $em = $this->getEntityManager();
+        $dql = "select g from AppBundle:Gallery g where g.foreignKey=:foreign_key and g.objectClass=:object_class order by g.created desc";
+        $query = $em->createQuery($dql);
+        $query->setParameter("foreign_key", $foreign_key);
+        $query->setParameter("object_class", $object_class);
+
+        return $query->getResult();
+    }
 }

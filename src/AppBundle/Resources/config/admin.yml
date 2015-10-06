@@ -6,3 +6,7 @@ app_galery:
     resource: "@AppBundle/Resources/config/routing/gallery.xml"
     prefix:   /gallery
 
+app_image:
+    resource: "@AppBundle/Resources/config/routing/image.xml"
+    prefix:   /image
+

@@ -117,6 +117,10 @@ class Woman
         }
     }
 
+    public function setTranslations($translations)
+    {
+        $this->translations = $translations;
+    }
 
     /**
      * Get id

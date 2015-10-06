@@ -48,5 +48,12 @@
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
+            <li><a href="{{ path('gallery_new',{'foreign_key':entity.id,'object_class':'woman'}) }}">Añadir galería</a> </li>
+            {% for gallery in galleries %}
+                <li><a href="{{ path('gallery_show', {'id': gallery.getId}) }}">{{ gallery }}</a> </li>
+
+            {% else %}
+
+            {% endfor %}
 </ul>
 {% endblock %}

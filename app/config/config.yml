@@ -108,7 +108,7 @@ stof_doctrine_extensions:
             timestampable: true
             translatable: true
 a2lix_translation_form:
-    locales: [es,en,fr]       # [1]
+    locales: [es,en]       # [1]
     default_required: true      # [2]
     manager_registry: doctrine      # [3]
     templating: "A2lixTranslationFormBundle::default.html.twig"      # [4]

@@ -12,11 +12,11 @@
         <default key="_controller">AppBundle:Gallery:show</default>
     </route>
 
-    <route id="gallery_new" path="/new">
+    <route id="gallery_new" path="/new/{foreign_key}/{object_class}">
         <default key="_controller">AppBundle:Gallery:new</default>
     </route>
 
-    <route id="gallery_create" path="/create" methods="POST">
+    <route id="gallery_create" path="/create/{foreign_key}/{object_class}" methods="POST">
         <default key="_controller">AppBundle:Gallery:create</default>
     </route>
 
