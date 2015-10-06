@@ -22,7 +22,8 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "stof/doctrine-extensions-bundle": "^1.2",
         "gedmo/doctrine-extensions": "dev-master",
-        "a2lix/translation-form-bundle": "1.*@dev"
+        "a2lix/translation-form-bundle": "1.*@dev",
+        "stfalcon/tinymce-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

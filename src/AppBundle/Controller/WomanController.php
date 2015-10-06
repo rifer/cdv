@@ -38,7 +38,6 @@ class WomanController extends Controller
         $entity = new Woman();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
@@ -46,11 +45,11 @@ class WomanController extends Controller
 
             return $this->redirect($this->generateUrl('woman_show', array('id' => $entity->getId())));
         }
-
         return $this->render('AppBundle:Woman:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
+
     }
 
     /**
@@ -66,7 +65,6 @@ class WomanController extends Controller
             'action' => $this->generateUrl('woman_create'),
             'method' => 'POST',
         ));
-
         $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;

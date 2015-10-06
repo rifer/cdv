@@ -3102,9 +3102,9 @@ header.main-header {
   width: 100%;
   margin: 0;
   background-image: url('../images/hero.jpg');
-  background-position: center;
+  background-position: 0px -200px;
   background-size: cover;
-  height: 450px;
+  background-attachment: fixed;
 }
 header .title {
   display: -webkit-box;
@@ -3127,7 +3127,7 @@ header .title {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  height: 340px;
+  height: 450px;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 0 40px;
 }
@@ -3325,6 +3325,130 @@ footer.main-footer {
   bottom: 0;
   left: 0;
   padding: 20px 0 10px;
+}
+.admin-layout .container {
+  padding-top: 60px;
+}
+.admin-layout .admin-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 230px;
+  padding-top: 60px;
+  background-color: #6991ac;
+  height: 100%;
+}
+.admin-layout .admin-menu .wrapper-dropdown {
+  position: relative;
+  margin: 0 auto;
+  padding: 10px 15px 0;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+.admin-layout .admin-menu .wrapper-dropdown i {
+  float: right;
+  padding: 5px 10px 0 0;
+}
+.admin-layout .admin-menu .wrapper-dropdown .dropdown {
+  /* Size & position */
+  position: relative;
+  top: 100%;
+  left: 0;
+  right: 0;
+  list-style: none;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  max-height: 0;
+  overflow: hidden;
+}
+.admin-layout .admin-menu .wrapper-dropdown .dropdown li {
+  padding: 10px 5px 0 0;
+  margin-bottom: 0px;
+}
+.admin-layout .admin-menu .wrapper-dropdown .dropdown li a {
+  display: block;
+  text-decoration: none;
+  color: #ffffff;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.admin-layout .admin-menu .wrapper-dropdown .dropdown li a i {
+  float: none;
+  padding-right: 10px;
+}
+.admin-layout .admin-menu .wrapper-dropdown .dropdown li i {
+  margin-right: 5px;
+  color: inherit;
+}
+.admin-layout .admin-menu .wrapper-dropdown .dropdown li:hover a {
+  color: #67727a;
+}
+.admin-layout .admin-menu .wrapper-dropdown.active .dropdown {
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  max-height: 400px;
+}
+.admin-layout .admin-form div {
+  display: inline-block;
+  padding-right: 10px;
+}
+.admin-layout .admin-form input {
+  width: 310px;
+}
+.admin-layout .admin-form label {
+  margin-top: 20px;
+}
+.admin-layout .admin-form .tabbable {
+  margin: 10px 0 40px;
+  display: block;
+  width: 810px;
+}
+.admin-layout .admin-form .tabbable ul.nav-tabs {
+  list-style-type: none;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(105, 145, 172, 0.5);
+}
+.admin-layout .admin-form .tabbable ul.nav-tabs li {
+  display: inline-block;
+  background-color: #c3d7df;
+  border-radius: 10px 10px 0 0;
+  margin: 0px;
+  text-align: center;
+  width: 105px;
+}
+.admin-layout .admin-form .tabbable ul.nav-tabs li a {
+  width: 100%;
+  padding: 4px 8px;
+  color: #67727a;
+}
+.admin-layout .admin-form .tabbable ul.nav-tabs li.active {
+  background-color: #6991ac;
+}
+.admin-layout .admin-form .tabbable ul.nav-tabs li.active a {
+  color: #ffffff;
+}
+.admin-layout .admin-form .tabbable .tab-content {
+  display: block;
+  padding: 10px 20px 40px;
+  border: 1px solid rgba(105, 145, 172, 0.5);
+  border-top: 0;
+}
+.admin-layout .admin-form .tabbable .tab-content .tab-pane {
+  display: none;
+}
+.admin-layout .admin-form .tabbable .tab-content .tab-pane div {
+  width: 100%;
+  display: block;
+}
+.admin-layout .admin-form .tabbable .tab-content .tab-pane textarea {
+  width: 100%;
+}
+.admin-layout .admin-form .tabbable .tab-content .tab-pane.active {
+  display: block;
 }
 /* Larger than mobile */
 /* Larger than phablet (also point when grid becomes active) */

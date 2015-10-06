@@ -1,15 +1,6 @@
-{% extends '::base.html.twig' %}
-
-{% block body -%}
+{% extends 'AppBundle:default:layout_admin.html.twig' %}
+{% block admin_content -%}
     <h1>Woman creation</h1>
-
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('woman') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+    {{ form(form, {'attr': {'class': 'admin-form'}} ) }}
+    {{ tinymce_init() }}
 {% endblock %}

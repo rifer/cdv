@@ -1,14 +1,12 @@
-{% extends '::base.html.twig' %}
+{% extends 'AppBundle:default:layout_admin.html.twig' %}
 
-{% block body -%}
+{% block admin_content -%}
     <h1>Woman list</h1>
 
     <table class="records_list">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
-                <th>Surname</th>
                 <th>Biography</th>
                 <th>Created</th>
                 <th>Updated</th>
@@ -19,12 +17,10 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('woman_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.name }}</td>
-                <td>{{ entity.surname }}</td>
+                <td><a href="{{ path('woman_show', { 'id': entity.id }) }}">{{ entity.name }} {{ entity.surname }}</a></td>
                 <td>{{ entity.biography }}</td>
-                <td>{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.updated %}{{ entity.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.created %}{{ entity.created|date('d-m-Y') }}{% endif %}</td>
+                <td>{% if entity.updated %}{{ entity.updated|date('d-m-Y') }}{% endif %}</td>
                 <td>{{ entity.slug }}</td>
                 <td>
                 <ul>

@@ -1,0 +1,54 @@
+{% extends '::base.html.twig' %}
+{% block header %}{% endblock %}
+		{% block body -%}
+			<div class="admin-layout">
+				<aside class="admin-menu">
+					<nav>
+						<div class="wrapper-dropdown" tabindex="1"><b>Woman</b> <i class="fa fa-chevron-circle-down"></i>
+							<ul class="dropdown">
+								<li><a href="#"><i class="fa fa-th-list"></i>List</a></li>
+								<li><a href="#"><i class="fa fa-pencil"></i>Create</a></li>
+							</ul>
+						</div>
+						<div class="wrapper-dropdown" tabindex="2"><b>Gallery</b> <i class="fa fa-chevron-circle-down"></i>
+							<ul class="dropdown">
+								<li><a href="#"><i class="fa fa-th-list"></i>List</a></li>
+								<li><a href="#"><i class="fa fa-pencil"></i>Create</a></li>
+							</ul>
+						</div>
+						<div class="wrapper-dropdown" tabindex="3"><b>Audio</b> <i class="fa fa-chevron-circle-down"></i>
+							<ul class="dropdown">
+								<li><a href="#"><i class="fa fa-th-list"></i>List</a></li>
+								<li><a href="#"><i class="fa fa-pencil"></i>Create</a></li>
+							</ul>
+						</div>
+						<div class="wrapper-dropdown" tabindex="4"><b>Video</b> <i class="fa fa-chevron-circle-down"></i>
+							<ul class="dropdown">
+								<li><a href="#"><i class="fa fa-th-list"></i>List</a></li>
+								<li><a href="#"><i class="fa fa-pencil"></i>Create</a></li>
+							</ul>
+						</div>		
+					</nav>
+				</aside>
+				<div class="container">
+					<div class="row">
+					{% block admin_content %}{% endblock %}					
+					</div>
+				</div>
+			</div>
+		{% endblock %}
+	{% block commonJavascripts %}
+		<script type="text/javascript">
+				$('ul.nav-tabs li a').on('click', function(){
+					$('ul.nav-tabs li ').removeClass('active');
+					$(this).parent('li').addClass('active');
+					var tabContent = $(this).data('target');
+					$('.tab-pane').removeClass('active');
+					$(tabContent).addClass('active');
+				});
+			    $('.wrapper-dropdown').on('click', function(event){
+			        $(this).toggleClass('active');
+		            event.stopPropagation();
+		        }); 
+		</script>
+	{% endblock %}
