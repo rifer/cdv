@@ -21,14 +21,21 @@ class WomanType extends AbstractType
             ->add('translations', 'a2lix_translations_gedmo', array(
                     'translatable_class' => "AppBundle\Entity\Woman",
                     'fields' => array(
-                        
+                        'slug'  => array(
+                            'display' => false
+                        ),
                         'biography' => array(
+                            'attr'=>array(
+                                'class'=>'tinymce',
+                                'data-theme' => 'advanced'
+                            ),
                             'locale_options' => array(            // [3.b]
                                 'es' => array(
-                                    'label' => 'Biografía'            // [4]
+                                    'label' => 'Biografía'
                                 ),
                                 'en' => array(
-                                    'label' => 'Biography'            // [4]
+                                    'label' => 'Biography',
+                                    'required'=>false
                                 ),
                             )
                         )
