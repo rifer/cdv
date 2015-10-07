@@ -1,7 +1,7 @@
-{% extends 'AppBundle:Default:layout_admin.html.twig' %}
+{% extends '::base.html.twig' %}
 
-{% block admin_content -%}
-    <h1>Image</h1>
+{% block body -%}
+    <h1>Document</h1>
 
     <table class="record_properties">
         <tbody>
@@ -14,8 +14,12 @@
                 <td>{{ entity.title }}</td>
             </tr>
             <tr>
-                <th>Image</th>
-                <td>{{ entity.image }}</td>
+                <th>Content</th>
+                <td>{{ entity.content }}</td>
+            </tr>
+            <tr>
+                <th>Document</th>
+                <td>{{ entity.document }}</td>
             </tr>
             <tr>
                 <th>Created</th>
@@ -38,12 +42,12 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('image') }}">
+        <a href="{{ path('document') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('image_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('document_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>

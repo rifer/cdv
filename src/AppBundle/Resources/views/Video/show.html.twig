@@ -1,40 +1,40 @@
-{% extends 'AppBundle:Default:layout_admin.html.twig' %}
+{% extends '::base.html.twig' %}
 
-{% block admin_content -%}
-    <h1>{{'Gallery'|trans}}</h1>
+{% block body -%}
+    <h1>Video</h1>
 
     <table class="record_properties">
         <tbody>
             <tr>
-                <th>{{'Id'|trans}}</th>
+                <th>Id</th>
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>{{'Objectclass'|trans}}</th>
+                <th>Objectclass</th>
                 <td>{{ entity.objectClass }}</td>
             </tr>
             <tr>
-                <th>{{'Foreignkey'|trans}}</th>
+                <th>Foreignkey</th>
                 <td>{{ entity.foreignKey }}</td>
             </tr>
             <tr>
-                <th>{{'Title'|trans}}</th>
+                <th>Title</th>
                 <td>{{ entity.title }}</td>
             </tr>
             <tr>
-                <th>{{'Content'|trans}}</th>
-                <td>{{ entity.content }}</td>
+                <th>Html_content</th>
+                <td>{{ entity.htmlcontent }}</td>
             </tr>
             <tr>
-                <th>{{'Created'|trans}}</th>
+                <th>Created</th>
                 <td>{{ entity.created|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>{{'Updated'|trans}}</th>
+                <th>Updated</th>
                 <td>{{ entity.updated|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>{{'Slug'|trans}}</th>
+                <th>Slug</th>
                 <td>{{ entity.slug }}</td>
             </tr>
         </tbody>
@@ -42,16 +42,15 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('gallery') }}">
-           {{' Back to the list'|trans}}
+        <a href="{{ path('video') }}">
+            Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('gallery_edit', { 'id': entity.id }) }}">
-            {{'Edit'|trans}}
+        <a href="{{ path('video_edit', { 'id': entity.id }) }}">
+            Edit
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
-            <li><a href="{{ path('image_new', {'gallery_id': entity.id}) }}">{{ "Añadir Imagen"|trans }}</a> </li>
 </ul>
 {% endblock %}

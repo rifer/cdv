@@ -25,6 +25,21 @@ class Document
     private $id;
 
 
+
+    /**
+     * @var string $objectClass
+     *
+     * @ORM\Column(name="object_class", type="string", length=255)
+     */
+    protected $objectClass;
+
+    /**
+     * @var string $foreignKey
+     *
+     * @ORM\Column(name="foreign_key", type="string", length=64)
+     */
+    protected $foreignKey;
+
     /**
      * @var string $name
      *
@@ -102,7 +117,7 @@ class Document
     protected function getUploadRootDir()
     {
         // la ruta absoluta del directorio donde se deben guardar los archivos cargados
-        return __DIR__ . '/../../../../../web/' . $this->getUploadDir();
+        return __DIR__ . '/../../../web/' . $this->getUploadDir();
     }
 
     protected function getUploadDir()
@@ -342,5 +357,53 @@ class Document
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * Set objectClass
+     *
+     * @param string $objectClass
+     *
+     * @return Document
+     */
+    public function setObjectClass($objectClass)
+    {
+        $this->objectClass = $objectClass;
+
+        return $this;
+    }
+
+    /**
+     * Get objectClass
+     *
+     * @return string
+     */
+    public function getObjectClass()
+    {
+        return $this->objectClass;
+    }
+
+    /**
+     * Set foreignKey
+     *
+     * @param string $foreignKey
+     *
+     * @return Document
+     */
+    public function setForeignKey($foreignKey)
+    {
+        $this->foreignKey = $foreignKey;
+
+        return $this;
+    }
+
+    /**
+     * Get foreignKey
+     *
+     * @return string
+     */
+    public function getForeignKey()
+    {
+        return $this->foreignKey;
     }
 }

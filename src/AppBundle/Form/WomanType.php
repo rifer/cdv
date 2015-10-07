@@ -18,6 +18,10 @@ class WomanType extends AbstractType
         $builder
             ->add('name')
             ->add('surname')
+            ->add('file',null,array(
+                "required"=>null===$builder->getData()->getId()?true:false,
+                "label"=>"Imagen"
+            ))
             ->add('translations', 'a2lix_translations_gedmo', array(
                     'translatable_class' => "AppBundle\Entity\Woman",
                     'fields' => array(

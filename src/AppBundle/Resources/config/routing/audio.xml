@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="audio" path="/">
+        <default key="_controller">AppBundle:Audio:index</default>
+    </route>
+
+    <route id="audio_show" path="/{id}/show">
+        <default key="_controller">AppBundle:Audio:show</default>
+    </route>
+
+    <route id="audio_new" path="/new/{foreign_key}/{object_class}">
+        <default key="_controller">AppBundle:Audio:new</default>
+    </route>
+
+    <route id="audio_create" path="/create/{foreign_key}/{object_class}" methods="POST">
+        <default key="_controller">AppBundle:Audio:create</default>
+    </route>
+
+    <route id="audio_edit" path="/{id}/edit">
+        <default key="_controller">AppBundle:Audio:edit</default>
+    </route>
+
+    <route id="audio_update" path="/{id}/update" methods="POST|PUT">
+        <default key="_controller">AppBundle:Audio:update</default>
+    </route>
+
+    <route id="audio_delete" path="/{id}/delete" methods="POST|DELETE">
+        <default key="_controller">AppBundle:Audio:delete</default>
+    </route>
+
+</routes>

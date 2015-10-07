@@ -10,3 +10,15 @@ app_image:
     resource: "@AppBundle/Resources/config/routing/image.xml"
     prefix:   /image
 
+app_video:
+    resource: "@AppBundle/Resources/config/routing/video.xml"
+    prefix:   /video
+
+app_document:
+    resource: "@AppBundle/Resources/config/routing/document.xml"
+    prefix:   /document
+
+app_audio:
+    resource: "@AppBundle/Resources/config/routing/audio.xml"
+    prefix:   /audio
+

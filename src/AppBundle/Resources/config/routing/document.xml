@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="document" path="/">
+        <default key="_controller">AppBundle:Document:index</default>
+    </route>
+
+    <route id="document_show" path="/{id}/show">
+        <default key="_controller">AppBundle:Document:show</default>
+    </route>
+
+    <route id="document_new" path="/new/{foreign_key}/{object_class}">
+        <default key="_controller">AppBundle:Document:new</default>
+    </route>
+
+    <route id="document_create" path="/create/{foreign_key}/{object_class}" methods="POST">
+        <default key="_controller">AppBundle:Document:create</default>
+    </route>
+
+    <route id="document_edit" path="/{id}/edit">
+        <default key="_controller">AppBundle:Document:edit</default>
+    </route>
+
+    <route id="document_update" path="/{id}/update" methods="POST|PUT">
+        <default key="_controller">AppBundle:Document:update</default>
+    </route>
+
+    <route id="document_delete" path="/{id}/delete" methods="POST|DELETE">
+        <default key="_controller">AppBundle:Document:delete</default>
+    </route>
+
+</routes>

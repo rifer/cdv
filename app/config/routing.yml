@@ -1,18 +1,10 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
-
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-_index:
-    path: /
-    defaults: {_controller: AppBundle:Default:index}
-_testimonial:
-    path:      /testimonial
-    defaults:  { _controller: AppBundle:Testimonial:index }
-_table_data:
-    path: /list
-    defaults: { _controller: AppBundle:TableData:index}
+
 admin:
   resource: "@AppBundle/Resources/config/admin.yml"
   prefix: /admin
+
+front:
+  resource: "@AppBundle/Resources/config/routing.yml"
+  prefix: /

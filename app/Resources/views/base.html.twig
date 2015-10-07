@@ -18,10 +18,10 @@
     <body>
         <div id="wrapper">
             {% block header %}
-                {% include 'default/header.html.twig' %}
+                {% include ':Default:header.html.twig' %}
             {% endblock %}
             {% block body %}{% endblock %}
-            {% include 'default/footer.html.twig'%}
+            {% include ':Default:footer.html.twig'%}
         </div>
         {% block commonJavascripts %}
             <script type="text/javascript" src="{{ asset('scripts/cdv.js')}}"></script>

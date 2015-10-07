@@ -87,7 +87,6 @@ class Video
     private $slug;
 
 
-
     /**
      * Get id
      *
@@ -264,5 +263,11 @@ class Video
     public function getSlug()
     {
         return $this->slug;
+    }
+
+
+    public function __toString()
+    {
+        return $this->getTitle();
     }
 }

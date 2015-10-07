@@ -5,136 +5,130 @@ namespace AppBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AppBundle\Entity\Woman;
-use AppBundle\Form\WomanType;
+use AppBundle\Entity\Document;
+use AppBundle\Form\DocumentType;
 
 /**
- * Woman controller.
+ * Document controller.
  *
  */
-class WomanController extends Controller
+class DocumentController extends Controller
 {
 
     /**
-     * Lists all Woman entities.
+     * Lists all Document entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AppBundle:Woman')->findAll();
+        $entities = $em->getRepository('AppBundle:Document')->findAll();
 
-        return $this->render('AppBundle:Woman:index.html.twig', array(
+        return $this->render('AppBundle:Document:index.html.twig', array(
             'entities' => $entities,
         ));
     }
     /**
-     * Creates a new Woman entity.
+     * Creates a new Document entity.
      *
      */
-    public function createAction(Request $request)
+    public function createAction(Request $request,$foreign_key,$object_class)
     {
-        $entity = new Woman();
-        $form = $this->createCreateForm($entity);
+        $entity = new Document();
+        $form = $this->createCreateForm($entity,$foreign_key,$object_class);
         $form->handleRequest($request);
+
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $entity->setForeignKey($foreign_key);
+            $entity->setObjectClass($object_class);
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('woman_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('document_show', array('id' => $entity->getId())));
         }
-        return $this->render('AppBundle:Woman:new.html.twig', array(
+
+        return $this->render('AppBundle:Document:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
-
     }
 
     /**
-     * Creates a form to create a Woman entity.
+     * Creates a form to create a Document entity.
      *
-     * @param Woman $entity The entity
+     * @param Document $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Woman $entity)
+    private function createCreateForm(Document $entity,$foreign_key,$object_class)
     {
-        $form = $this->createForm(new WomanType(), $entity, array(
-            'action' => $this->generateUrl('woman_create'),
+        $form = $this->createForm(new DocumentType(), $entity, array(
+            'action' => $this->generateUrl('document_create',array('foreign_key'=>$foreign_key,'object_class'=>$object_class)),
             'method' => 'POST',
         ));
+
         $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }
 
     /**
-     * Displays a form to create a new Woman entity.
+     * Displays a form to create a new Document entity.
      *
      */
-    public function newAction()
+    public function newAction($foreign_key,$object_class)
     {
-        $entity = new Woman();
-        $form   = $this->createCreateForm($entity);
+        $entity = new Document();
+        $form   = $this->createCreateForm($entity,$foreign_key,$object_class);
 
-        return $this->render('AppBundle:Woman:new.html.twig', array(
+        return $this->render('AppBundle:Document:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a Woman entity.
+     * Finds and displays a Document entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AppBundle:Woman')->find($id);
-        $galleries = $em->getRepository('AppBundle:Woman')->findMedia("Gallery",$id,"woman");
-        $audios = $em->getRepository('AppBundle:Woman')->findMedia("Audio",$id,"woman");
-        $videos = $em->getRepository('AppBundle:Woman')->findMedia("Video",$id,"woman");
-        $documents = $em->getRepository('AppBundle:Woman')->findMedia("Document",$id,"woman");
-
+        $entity = $em->getRepository('AppBundle:Document')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Woman entity.');
+            throw $this->createNotFoundException('Unable to find Document entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('AppBundle:Woman:show.html.twig', array(
+        return $this->render('AppBundle:Document:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
-            'galleries' => $galleries,
-            'audios' => $audios,
-            'videos' => $videos,
-            'documents' => $documents
-
         ));
     }
 
     /**
-     * Displays a form to edit an existing Woman entity.
+     * Displays a form to edit an existing Document entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AppBundle:Woman')->find($id);
+        $entity = $em->getRepository('AppBundle:Document')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Woman entity.');
+            throw $this->createNotFoundException('Unable to find Document entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('AppBundle:Woman:edit.html.twig', array(
+        return $this->render('AppBundle:Document:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -142,16 +136,16 @@ class WomanController extends Controller
     }
 
     /**
-    * Creates a form to edit a Woman entity.
+    * Creates a form to edit a Document entity.
     *
-    * @param Woman $entity The entity
+    * @param Document $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Woman $entity)
+    private function createEditForm(Document $entity)
     {
-        $form = $this->createForm(new WomanType(), $entity, array(
-            'action' => $this->generateUrl('woman_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new DocumentType(), $entity, array(
+            'action' => $this->generateUrl('document_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -160,17 +154,17 @@ class WomanController extends Controller
         return $form;
     }
     /**
-     * Edits an existing Woman entity.
+     * Edits an existing Document entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AppBundle:Woman')->find($id);
+        $entity = $em->getRepository('AppBundle:Document')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Woman entity.');
+            throw $this->createNotFoundException('Unable to find Document entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -180,17 +174,17 @@ class WomanController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('woman_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('document_show', array('id' => $id)));
         }
 
-        return $this->render('AppBundle:Woman:edit.html.twig', array(
+        return $this->render('AppBundle:Document:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
     /**
-     * Deletes a Woman entity.
+     * Deletes a Document entity.
      *
      */
     public function deleteAction(Request $request, $id)
@@ -200,21 +194,21 @@ class WomanController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('AppBundle:Woman')->find($id);
+            $entity = $em->getRepository('AppBundle:Document')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Woman entity.');
+                throw $this->createNotFoundException('Unable to find Document entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('woman'));
+        return $this->redirect($this->generateUrl('document'));
     }
 
     /**
-     * Creates a form to delete a Woman entity by id.
+     * Creates a form to delete a Document entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -223,7 +217,7 @@ class WomanController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('woman_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('document_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

@@ -1,37 +1,40 @@
-{% extends 'AppBundle:Default:layout_admin.html.twig' %}
-{% block admin_content -%}
-    <h1>Image list</h1>
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Video list</h1>
 
     <table class="records_list">
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Objectclass</th>
+                <th>Foreignkey</th>
                 <th>Title</th>
-                <th>Image</th>
+                <th>Html_content</th>
                 <th>Created</th>
                 <th>Updated</th>
                 <th>Slug</th>
-                <th>Modified</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('image_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('video_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.objectClass }}</td>
+                <td>{{ entity.foreignKey }}</td>
                 <td>{{ entity.title }}</td>
-                <td>{{ entity.image }}</td>
+                <td>{{ entity.htmlcontent }}</td>
                 <td>{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if entity.updated %}{{ entity.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ entity.slug }}</td>
-                <td>{{ entity.modified }}</td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('image_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('video_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('image_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('video_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
                 </td>
@@ -42,7 +45,7 @@
 
         <ul>
         <li>
-            <a href="{{ path('image_new') }}">
+            <a href="{{ path('video_new') }}">
                 Create a new entry
             </a>
         </li>

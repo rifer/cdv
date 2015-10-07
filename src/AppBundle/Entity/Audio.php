@@ -382,4 +382,9 @@ class Audio
     {
         return $this->modified;
     }
+
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
 }

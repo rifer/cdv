@@ -6,16 +6,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class TableDataController extends Controller
+class ListController extends Controller
 {
     /**
-     * @Route("/", name="list")
+     * @Route("/list", name="list")
      */
     public function indexAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('table/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-        ));
+        return $this->render('AppBundle:List:index.html.twig');
     }
 }
