@@ -1,20 +1,20 @@
 {% extends 'AppBundle:default:layout_admin.html.twig' %}
 
 {% block admin_content -%}
-    <h1>Gallery list</h1>
+    <h1>{{'Gallery list'|trans}}</h1>
 
     <table class="records_list">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Objectclass</th>
-                <th>Foreignkey</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>Created</th>
-                <th>Updated</th>
-                <th>Slug</th>
-                <th>Actions</th>
+                <th>{{'Id'|trans}}</th>
+                <th>{{'Objectclass'|trans}}</th>
+                <th>{{'Foreignkey'|trans}}</th>
+                <th>{{'Title'|trans}}</th>
+                <th>{{'Content'|trans}}</th>
+                <th>{{'Created'|trans}}</th>
+                <th>{{'Updated'|trans}}</th>
+                <th>{{'Slug'|trans}}</th>
+                <th>{{'Actions'|trans}}</th>
             </tr>
         </thead>
         <tbody>
@@ -31,10 +31,10 @@
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('gallery_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('gallery_show', { 'id': entity.id }) }}">{{'show'|trans}}</a>
                     </li>
                     <li>
-                        <a href="{{ path('gallery_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('gallery_edit', { 'id': entity.id }) }}">{{'edit'|trans}}</a>
                     </li>
                 </ul>
                 </td>

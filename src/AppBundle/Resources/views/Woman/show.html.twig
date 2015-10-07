@@ -1,36 +1,36 @@
 {% extends 'AppBundle:default:layout_admin.html.twig' %}
 
 {% block admin_content -%}
-    <h1>Woman</h1>
+    <h1>{{'Woman'|trans}}</h1>
 
     <table class="record_properties">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>{{'Id'|trans}}</th>
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>{{'Name'|trans}}</th>
                 <td>{{ entity.name }}</td>
             </tr>
             <tr>
-                <th>Surname</th>
+                <th>{{'Surname'|trans}}</th>
                 <td>{{ entity.surname }}</td>
             </tr>
             <tr>
-                <th>Biography</th>
+                <th>{{'Biography'|trans}}</th>
                 <td>{{ entity.biography }}</td>
             </tr>
             <tr>
-                <th>Created</th>
+                <th>{{'Created'|trans}}</th>
                 <td>{{ entity.created|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Updated</th>
+                <th>{{'Updated'|trans}}</th>
                 <td>{{ entity.updated|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Slug</th>
+                <th>{{'Slug'|trans}}</th>
                 <td>{{ entity.slug }}</td>
             </tr>
         </tbody>
@@ -39,12 +39,12 @@
         <ul class="record_actions">
     <li>
         <a href="{{ path('woman') }}">
-            Back to the list
+            {{'Back to the list'|trans}}
         </a>
     </li>
     <li>
         <a href="{{ path('woman_edit', { 'id': entity.id }) }}">
-            Edit
+            {{'Edit'|trans}}
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>

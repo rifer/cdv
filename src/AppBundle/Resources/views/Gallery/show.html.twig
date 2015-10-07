@@ -1,40 +1,40 @@
 {% extends 'AppBundle:default:layout_admin.html.twig' %}
 
 {% block admin_content -%}
-    <h1>Gallery</h1>
+    <h1>{{'Gallery'|trans}}</h1>
 
     <table class="record_properties">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>{{'Id'|trans}}</th>
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Objectclass</th>
+                <th>{{'Objectclass'|trans}}</th>
                 <td>{{ entity.objectClass }}</td>
             </tr>
             <tr>
-                <th>Foreignkey</th>
+                <th>{{'Foreignkey'|trans}}</th>
                 <td>{{ entity.foreignKey }}</td>
             </tr>
             <tr>
-                <th>Title</th>
+                <th>{{'Title'|trans}}</th>
                 <td>{{ entity.title }}</td>
             </tr>
             <tr>
-                <th>Content</th>
+                <th>{{'Content'|trans}}</th>
                 <td>{{ entity.content }}</td>
             </tr>
             <tr>
-                <th>Created</th>
+                <th>{{'Created'|trans}}</th>
                 <td>{{ entity.created|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Updated</th>
+                <th>{{'Updated'|trans}}</th>
                 <td>{{ entity.updated|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Slug</th>
+                <th>{{'Slug'|trans}}</th>
                 <td>{{ entity.slug }}</td>
             </tr>
         </tbody>
@@ -43,12 +43,12 @@
         <ul class="record_actions">
     <li>
         <a href="{{ path('gallery') }}">
-            Back to the list
+           {{' Back to the list'|trans}}
         </a>
     </li>
     <li>
         <a href="{{ path('gallery_edit', { 'id': entity.id }) }}">
-            Edit
+            {{'Edit'|trans}}
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>

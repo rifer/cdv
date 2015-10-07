@@ -1,17 +1,17 @@
 {% extends 'AppBundle:default:layout_admin.html.twig' %}
 
 {% block admin_content -%}
-    <h1>Woman list</h1>
+    <h1>{{'Woman list'|trans}}</h1>
 
     <table class="records_list">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Biography</th>
-                <th>Created</th>
-                <th>Updated</th>
-                <th>Slug</th>
-                <th>Actions</th>
+                <th>{{'Name'|trans}}</th>
+                <th>{{'Biography'|trans}}</th>
+                <th>{{'Created'|trans}}</th>
+                <th>{{'Updated'|trans}}</th>
+                <th>{{'Slug'|trans}}</th>
+                <th>{{'Actions'|trans}}</th>
             </tr>
         </thead>
         <tbody>
@@ -25,10 +25,10 @@
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('woman_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('woman_show', { 'id': entity.id }) }}">{{'show'|trans}}</a>
                     </li>
                     <li>
-                        <a href="{{ path('woman_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('woman_edit', { 'id': entity.id }) }}">{{'edit'|trans}}</a>
                     </li>
                 </ul>
                 </td>
