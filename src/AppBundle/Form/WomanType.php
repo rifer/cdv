@@ -25,10 +25,6 @@ class WomanType extends AbstractType
                             'display' => false
                         ),
                         'biography' => array(
-                            'attr'=>array(
-                                'class'=>'tinymce',
-                                'data-theme' => 'advanced'
-                            ),
                             'locale_options' => array(            // [3.b]
                                 'es' => array(
                                     'label' => 'Biografía'

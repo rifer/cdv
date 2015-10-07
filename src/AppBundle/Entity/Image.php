@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -11,6 +12,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table(name="image")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\ImageRepository")
+ * @Gedmo\TranslationEntity(class="AppBundle\Entity\ImageTranslation")
  * @ORM\HasLifecycleCallbacks
  */
 class Image
@@ -26,7 +28,7 @@ class Image
 
     /** @ORM\ManyToOne(targetEntity="AppBundle\Entity\Gallery", inversedBy="images")
      * @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
-     * @Assert\NotBlank
+     *
      **/
     private $gallery;
 
@@ -82,6 +84,52 @@ class Image
      * y persistir la entidad, porque el atributo file no se controla mediante doctrine porque no está en la bbdd
      */
     private $modified;
+
+    /**
+     * @ORM\OneToMany(
+     *   targetEntity="ImageTranslation",
+     *   mappedBy="object",
+     *   cascade={"persist", "remove"}
+     * )
+     */
+    private $translations;
+
+    /**
+     * @Gedmo\Locale
+     * Used locale to override Translation listener`s locale
+     * this is not a mapped field of entity metadata, just a simple property
+     */
+    private $locale;
+
+
+    public function setTranslatableLocale($locale)
+    {
+        $this->locale = $locale;
+    }
+
+
+    public function getTranslations()
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(ImageTranslation $t)
+    {
+        if (!$this->translations->contains($t))
+        {
+            $this->translations[] = $t;
+            $t->setObject($this);
+        }
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->translations = new ArrayCollection();
+    }
+
 
     /**
      * Get id
@@ -275,7 +323,7 @@ class Image
     protected function getUploadRootDir()
     {
         // la ruta absoluta del directorio donde se deben guardar los archivos cargados
-        return __DIR__ . '/../../../../../web/' . $this->getUploadDir();
+        return __DIR__ . '/../../../web/' . $this->getUploadDir();
     }
 
     protected function getUploadDir()
@@ -365,4 +413,14 @@ class Image
         return $this->modified;
     }
 
+
+    /**
+     * Remove translation
+     *
+     * @param \AppBundle\Entity\ImageTranslation $translation
+     */
+    public function removeTranslation(\AppBundle\Entity\ImageTranslation $translation)
+    {
+        $this->translations->removeElement($translation);
+    }
 }

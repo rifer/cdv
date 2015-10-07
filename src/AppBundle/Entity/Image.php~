@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -11,6 +12,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table(name="image")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\ImageRepository")
+ * @Gedmo\TranslationEntity(class="AppBundle\Entity\ImageTranslation")
  * @ORM\HasLifecycleCallbacks
  */
 class Image
@@ -24,11 +26,11 @@ class Image
      */
     private $id;
 
-    /** @ORM\ManyToOne(targetEntity="AppBundle\Entity\Galery", inversedBy="images")
-     * @ORM\JoinColumn(name="galery_id", referencedColumnName="id")
+    /** @ORM\ManyToOne(targetEntity="AppBundle\Entity\Gallery", inversedBy="images")
+     * @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
      * @Assert\NotBlank
      **/
-    private $galery;
+    private $gallery;
 
     /**
      * @var string $title
@@ -84,6 +86,52 @@ class Image
     private $modified;
 
     /**
+     * @ORM\OneToMany(
+     *   targetEntity="ImageTranslation",
+     *   mappedBy="object",
+     *   cascade={"persist", "remove"}
+     * )
+     */
+    private $translations;
+
+    /**
+     * @Gedmo\Locale
+     * Used locale to override Translation listener`s locale
+     * this is not a mapped field of entity metadata, just a simple property
+     */
+    private $locale;
+
+
+    public function setTranslatableLocale($locale)
+    {
+        $this->locale = $locale;
+    }
+
+
+    public function getTranslations()
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(GalleryTranslation $t)
+    {
+        if (!$this->translations->contains($t))
+        {
+            $this->translations[] = $t;
+            $t->setObject($this);
+        }
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->translations = new ArrayCollection();
+    }
+
+
+    /**
      * Get id
      *
      * @return integer
@@ -94,26 +142,26 @@ class Image
     }
 
     /**
-     * Set galery
+     * Set gallery
      *
-     * @param Galery $galery
+     * @param Gallery $gallery
      * @return Image
      */
-    public function setGalery(Galery $galery)
+    public function setGallery(Gallery $gallery)
     {
-        $this->galery = $galery;
+        $this->gallery = $gallery;
 
         return $this;
     }
 
     /**
-     * Get galery
+     * Get gallery
      *
-     * @return Galery
+     * @return Gallery
      */
-    public function getGalery()
+    public function getGallery()
     {
-        return $this->galery;
+        return $this->gallery;
     }
 
     /**
@@ -281,7 +329,7 @@ class Image
     protected function getUploadDir()
     {
         // se libra del __DIR__ para no desviarse al mostrar `doc/image` en la vista.
-        return 'uploads/galery/images';
+        return 'uploads/gallery/images';
     }
 
     /**

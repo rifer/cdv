@@ -94,6 +94,7 @@ class WomanController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('AppBundle:Woman')->find($id);
+        $galleries = $em->getRepository('AppBundle:Woman')->findGalleries($id,"woman");
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Woman entity.');
@@ -104,6 +105,7 @@ class WomanController extends Controller
         return $this->render('AppBundle:Woman:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
+            'galleries' => $galleries
         ));
     }
 

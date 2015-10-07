@@ -112,13 +112,13 @@ class Audio
     protected function getUploadRootDir()
     {
         // la ruta absoluta del directorio donde se deben guardar los archivos cargados
-        return __DIR__ . '/../../../../../web/' . $this->getUploadDir();
+        return __DIR__ . '/../../../web/' . $this->getUploadDir();
     }
 
     protected function getUploadDir()
     {
         // se libra del __DIR__ para no desviarse al mostrar `doc/audio` en la vista.
-        return 'uploads/galery/audios';
+        return 'uploads/gallery/audios';
     }
 
     /**

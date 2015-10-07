@@ -52,5 +52,6 @@
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
+            <li><a href="{{ path('image_new', {'gallery_id': entity.id}) }}">{{ "Añadir Imagen"|trans }}</a> </li>
 </ul>
 {% endblock %}
