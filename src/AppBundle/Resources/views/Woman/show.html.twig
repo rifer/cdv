@@ -1,82 +1,49 @@
 {% extends 'AppBundle:Default:layout_admin.html.twig' %}
 
 {% block admin_content -%}
-    <h1>{{'Woman'|trans}}</h1>
-
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>{{'Id'|trans}}</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>{{'Name'|trans}}</th>
-                <td>{{ entity.name }}</td>
-            </tr>
-            <tr>
-                <th>{{'Surname'|trans}}</th>
-                <td>{{ entity.surname }}</td>
-            </tr>
-            <tr>
-                <th>{{'Biography'|trans}}</th>
-                <td>{{ entity.biography }}</td>
-            </tr>
-            <tr>
-                <th>{{'Created'|trans}}</th>
-                <td>{{ entity.created|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>{{'Updated'|trans}}</th>
-                <td>{{ entity.updated|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>{{'Slug'|trans}}</th>
-                <td>{{ entity.slug }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('woman') }}">
-            {{'Back to the list'|trans}}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('woman_edit', { 'id': entity.id }) }}">
-            {{'Edit'|trans}}
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-            <li><a href="{{ path('gallery_new',{'foreign_key':entity.id,'object_class':'woman'}) }}">Añadir galería</a> </li>
+    <main class="nine columns">
+        <article contentEditable="true">
+                <header class="top-article" style="background-image: url({{ asset('uploads/woman/images/' ~ entity.image) }});">
+                    <h2>{{ entity.name }} {{ entity.surname }}</h2>
+                </header>
+            <p>{{ entity.biography }}</p>
+            <p>{{'Created'|trans}}: <b>{{ entity.created|date('d-m-Y') }}</b> ||{{'Updated'|trans}}: <b> {{ entity.updated|date('d-m-Y') }}</b></p>
+            <p>{{'Friendly url'|trans}}: <b>{{ entity.slug }}</b></p>
+        </article>
+    </main>
+    <section class="three columns">
+        <h4>{{'Edition'|trans}}</h4>
+        <ul class="no-style">
+            <li><a href="{{ path('gallery_new',{'foreign_key':entity.id,'object_class':'woman'}) }}">{{"Añadir galería"|trans}}</a> </li>
             {% for gallery in galleries %}
                 <li><a href="{{ path('gallery_show', {'id': gallery.getId}) }}">{{ gallery }}</a> </li>
-
-            {% else %}
-
             {% endfor %}
              <li><a href="{{ path('audio_new',{'foreign_key':entity.id,'object_class':'woman'}) }}">{{ "Añadir audio"|trans }}</a></li>
-        {% for audio in audios %}
-            <li><a href="{{ path('audio_show', {'id': audio.getId}) }}">{{ audio }}</a></li>
-
-        {% else %}
-
-        {% endfor %}
-
-        <li><a href="{{ path('video_new',{'foreign_key':entity.id,'object_class':'woman'}) }}">{{ "Añadir vídeo"|trans }}</a></li>
-        {% for video in videos %}
-            <li><a href="{{ path('video_show', {'id': video.getId}) }}">{{ video }}</a></li>
-
-        {% else %}
-
-        {% endfor %}
-
-        <li><a href="{{ path('document_new',{'foreign_key':entity.id,'object_class':'woman'}) }}">{{ "Añadir documento"|trans }}</a></li>
-        {% for document in documents %}
-            <li><a href="{{ path('document_show', {'id': document.getId}) }}">{{ document }}</a></li>
-
-        {% else %}
-
-        {% endfor %}
-</ul>
+            {% for audio in audios %}
+                <li><a href="{{ path('audio_show', {'id': audio.getId}) }}">{{ audio }}</a></li>
+            {% endfor %}
+            <li><a href="{{ path('video_new',{'foreign_key':entity.id,'object_class':'woman'}) }}">{{ "Añadir vídeo"|trans }}</a></li>
+            {% for video in videos %}
+                <li><a href="{{ path('video_show', {'id': video.getId}) }}">{{ video }}</a></li>
+            {% endfor %}
+            <li><a href="{{ path('document_new',{'foreign_key':entity.id,'object_class':'woman'}) }}">{{ "Añadir documento"|trans }}</a></li>
+            {% for document in documents %}
+                <li><a href="{{ path('document_show', {'id': document.getId}) }}">{{ document }}</a></li>
+            {% endfor %}
+        </ul>
+        <h4>{{'Actions'|trans}}</h4>
+        <ul class="no-style">
+            <li>
+                <a href="{{ path('woman') }}">
+                    {{'Back to the list'|trans}}
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('woman_edit', { 'id': entity.id }) }}">
+                    {{'Edit'|trans}}
+                </a>
+            </li>
+            <li>{{ form(delete_form) }}</li>
+        </ul>
+    </section>
 {% endblock %}

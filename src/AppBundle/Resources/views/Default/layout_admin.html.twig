@@ -1,42 +1,18 @@
 {% extends '::base.html.twig' %}
-{% block header %}{% endblock %}
+	{% block header %}{% endblock %}
 		{% block body -%}
 			<div class="admin-layout">
-				<aside class="admin-menu">
-					<nav>
-						<div class="wrapper-dropdown" tabindex="1"><b>{{'Woman'|trans}}</b> <i class="fa fa-chevron-circle-down"></i>
-							<ul class="dropdown">
-								<li><a href="#"><i class="fa fa-th-list"></i>{{'List'|trans}}</a></li>
-								<li><a href="#"><i class="fa fa-pencil"></i>{{'Create'|trans}}</a></li>
-							</ul>
-						</div>
-						<div class="wrapper-dropdown" tabindex="2"><b>{{'Gallery'|trans}}</b> <i class="fa fa-chevron-circle-down"></i>
-							<ul class="dropdown">
-								<li><a href="#"><i class="fa fa-th-list"></i>{{'List'|trans}}</a></li>
-								<li><a href="#"><i class="fa fa-pencil"></i>{{'Create'|trans}}</a></li>
-							</ul>
-						</div>
-						<div class="wrapper-dropdown" tabindex="3"><b>{{'Audio'|trans}}</b> <i class="fa fa-chevron-circle-down"></i>
-							<ul class="dropdown">
-								<li><a href="#"><i class="fa fa-th-list"></i>{{'List'|trans}}</a></li>
-								<li><a href="#"><i class="fa fa-pencil"></i>{{'Create'|trans}}</a></li>
-							</ul>
-						</div>
-						<div class="wrapper-dropdown" tabindex="4"><b>{{'Video'|trans}}</b> <i class="fa fa-chevron-circle-down"></i>
-							<ul class="dropdown">
-								<li><a href="#"><i class="fa fa-th-list"></i>{{'List'|trans}}</a></li>
-								<li><a href="#"><i class="fa fa-pencil"></i>{{'Create'|trans}}</a></li>
-							</ul>
-						</div>		
-					</nav>
-				</aside>
-				<div class="container">
+				{% block menu %}
+					{% include 'AppBundle:Default:menu-admin.html.twig'%}
+				{% endblock %}
+				<div class="container main-admin">
 					<div class="row">
 					{% block admin_content %}{% endblock %}					
 					</div>
 				</div>
 			</div>
 		{% endblock %}
+	{% block footer %}{% endblock %}
 	{% block commonJavascripts %}
 		<script type="text/javascript">
 				$('ul.nav-tabs li a').on('click', function(){
