@@ -161,3 +161,6 @@ liip_container_wrapper:
     parameters:
         kernel.debug: true
     disable_optimization: %kernel.debug%
+liip_search:
+        google:
+            search_key: 'asdf'

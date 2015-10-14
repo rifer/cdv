@@ -17,4 +17,8 @@ nmpolo_rest:
 
 liip_hello:
     resource: "@LiipHelloBundle/Resources/config/routing.yml"
-    prefix: /
+    prefix: /liip
+
+_liip_search:
+    resource: "@LiipSearchBundle/Resources/config/routing.yml"
+    prefix: /liip_search

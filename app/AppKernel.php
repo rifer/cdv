@@ -25,6 +25,14 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Liip\HelloBundle\LiipHelloBundle(),
             new Liip\ContainerWrapperBundle\LiipContainerWrapperBundle(),
+            new Liip\UrlAutoConverterBundle\LiipUrlAutoConverterBundle(),
+            new Liip\SearchBundle\LiipSearchBundle(),
+            new Liip\HyphenatorBundle\LiipHyphenatorBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
+            new Liip\CodeBundle\LiipCodeBundle(),
+            new Liip\MonitorBundle\LiipMonitorBundle(),
+            new Liip\FunctionalTestBundle\LiipFunctionalTestBundle(),
+            new Liip\ThemeBundle\LiipThemeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

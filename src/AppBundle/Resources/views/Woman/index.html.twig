@@ -42,6 +42,9 @@
             <a href="{{ path('woman_new') }}">
                 Create a new entry
             </a>
-        </li>
+
+        </li> <a href="{{ path('get_articles', {'_format': 'html'}) }}">
+                view rest
+            </a>
     </ul>
     {% endblock %}
