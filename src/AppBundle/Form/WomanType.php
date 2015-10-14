@@ -51,7 +51,8 @@ class WomanType extends AbstractType
     public function setOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Woman'
+            'data_class' => 'AppBundle\Entity\Woman',
+            'csrf_protection' => false,
         ));
     }
 

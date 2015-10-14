@@ -12,7 +12,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
-
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * AppBundle\Entity\Womam
@@ -21,6 +22,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity(repositoryClass="AppBundle\Entity\WomanRepository")
  * @Gedmo\TranslationEntity(class="AppBundle\Entity\WomanTranslation")
  * @ORM\HasLifecycleCallbacks
+ *
+ * @ExclusionPolicy("all")
  */
 class Woman
 {
@@ -30,18 +33,24 @@ class Woman
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * @Expose
      */
     private $id;
 
     /**
      * @Assert\NotBlank
      * @ORM\Column(name="name", type="string", length=128)
+     *
+     * @Expose
      */
     private $name;
 
     /**
      * @Assert\NotBlank
      * @ORM\Column(name="surname", type="string", length=128)
+     *
+     * @Expose
      */
     private $surname;
 
@@ -49,6 +58,8 @@ class Woman
      * @Assert\NotBlank
      * @Gedmo\Translatable
      * @ORM\Column(name="biography", type="text")
+     *
+     * @Expose
      */
     private $biography;
 
@@ -56,6 +67,8 @@ class Woman
      * @var string $image
      *
      * @ORM\Column(name="image", type="string", length=255)
+     *
+     * @Expose
      */
     private $image;
 

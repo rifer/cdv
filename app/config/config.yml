@@ -145,3 +145,13 @@ stfalcon_tinymce:
                  plugins: ["bbcode, code, link, preview"]
                  menubar: false
                  toolbar1: "bold,italic,underline,undo,redo,link,unlink,removeformat,cleanup,code,preview"
+sensio_framework_extra:
+    view:
+        annotations: false
+
+fos_rest:
+    param_fetcher_listener: true
+    body_listener: true
+    format_listener: true
+    view:
+        view_response_listener: 'force'

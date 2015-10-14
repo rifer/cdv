@@ -8,3 +8,10 @@ admin:
 front:
   resource: "@AppBundle/Resources/config/routing.yml"
   prefix: /
+
+
+nmpolo_rest:
+    resource: "@AppBundle/Controller/TestimonialRestController.php"
+    type:     annotation
+    prefix:   /rest
+
