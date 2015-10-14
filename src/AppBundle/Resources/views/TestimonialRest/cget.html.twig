@@ -1,3 +1,6 @@
+{% extends 'AppBundle:Default:layout_admin.html.twig' %}
+
+{% block admin_content -%}
 <ul>
     {% for entity in entities %}
         <li>
@@ -5,3 +8,4 @@
         </li>
     {% endfor %}
 </ul>
+{% endblock %}

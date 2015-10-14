@@ -23,6 +23,8 @@ class AppKernel extends Kernel
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Liip\HelloBundle\LiipHelloBundle(),
+            new Liip\ContainerWrapperBundle\LiipContainerWrapperBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

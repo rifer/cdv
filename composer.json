@@ -25,7 +25,9 @@
         "a2lix/translation-form-bundle": "1.*@dev",
         "stfalcon/tinymce-bundle": "dev-master",
         "friendsofsymfony/rest-bundle": "^1.7",
-        "jms/serializer-bundle": "^1.0"
+        "jms/serializer-bundle": "^1.0",
+        "liip/container-wrapper-bundle": "^1.0",
+        "nelmio/api-doc-bundle": "^2.9"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

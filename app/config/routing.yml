@@ -15,3 +15,6 @@ nmpolo_rest:
     type:     annotation
     prefix:   /rest
 
+liip_hello:
+    resource: "@LiipHelloBundle/Resources/config/routing.yml"
+    prefix: /

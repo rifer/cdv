@@ -155,3 +155,9 @@ fos_rest:
     format_listener: true
     view:
         view_response_listener: 'force'
+liip_container_wrapper:
+    services:
+        templating: acme_hello.templating
+    parameters:
+        kernel.debug: true
+    disable_optimization: %kernel.debug%
