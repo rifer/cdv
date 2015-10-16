@@ -1,5 +1,4 @@
 {% extends 'AppBundle:Default:layout_admin.html.twig' %}
-
 {% block admin_content -%}
     <h1>{{'Audio'|trans}}</h1>
 
@@ -46,8 +45,8 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('audio') }}">
-            Back to the list
+        <a href="{{ path(entity.objectClass~'_show',{'id':entity.foreignKey}) }}">
+            {{ "Ver " }}  {{ entity.objectClass }}
         </a>
     </li>
     <li>

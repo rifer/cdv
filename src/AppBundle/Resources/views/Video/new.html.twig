@@ -1,15 +1,8 @@
-{% extends '::base.html.twig' %}
+{% extends 'AppBundle:Default:layout_admin.html.twig' %}
 
-{% block body -%}
-    <h1>Video creation</h1>
+{% block admin_content -%}
+    <h1>{{'Video creation'|trans}}</h1>
 
-    {{ form(form) }}
+    {{ form(form, {'attr': {'class': 'admin-form'}} ) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('video') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
 {% endblock %}

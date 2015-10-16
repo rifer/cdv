@@ -1,9 +1,15 @@
 {% extends 'AppBundle:Default:layout_admin.html.twig' %}
-
 {% block admin_content -%}
+    <h1>{{ "Audio edit"|trans }}</h1>
 
-    <h1>{{'Audio edit'|trans}}</h1>
+    {{ form(edit_form) }}
 
-    {{ form(edit_form, {'attr': {'class': 'admin-form'}} ) }}
-    {{ form(delete_form) }}
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path(entity.objectClass~'_show',{'id':entity.foreignKey}) }}">
+                Back to the {{ entity.objectClass }}
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}
