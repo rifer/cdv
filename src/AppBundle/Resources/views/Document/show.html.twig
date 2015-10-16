@@ -1,7 +1,6 @@
-{% extends '::base.html.twig' %}
-
-{% block body -%}
-    <h1>Document</h1>
+{% extends 'AppBundle:Default:layout_admin.html.twig' %}
+{% block admin_content -%}
+    <h1>{{'Document'|trans}}</h1>
 
     <table class="record_properties">
         <tbody>
@@ -42,8 +41,8 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('document') }}">
-            Back to the list
+        <a href="{{ path(entity.objectClass~'_show',{'id':entity.foreignKey}) }}">
+            {{ "Ver " }} {{ entity.objectClass }}
         </a>
     </li>
     <li>

@@ -9,6 +9,7 @@
 namespace AppBundle\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -18,6 +19,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table(name="video")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\VideoRepository")
+ * @Gedmo\TranslationEntity(class="AppBundle\Entity\VideoTranslation")
  */
 class Video
 {
@@ -87,7 +89,50 @@ class Video
     private $slug;
 
 
+    /**
+     * @ORM\OneToMany(
+     *   targetEntity="VideoTranslation",
+     *   mappedBy="object",
+     *   cascade={"persist", "remove"}
+     * )
+     */
+    private $translations;
 
+    /**
+     * @Gedmo\Locale
+     * Used locale to override Translation listener`s locale
+     * this is not a mapped field of entity metadata, just a simple property
+     */
+    private $locale;
+
+
+    public function setTranslatableLocale($locale)
+    {
+        $this->locale = $locale;
+    }
+
+
+    public function getTranslations()
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(VideoTranslation $t)
+    {
+        if (!$this->translations->contains($t))
+        {
+            $this->translations[] = $t;
+            $t->setObject($this);
+        }
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->translations = new ArrayCollection();
+    }
     /**
      * Get id
      *
@@ -264,5 +309,21 @@ class Video
     public function getSlug()
     {
         return $this->slug;
+    }
+
+
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+
+    /**
+     * Remove translation
+     *
+     * @param \AppBundle\Entity\VideoTranslation $translation
+     */
+    public function removeTranslation(\AppBundle\Entity\VideoTranslation $translation)
+    {
+        $this->translations->removeElement($translation);
     }
 }

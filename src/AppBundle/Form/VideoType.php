@@ -15,13 +15,29 @@ class VideoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('objectClass')
-            ->add('foreignKey')
-            ->add('title')
+
+            ->add('translations', 'a2lix_translations_gedmo', array(
+                    'translatable_class' => "AppBundle\Entity\Video",
+                    'fields' => array(
+                        'slug'  => array(
+                            'display' => false
+                        ),
+                        'title' => array(
+                            'locale_options' => array(            // [3.b]
+                                'es' => array(
+                                    'label' => 'Título'
+                                ),
+                                'en' => array(
+                                    'label' => 'Title',
+                                    'required'=>false
+                                ),
+                            )
+                        )
+                    )
+                )
+            )
             ->add('html_content')
-            ->add('created')
-            ->add('updated')
-            ->add('slug')
+
         ;
     }
     

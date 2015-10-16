@@ -9,6 +9,7 @@
 namespace AppBundle\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -18,6 +19,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table(name="audio")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\AudioRepository")
+ * @Gedmo\TranslationEntity(class="AppBundle\Entity\AudioTranslation")
  * @ORM\HasLifecycleCallbacks
  */
 class Audio
@@ -99,6 +101,55 @@ class Audio
      * y persistir la entidad, porque el atributo file no se controla mediante doctrine porque no está en la bbdd
      */
     private $modified;
+
+
+
+    /**
+     * @ORM\OneToMany(
+     *   targetEntity="AudioTranslation",
+     *   mappedBy="object",
+     *   cascade={"persist", "remove"}
+     * )
+     */
+    private $translations;
+
+    /**
+     * @Gedmo\Locale
+     * Used locale to override Translation listener`s locale
+     * this is not a mapped field of entity metadata, just a simple property
+     */
+    private $locale;
+
+
+    public function setTranslatableLocale($locale)
+    {
+        $this->locale = $locale;
+    }
+
+
+    public function getTranslations()
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(AudioTranslation $t)
+    {
+        if (!$this->translations->contains($t))
+        {
+            $this->translations[] = $t;
+            $t->setObject($this);
+        }
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->translations = new ArrayCollection();
+    }
+
+
     public function getAbsolutePath()
     {
         return null === $this->audio ? null : $this->getUploadRootDir() . '/' . $this->audio;
@@ -381,5 +432,10 @@ class Audio
     public function getModified()
     {
         return $this->modified;
+    }
+
+    public function __toString()
+    {
+        return $this->getTitle();
     }
 }
