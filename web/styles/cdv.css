@@ -3347,6 +3347,18 @@ footer.main-footer {
   left: 0;
   padding: 20px 0 10px;
 }
+.modal.current .admin-layout {
+  margin-bottom: 0px;
+}
+.modal.current .admin-layout .container {
+  padding-top: 0;
+}
+.modal.current .admin-layout .admin-form input {
+  width: 280px;
+}
+.modal.current .admin-layout .admin-form .tabbable {
+  width: 100%;
+}
 .admin-layout {
   margin-bottom: 50px;
 }
@@ -3482,6 +3494,7 @@ footer.main-footer {
   }
   header .title img {
     padding-top: 30%;
+    float: none;
   }
   header .main-nav.stuck .container nav .menu-icon {
     font-size: 2em;

@@ -21,7 +21,9 @@
                 {% include ':Default:header.html.twig' %}
             {% endblock %}
             {% block body %}{% endblock %}
-            {% include ':Default:footer.html.twig'%}
+            {% block footer %}
+                {% include ':Default:footer.html.twig'%}
+            {% endblock %}
         </div>
         {% block commonJavascripts %}
             <script type="text/javascript" src="{{ asset('scripts/cdv.js')}}"></script>

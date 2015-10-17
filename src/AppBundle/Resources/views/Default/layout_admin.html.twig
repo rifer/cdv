@@ -1,4 +1,7 @@
 {% extends '::base.html.twig' %}
+{% block moreStyles %}
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/jquery-modal/jquery.modal.css')}} ">
+{% endblock %}
 {% block header %}{% endblock %}
 		{% block body -%}
 			<div class="admin-layout">
@@ -37,6 +40,7 @@
 				</div>
 			</div>
 		{% endblock %}
+	{% block footer %}{% endblock %}
 	{% block commonJavascripts %}
 		<script type="text/javascript">
 				$('ul.nav-tabs li a').on('click', function(){
@@ -52,4 +56,4 @@
 		        }); 
 		</script>
 	{% endblock %}
-{% block javascripts %}   {{ tinymce_init() }}{% endblock %}
+{% block javascripts %}{% endblock %}
