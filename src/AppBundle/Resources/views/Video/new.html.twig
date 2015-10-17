@@ -4,5 +4,13 @@
     <h4>{{'Video creation'|trans}}</h4>
 
     {{ form(form, {'attr': {'class': 'admin-form'}} ) }}
+	    <p>{{'Insert this code wherever you want it be displayed'|trans}} :</p>
+	    <p class="snippet">**insert.video.<span id="display"></span>**</p>
 
+<script type="text/javascript">
+	$('textarea').keyup(function () {
+		var snippet = $(this).val();
+	  $('#display').text(snippet);
+	});
+</script>
 {% endblock %}

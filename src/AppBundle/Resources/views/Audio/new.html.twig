@@ -4,5 +4,13 @@
     <h4>{{'Audio creation'|trans}}</h4>
 
     {{ form(form, {'attr': {'class': 'admin-form'}} ) }}
+	    <p>{{'Insert this code wherever you want it be displayed'|trans}} :</p>
+	    <p class="snippet">**insert.audio.<span id="display"></span>**</p>
 
+<script type="text/javascript">
+	$('input[type=file]').on('change', function () {
+		var snippet = $(this).val().replace(/^.*[\\\/]/, '');
+	  $('#display').text(snippet);
+	});
+</script>
 {% endblock %}

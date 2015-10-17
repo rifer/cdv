@@ -3351,13 +3351,20 @@ footer.main-footer {
   margin-bottom: 0px;
 }
 .modal.current .admin-layout .container {
-  padding-top: 0;
+  padding-top: 10px;
+  margin: 0;
+  width: 100%;
 }
 .modal.current .admin-layout .admin-form input {
   width: 280px;
 }
 .modal.current .admin-layout .admin-form .tabbable {
   width: 100%;
+}
+.modal.current .snippet {
+  background: #6991ac;
+  color: #ffffff;
+  padding: 5px 10px;
 }
 .admin-layout {
   margin-bottom: 50px;
