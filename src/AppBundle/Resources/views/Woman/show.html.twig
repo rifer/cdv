@@ -21,7 +21,45 @@
         </article>
         </main>
         <aside class="admin-assets three columns">
-            <ul class="record_actions">
+            <h5>{{'Edition'|trans}}</h5>
+            <ul class="unstyled">
+                <li><a href="{{ path('gallery_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open">Añadir galería</a> </li>
+                {% for gallery in galleries %}
+                    <ul class="unstyled">
+                        <li><a href="{{ path('gallery_show', {'id': gallery.getId}) }}">{{ gallery }}</a> </li>
+                    </ul>
+                {% else %}
+
+                {% endfor %}
+                 <li><a href="{{ path('audio_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open">{{ "Añadir audio"|trans }}</a></li>
+                    {% for audio in audios %}
+                        <ul class="unstyled">
+                            <li><a href="{{ path('audio_show', {'id': audio.getId}) }}">{{ audio }}</a></li>
+                        </ul>
+                    {% else %}
+
+                    {% endfor %}
+
+                    <li><a href="{{ path('video_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open">{{ "Añadir vídeo"|trans }}</a></li>
+                    {% for video in videos %}
+                        <ul class="unstyled">
+                            <li><a href="{{ path('video_show', {'id': video.getId}) }}">{{ video }}</a></li>
+                        </ul>
+                    {% else %}
+
+                    {% endfor %}
+
+                    <li><a href="{{ path('document_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open">{{ "Añadir documento"|trans }}</a></li>
+                    {% for document in documents %}
+                        <ul class="unstyled">
+                            <li><a href="{{ path('document_show', {'id': document.getId}) }}">{{ document }}</a></li>
+                        </ul>
+                    {% else %}
+
+                    {% endfor %}
+            </ul>
+            <h5>{{'Actions'|trans}}</h5>
+            <ul class="unstyled">
                 <li>
                     <a href="{{ path('woman') }}">
                         {{'Back to the list'|trans}}
@@ -33,36 +71,6 @@
                     </a>
                 </li>
                 <li>{{ form(delete_form) }}</li>
-                        <li><a href="{{ path('gallery_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open">Añadir galería</a> </li>
-                        {% for gallery in galleries %}
-                            <li><a href="{{ path('gallery_show', {'id': gallery.getId}) }}">{{ gallery }}</a> </li>
-
-                        {% else %}
-
-                        {% endfor %}
-                         <li><a href="{{ path('audio_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open">{{ "Añadir audio"|trans }}</a></li>
-                    {% for audio in audios %}
-                        <li><a href="{{ path('audio_show', {'id': audio.getId}) }}">{{ audio }}</a></li>
-
-                    {% else %}
-
-                    {% endfor %}
-
-                    <li><a href="{{ path('video_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open">{{ "Añadir vídeo"|trans }}</a></li>
-                    {% for video in videos %}
-                        <li><a href="{{ path('video_show', {'id': video.getId}) }}">{{ video }}</a></li>
-
-                    {% else %}
-
-                    {% endfor %}
-
-                    <li><a href="{{ path('document_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open">{{ "Añadir documento"|trans }}</a></li>
-                    {% for document in documents %}
-                        <li><a href="{{ path('document_show', {'id': document.getId}) }}">{{ document }}</a></li>
-
-                    {% else %}
-
-                    {% endfor %}
             </ul>
         </aside>
 
