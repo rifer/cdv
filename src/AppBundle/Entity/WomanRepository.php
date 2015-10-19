@@ -53,4 +53,9 @@ class WomanRepository extends \Doctrine\ORM\EntityRepository
 
         return $query->getResult();
     }
+
+    public function findSlug($slug)
+    {
+
+    }
 }

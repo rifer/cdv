@@ -13,7 +13,21 @@ class ListController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('AppBundle:List:index.html.twig');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $dql   = "SELECT a FROM AppBundle:Woman a";
+        $query = $em->createQuery($dql);
+        $paginator  = $this->get('knp_paginator');
+        $womans = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+
+
+        return $this->render('AppBundle:List:index.html.twig', array(
+            'womans' =>$womans
+        ));
     }
 }
