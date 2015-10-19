@@ -1,25 +1,36 @@
 {% extends 'base.html.twig' %}
+{% block moreJavascripts %}
+    <script src="{{asset('scripts/parallax.min.js')}}"></script>
+{% endblock %}
 {% block header %}
     {% include ':Default:header_index.html.twig' %}
 {% endblock %}
 {% block body %}
-
-    <div class="main container">
-        <div class="row">
-            <main class="eight columns" style="color:white;height:1500px;">
-
-            </main>
+<main class="main main-index">
+    <section class="blockquote-index">
+        <article class="container">
+            <h2>La cárcel de Ventas</h2>
+            <blockquote class="container">En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor. Una olla de algo más vaca que carnero, salpicón las más noches, duelos y quebrantos los sábados, lantejas los viernes, algún palomino de añadidura los domingos, consumían las tres partes de su hacienda. </blockquote>
+        </article>
+                <a href="#" data-next="figure" class="next" role="navigation"><span><i class="fa fa-angle-double-down"></i></span></a>
+    </section>
+    <div class="parallax-window" data-parallax="scroll" data-image-src="{{asset('images/back2.jpg')}}">
+        <section class="figure">
+            <article class="container">
+                <h2>Una cárcel de mujeres</h2>
+                <p>Fue ideada por Victoria Kent, primera directora general de Prisiones. El proyecto era construir una prisión modelo para mujeres, ya que anteriormente estas eran hacinadas en depósitos de reclusas, que eran llamadas galeras de mujeres. Con la cárcel de Ventas, Kent se propuso dignificar la condición de la mujer reclusa de cara a su reinserción.</p>
+                <p>Durante la Guerra Civil numerosos presos (hombres) que se encontraban hacinados en otras cárceles de Madrid fueron trasladados a esta cárcel, para posteriormente ser trasladados a las Matanzas de Paracuellos para ser ejecutados.</p>
+            </article>
+                            <a href="#" data-next="main-header" class="next" role="navigation"><span><i class="fa fa-angle-double-up"></i></span></a>
+        </section>
+    </div>  
+</main>
             <aside class="four columns" style="background:red;">
 {#                 <div class="twelve columns" style="background:pink;">Linea Uno</div>
                 <div class="twelve columns" style="background:pink;">Linea Uno</div>
                 <div class="twelve columns" style="background:pink;">Linea Uno</div>
                 <div class="twelve columns" style="background:pink;">Linea Uno</div> #}
             </aside>
-        </div>
-    </div>
-
-
-
 {% endblock %}
 {% block javascripts %}{% endblock %}
 

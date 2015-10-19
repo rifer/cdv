@@ -4,5 +4,6 @@
   "dependencies": {
     "waypoints": "~4.0.0",
     "lightgallery": "~1.2.4"
-  }
+  },
+  "devDependencies": {}
 }

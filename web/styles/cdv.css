@@ -2729,19 +2729,12 @@ h4 {
 a {
   text-decoration: none;
 }
-header h1 {
-  color: #ffffff;
-  font-weight: 400;
-}
-header a.next {
-  -webkit-flex-basis: 100%;
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
+a.next {
   text-align: center;
   font-size: 2.2rem;
   font-weight: 600;
 }
-header a.next span {
+a.next span {
   background-color: #ffffff;
   padding: 4px 10px;
   -webkit-border-radius: 50px;
@@ -2751,8 +2744,17 @@ header a.next span {
   border-radius: 50px;
   background-clip: padding-box;
 }
-header a.next span i {
+a.next span i {
   color: #67727a;
+}
+header h1 {
+  color: #ffffff;
+  font-weight: 400;
+}
+header a.next {
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
 }
 header .main-nav a {
   font-weight: 700;
@@ -2799,7 +2801,7 @@ header .main-nav a:before {
 header .main-nav a:hover,
 header .main-nav a:focus,
 header .main-nav a:active {
-  color: #6991ac;
+  color: #55386f;
 }
 header .main-nav a:hover:before,
 header .main-nav a:focus:before,
@@ -2812,21 +2814,6 @@ header .main-nav a:active:before {
 }
 /* Color Variables*/
 /*END Color Variables*/
-.primary-0 {
-  background-color: #ffffff;
-}
-.primary-1 {
-  background-color: #67727a;
-}
-.primary-2 {
-  background-color: #6991ac;
-}
-.primary-3 {
-  background-color: #c3d7df;
-}
-.primary-4 {
-  background-color: #d75c37;
-}
 /*HIDDEN ELEMENTS*/
 .hidden {
   display: none;
@@ -3140,10 +3127,6 @@ header {
 header.main-header {
   width: 100%;
   margin: 0;
-  height: 100vh;
-  background-image: url('../images/back.jpg');
-  background-size: cover;
-  background-attachment: fixed;
 }
 header .title {
   display: -webkit-box;
@@ -3166,8 +3149,8 @@ header .title {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  height: 100%;
-  background-color: rgba(81, 178, 199, 0.54);
+  height: 100vh;
+  background-color: rgba(179, 78, 255, 0.54);
   padding: 0 40px;
 }
 header .title .header-main-group {
@@ -3181,16 +3164,18 @@ header .title .header-main-group img {
 header .title .header-main-group .text-group h1 {
   margin: 0 0 0 .4em;
 }
-header .title .header-main-group .text-group p {
-  margin: 0 0 0 1.5em;
-  color: #ffffff;
+header .title .header-main-group .text-group span {
+  margin: 0 0 0 .2em;
+  color: #55386f;
+  background-color: #ffffff;
+  padding: 5px 3px;
 }
 header .main-nav {
-  background: #6991ac;
+  background: #55386f;
   -webkit-transition: all 0.3s ease-in 0.3s;
   transition: all 0.3s ease-in 0.3s;
   font-size: 1em;
-  height: 32px;
+  height: 30px;
 }
 header .main-nav.stuck {
   position: fixed;
@@ -3198,7 +3183,7 @@ header .main-nav.stuck {
   left: 0;
   width: 100%;
   z-index: 3;
-  height: 45px;
+  height: 41px;
   -webkit-backface-visibility: hidden;
   -o-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
@@ -3260,7 +3245,7 @@ header .main-nav .container nav .menu-icon {
 }
 header .main-nav .container a {
   display: inline-block;
-  background: #6991ac;
+  background: #55386f;
   font-size: .8em;
   -webkit-transition: padding 0.2s ease-in 0.2s;
   transition: padding 0.2s ease-in 0.2s;
@@ -3270,9 +3255,65 @@ header .main-nav .container a[data-next] {
       -ms-flex-preferred-size: 100%;
           flex-basis: 100%;
 }
+.parallax-window {
+  min-height: 100vh;
+  background: transparent;
+}
 .main {
   padding-bottom: 80px;
-  margin: 40px auto 0;
+  margin: 30px auto 0;
+}
+.main.main-index {
+  padding-bottom: 0px;
+}
+.main.main-index section {
+  height: 500px;
+  height: 100vh;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.main.main-index section.blockquote-index,
+.main.main-index section.figure {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  text-align: center;
+}
+.main.main-index section.blockquote-index h2,
+.main.main-index section.figure h2 {
+  padding-bottom: 20px;
+  border-bottom: 4px solid #55386f;
+  color: #55386f;
+}
+.main.main-index section.blockquote-index blockquote,
+.main.main-index section.figure blockquote {
+  font-size: 1.85rem;
+  margin-top: 40px;
+}
+.main.main-index section.figure {
+  background-color: rgba(85, 56, 111, 0.82);
+  color: #ffffff;
+}
+.main.main-index section.figure h2 {
+  color: #ffffff;
+  border-bottom: 4px solid #ffffff;
 }
 .clear,
 .clear-footer {
@@ -3326,11 +3367,11 @@ ul.unstyled {
   color: #67727a;
 }
 .documents ul li a:hover {
-  border-bottom: 3px solid #6991ac;
-  color: #6991ac;
+  border-bottom: 3px solid #55386f;
+  color: #55386f;
 }
 .documents ul li a i {
-  color: #6991ac;
+  color: #55386f;
   padding-right: 5px;
 }
 .gallery img.thumbnail {
@@ -3392,7 +3433,7 @@ footer.main-footer {
   width: 100%;
 }
 .modal.current .snippet {
-  background: #6991ac;
+  background: #55386f;
   color: #ffffff;
   padding: 5px 10px;
 }
@@ -3408,7 +3449,7 @@ footer.main-footer {
   top: 0;
   width: 10%;
   padding-top: 60px;
-  background-color: #6991ac;
+  background-color: #55386f;
   height: 100%;
 }
 .admin-layout .admin-menu .wrapper-dropdown {
@@ -3485,7 +3526,7 @@ footer.main-footer {
 .admin-layout .admin-form .tabbable ul.nav-tabs {
   list-style-type: none;
   margin-bottom: 0;
-  border-bottom: 1px solid rgba(105, 145, 172, 0.5);
+  border-bottom: 1px solid rgba(85, 56, 111, 0.5);
 }
 .admin-layout .admin-form .tabbable ul.nav-tabs li {
   display: inline-block;
@@ -3501,7 +3542,7 @@ footer.main-footer {
   color: #67727a;
 }
 .admin-layout .admin-form .tabbable ul.nav-tabs li.active {
-  background-color: #6991ac;
+  background-color: #55386f;
 }
 .admin-layout .admin-form .tabbable ul.nav-tabs li.active a {
   color: #ffffff;
@@ -3509,7 +3550,7 @@ footer.main-footer {
 .admin-layout .admin-form .tabbable .tab-content {
   display: block;
   padding: 10px 20px 40px;
-  border: 1px solid rgba(105, 145, 172, 0.5);
+  border: 1px solid rgba(85, 56, 111, 0.5);
   border-top: 0;
 }
 .admin-layout .admin-form .tabbable .tab-content .tab-pane {
@@ -3606,7 +3647,7 @@ footer.main-footer {
   .admin-layout .admin-menu .wrapper-dropdown .dropdown {
     position: absolute;
     top: 40px;
-    background-color: #6991ac;
+    background-color: #55386f;
     width: 100px;
     padding: 10px;
     z-index: 1;

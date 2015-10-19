@@ -6,3 +6,5 @@ scripts:
     - app/Resources/public/scripts/cdv.js
   table_controller.min.js:
   	- app/Resources/public/scripts/table_controller.js
+  parallax.min.js:
+  	- app/Resources/public/scripts/parallax.js
