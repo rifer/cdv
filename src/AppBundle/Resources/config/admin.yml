@@ -22,3 +22,6 @@ app_audio:
     resource: "@AppBundle/Resources/config/routing/audio.xml"
     prefix:   /audio
 
+app_historical:
+    resource: "@AppBundle/Resources/config/routing/historical.xml"
+    prefix:   /historical
