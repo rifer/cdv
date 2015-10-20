@@ -4,23 +4,23 @@
     <div class="main container testimonial-index">
         {{ wo_render_breadcrumbs() }}
         <div class="row">
-            <div class="twelve columns">
-                <h2>{{'Testimonials'|trans}}</h2>
-                <p class="testimonial-intro">Fue ideada por Victoria Kent, primera directora general de Prisiones. El proyecto era construir una prisión modelo para mujeres, ya que anteriormente estas eran hacinadas en depósitos de reclusas, que eran llamadas galeras de mujeres. Con la cárcel de Ventas, Kent se propuso dignificar la condición de la mujer reclusa de cara a su reinserción.</p>
-            </div>
+            <section class="twelve columns">
+                <h2 class="section-title-intro">{{'Testimonials'|trans}}</h2>
+                <p class="section-intro">Fue ideada por Victoria Kent, primera directora general de Prisiones. El proyecto era construir una prisión modelo para mujeres, ya que anteriormente estas eran hacinadas en depósitos de reclusas, que eran llamadas galeras de mujeres. Con la cárcel de Ventas, Kent se propuso dignificar la condición de la mujer reclusa de cara a su reinserción.</p>
+            </section>
         </div>
             {% for testimonial in testimonials %}
                 {% if loop.index0 is divisible by(4) %}
                     <div class="row">
                 {% endif %}
-                <div class="three columns card-box">
-                    <img src="{{asset('uploads/woman/images/' ~ testimonial.image)}}">
-                    <h3><a href="{{ path('app_testimonial_show', {'slug': testimonial.slug}) }}">{{ testimonial }}</a></h3>
-                    <p>
-                        {{testimonial.biography|truncate(90)|raw}}
-                    </p>
-                    <a href="{{ path('app_testimonial_show', {'slug': testimonial.slug}) }}">{{'Read'|trans}} </a> 
-                </div>
+                        <article class="three columns card-box">
+                            <img src="{{asset('uploads/woman/images/' ~ testimonial.image)}}">
+                            <h3><a href="{{ path('app_testimonial_show', {'slug': testimonial.slug}) }}">{{ testimonial }}</a></h3>
+                            <p>
+                                {{testimonial.biography|truncate(90)|raw}}
+                            </p>
+                            <a href="{{ path('app_testimonial_show', {'slug': testimonial.slug}) }}">{{'Read'|trans}} </a> 
+                        </article>
                 {% if loop.index is divisibleby(4) or loop.last %}
                     </div>  
                 {% endif %}  

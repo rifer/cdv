@@ -2818,6 +2818,16 @@ header .main-nav a:active:before {
   -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
   transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
+h2.section-title-intro {
+  font-size: 2.35rem;
+  text-align: center;
+  font-weight: 400;
+}
+p.section-intro {
+  text-align: center;
+  color: #67727a;
+  margin-bottom: 40px;
+}
 /* Color Variables*/
 /*END Color Variables*/
 /*HIDDEN ELEMENTS*/
@@ -3331,15 +3341,6 @@ ul.breadcrumb li a {
   color: #ffffff;
   border-bottom: 4px solid #ffffff;
 }
-.testimonial-index h2 {
-  font-size: 2.3rem;
-  text-align: center;
-}
-.testimonial-index p.testimonial-intro {
-  text-align: center;
-  color: #67727a;
-  margin-bottom: 40px;
-}
 .testimonial-index .card-box {
   margin-bottom: 20px;
 }
@@ -3353,6 +3354,76 @@ ul.breadcrumb li a {
 }
 .testimonial-index .card-box img {
   max-width: 100%;
+}
+.history-index .history-card .date {
+  float: left;
+  width: 45.867%;
+  text-align: right;
+  padding-right: 25px;
+  border-right: 4px solid #55386f;
+  padding-left: none;
+  padding-bottom: 4em;
+}
+.history-index .history-card .date h6 {
+  margin-bottom: 0;
+  font-size: 2.45rem;
+  color: #55386f;
+  font-weight: 600;
+  line-height: .8em;
+}
+.history-index .history-card .date p {
+  margin-top: 0;
+  font-size: 1.65rem;
+  text-transform: uppercase;
+}
+.history-index .history-card .date figure {
+  margin: 1em 0 0;
+}
+.history-index .history-card .date figure img {
+  max-width: 100%;
+  width: 220px;
+}
+.history-index .history-card .date .icon-point {
+  display: inline-block;
+  background: #55386f;
+  color: #ffffff;
+  font-weight: 600;
+  -webkit-border-radius: 30px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 30px;
+  -moz-background-clip: padding;
+  border-radius: 30px;
+  background-clip: padding-box;
+  text-align: center;
+  padding: 6px 9px;
+  position: relative;
+  left: 45px;
+  top: 5px;
+}
+.history-index .history-card .content {
+  float: right;
+  width: 46%;
+}
+.history-index .history-card .content p {
+  margin-top: 0;
+}
+.history-index .history-card:nth-child(odd) .date {
+  float: right;
+  text-align: left;
+  padding-left: 25px;
+  border-left: 4px solid #55386f;
+  border-right: none;
+}
+.history-index .history-card:nth-child(odd) .date .icon-point {
+  left: -45px;
+}
+.history-index .history-card:nth-child(odd) .content {
+  float: left;
+  padding-right: 20px;
+}
+.history-index .history-card:nth-child(odd) .content p {
+  text-align: right;
+  padding-right: 40px;
 }
 .clear,
 .clear-footer {
