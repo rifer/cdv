@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\WomanSecondType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -43,7 +44,7 @@ class WomanController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('woman_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('woman_second_step', array('id' => $entity->getId())));
         }
         return $this->render('AppBundle:Woman:new.html.twig', array(
             'entity' => $entity,
@@ -51,6 +52,8 @@ class WomanController extends Controller
         ));
 
     }
+
+
 
     /**
      * Creates a form to create a Woman entity.
@@ -70,6 +73,10 @@ class WomanController extends Controller
         return $form;
     }
 
+
+
+
+
     /**
      * Displays a form to create a new Woman entity.
      *
@@ -85,6 +92,69 @@ class WomanController extends Controller
         ));
     }
 
+
+    public function secondAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('AppBundle:Woman')->find($id);
+        $galleries = $em->getRepository('AppBundle:Woman')->findMedia("Gallery",$id,"woman");
+        $audios = $em->getRepository('AppBundle:Woman')->findMedia("Audio",$id,"woman");
+        $videos = $em->getRepository('AppBundle:Woman')->findMedia("Video",$id,"woman");
+        $documents = $em->getRepository('AppBundle:Woman')->findMedia("Document",$id,"woman");
+
+        $form   = $this->createSecondForm($entity);
+
+        return $this->render('AppBundle:Woman:second.html.twig', array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+            'galleries' => $galleries,
+            'audios' => $audios,
+            'videos' => $videos,
+            'documents' => $documents
+        ));
+    }
+
+
+    private function createSecondForm(Woman $entity)
+    {
+        $form = $this->createForm(new WomanSecondType(), $entity, array(
+            'action' => $this->generateUrl('woman_update_second', array('id'=>$entity->getId())),
+            'method' => 'PUT',
+        ));
+        $form->add('submit', 'submit', array('label' => 'Create'));
+
+        return $form;
+    }
+
+    public function updateSecondAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('AppBundle:Woman')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Woman entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createSecondForm($entity);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isValid()) {
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('woman_show', array('id' => $id)));
+        }
+
+        return $this->render('AppBundle:Woman:edit.html.twig', array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+
     /**
      * Finds and displays a Woman entity.
      *
@@ -94,10 +164,7 @@ class WomanController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('AppBundle:Woman')->find($id);
-        $galleries = $em->getRepository('AppBundle:Woman')->findMedia("Gallery",$id,"woman");
-        $audios = $em->getRepository('AppBundle:Woman')->findMedia("Audio",$id,"woman");
-        $videos = $em->getRepository('AppBundle:Woman')->findMedia("Video",$id,"woman");
-        $documents = $em->getRepository('AppBundle:Woman')->findMedia("Document",$id,"woman");
+
 
 
         if (!$entity) {
@@ -109,11 +176,6 @@ class WomanController extends Controller
         return $this->render('AppBundle:Woman:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
-            'galleries' => $galleries,
-            'audios' => $audios,
-            'videos' => $videos,
-            'documents' => $documents
-
         ));
     }
 

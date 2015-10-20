@@ -16,6 +16,10 @@
         <default key="_controller">AppBundle:Woman:new</default>
     </route>
 
+    <route id="woman_second_step" path="/second/{id}">
+        <default key="_controller">AppBundle:Woman:second</default>
+    </route>
+
     <route id="woman_create" path="/create" methods="POST">
         <default key="_controller">AppBundle:Woman:create</default>
     </route>
@@ -27,6 +31,11 @@
     <route id="woman_update" path="/{id}/update" methods="POST|PUT">
         <default key="_controller">AppBundle:Woman:update</default>
     </route>
+
+    <route id="woman_update_second" path="/{id}/update_second" methods="POST|PUT">
+        <default key="_controller">AppBundle:Woman:updateSecond</default>
+    </route>
+
 
     <route id="woman_delete" path="/{id}/delete" methods="POST|DELETE">
         <default key="_controller">AppBundle:Woman:delete</default>
