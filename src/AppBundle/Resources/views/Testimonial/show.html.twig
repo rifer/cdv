@@ -9,7 +9,7 @@
         <div class="row">
             <main class="nine columns">
                 <article>
-                    <header class="top-article" style="background-image: url('{{asset( testimonial.image | imagine_filter('image_header'))}}');">
+                    <header class="top-article" style="background-image: url('{{asset(("uploads/woman/images/" ~ testimonial.image) | imagine_filter('image_header'))}}');">
                         <h2>{{testimonial.name}} {{testimonial.surname}}</h2>
                     </header>
                     <p class="intro">{{testimonial.biography|raw}}</p>
