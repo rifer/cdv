@@ -10,18 +10,18 @@
             </div>
         </div>
             {% for testimonial in testimonials %}
-                {% if loop.index0 is divisible by(3) %}
+                {% if loop.index0 is divisible by(4) %}
                     <div class="row">
                 {% endif %}
-                <div class="four columns card-box">
+                <div class="three columns card-box">
                     <img src="{{asset('uploads/woman/images/' ~ testimonial.image)}}">
-                    <h3>{{ testimonial }}</h3>
+                    <h3><a href="{{ path('app_testimonial_show', {'slug': testimonial.slug}) }}">{{ testimonial }}</a></h3>
                     <p>
-                        {{testimonial.biography|truncate(100)|raw}}
+                        {{testimonial.biography|truncate(90)|raw}}
                     </p>
                     <a href="{{ path('app_testimonial_show', {'slug': testimonial.slug}) }}">{{'Read'|trans}} </a> 
                 </div>
-                {% if loop.index is divisibleby(3) or loop.last %}
+                {% if loop.index is divisibleby(4) or loop.last %}
                     </div>  
                 {% endif %}  
             {% endfor %}

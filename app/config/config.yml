@@ -165,3 +165,29 @@ services:
         class: Twig_Extensions_Extension_Text
         tags:
                 - { name: twig.extension }
+
+# app/config/config.yml
+liip_imagine:
+
+    resolvers:
+        default:
+            web_path:  
+                web_root: %kernel.root_dir%/../web
+                cache_prefix: media/cache
+    loaders:
+        default:
+            filesystem:
+                data_root: %kernel.root_dir%/../web/
+
+    driver:               gd
+    cache:                default
+    data_loader:          default
+    default_image:        null
+    controller:
+        filter_action:         liip_imagine.controller:filterAction
+        filter_runtime_action: liip_imagine.controller:filterRuntimeAction
+    filter_sets:
+        image_header:
+            quality: 100
+            filters:
+                thumbnail: { size: [711, 380], mode: outbound }

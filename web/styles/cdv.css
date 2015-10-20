@@ -2732,6 +2732,7 @@ a.next {
   text-align: center;
   font-size: 2.2rem;
   font-weight: 600;
+  margin-top: 2%;
 }
 a.next span {
   background-color: #ffffff;
@@ -3342,7 +3343,7 @@ ul.breadcrumb li a {
 .testimonial-index .card-box {
   margin-bottom: 20px;
 }
-.testimonial-index .card-box h3 {
+.testimonial-index .card-box h3 a {
   font-size: 1.8rem;
   font-weight: 600;
   color: #55386f;

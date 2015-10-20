@@ -8,3 +8,6 @@ admin:
 front:
   resource: "@AppBundle/Resources/config/routing.yml"
   prefix: /
+
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
