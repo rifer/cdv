@@ -5,7 +5,7 @@
 
      <main class="eight columns">
         <article>
-            <header class="top-article" style="background: {{asset('images/uploads/' ~ entity.image)}}">
+            <header class="top-article" style="background-image: url('{{asset('uploads/woman/images/' ~ entity.image)}}');">
                 <h2>{{ entity.name }} {{ entity.surname }}</h2>
             </header>
                 <p class="intro">{{ entity.biography|raw }}</p>
