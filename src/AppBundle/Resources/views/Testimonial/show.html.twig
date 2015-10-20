@@ -1,11 +1,121 @@
 {% extends 'base.html.twig' %}
-
 {% block moreStyles %}
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/plyr/dist/plyr.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/lightgallery/dist/css/lightgallery.min.css') }}"/>
 {% endblock %}
-
 {% block body %}
-    {{ wo_render_breadcrumbs() }}
+    <div class="main container">
+    	    {{ wo_render_breadcrumbs() }}
+        <div class="row">
+            <main class="nine columns">
+                <article>
+                    <header class="top-article" style="background-image: url('{{asset('uploads/woman/images/' ~ testimonial.image)}}');">
+                        <h2>{{testimonial.name}} {{testimonial.surname}}</h2>
+                    </header>
+                    <p class="intro">{{testimonial.biography|raw}}</p>
 
+                    <p class="caption"><i class="fa fa-file-audio-o"></i> Primera entrevista a Sole</p>
+
+                    <div class="player">
+                        <audio controls>
+                            <!-- Audio files -->
+                            <source src="{{ asset('audio/01sreal.mp3') }}" type="audio/mp3">
+                            <a href="{{ asset('audio/01sreal.mp3') }}">Download</a>
+                        </audio>
+                    </div>
+
+                    <p class="caption"><i class="fa fa-file-video-o"></i>
+                        Primer video de Sole</p>
+
+                    <div class="player">
+                        <div data-video-id="L1h9xxCU20g" data-type="youtube"></div>
+                    </div>
+                    <p class="caption"><i class="fa fa-picture-o"></i> Primera galería de Sole</p>
+
+                    <div class="caption2" style="display:none">
+                        <h4>Bowness Bay</h4>
+
+                        <p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm
+                            extremely happy I was passing the right place at the right time....</p>
+                    </div>
+                    <div class="caption3" style="display:none">
+                        <h4>Sunset Serenity</h4>
+
+                        <p>A gorgeous Sunset tonight captured at Coniston Water....</p>
+                    </div>
+                    <div class="gallery">
+                        <a href="{{ asset('images/sr1.jpg') }}" data-sub-html=".caption3">
+                            <img class="thumbnail" src="{{ asset('images/sr1.jpg') }}"/>
+                        </a>
+                        <a href="{{ asset('images/sr2.jpg') }}" data-sub-html=".caption2">
+                            <img class="thumbnail" src="{{ asset('images/sr2.jpg') }}"/>
+                        </a>
+                        <a href="{{ asset('images/sr3.jpg') }}">
+                            <img class="thumbnail" src="{{ asset('images/sr3.jpg') }}"/>
+                        </a>
+                        <a href="{{ asset('images/sr4.jpg') }}">
+                            <img class="thumbnail" src="{{ asset('images/sr4.jpg') }}"/>
+                        </a>
+                        <a href="{{ asset('images/sr5.jpg') }}">
+                            <img class="thumbnail" src="{{ asset('images/sr5.jpg') }}"/>
+                        </a>
+                        <a href="{{ asset('images/sr6.jpg') }}">
+                            <img class="thumbnail" src="{{ asset('images/sr6.jpg') }}"/>
+                        </a>
+                    </div>
+                </article>
+            </main>
+            <aside class="three columns">
+                <div class="documents">
+                    <h3>Documentación</h3>
+                    <ul>
+                        <li><a href=""><i class="fa fa-file-archive-o"></i>Archivo personal de Soledad Real López</a>
+                        </li>
+                        <li><a href=""><i class="fa fa-file-text-o"></i>Biografía completa</a></li>
+                        <li><a href=""><i class="fa fa-file-pdf-o"></i>Bibliografía</a></li>
+                    </ul>
+                </div>
+ 				<div class="documents">
+                    <h3>Documentación foreach</h3>
+                    <ul>
+                        <li><a href=""><i class="fa fa-file-archive-o"></i>Archivo personal de Soledad Real López</a>
+                        </li>
+                        <li><a href=""><i class="fa fa-file-text-o"></i>Biografía completa</a></li>
+                        <li><a href=""><i class="fa fa-file-pdf-o"></i>Bibliografía</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
 {% endblock %}
-
+{% block javascripts %}
+    <script>
+        (function (d, u) {
+            var a = new XMLHttpRequest(),
+                    b = d.body;
+            // Check for CORS support
+            // If you're loading from same domain, you can remove the if statement
+            if ("withCredentials" in a) {
+                a.open("GET", u, true);
+                a.send();
+                a.onload = function () {
+                    var c = d.createElement("div");
+                    c.setAttribute("hidden", "");
+                    c.innerHTML = a.responseText;
+                    b.insertBefore(c, b.childNodes[0]);
+                }
+            }
+        })(document, "{{ asset('assets/plyr/dist/sprite.svg')}}");
+    </script>
+    <script type="text/javascript" src="{{ asset('assets/plyr/dist/plyr.js') }}"></script>
+    <script type="text/javascript">plyr.setup({});</script>
+    <script src="{{ asset('assets/lightgallery/dist/js/lightgallery.min.js') }}"></script>
+    <!-- lightgallery plugins -->
+    <script src="{{ asset('assets/lightgallery/dist/js/lg-thumbnail.min.js') }}"></script>
+    <script src="{{ asset('assets/lightgallery/dist/js/lg-fullscreen.min.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".gallery").lightGallery();
+        });
+    </script>
+{% endblock %}

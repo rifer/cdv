@@ -16,7 +16,6 @@ $(document).ready(function(){
 $('a[data-next]').on('click',function(event){
 	    event.preventDefault();
         var scroller = $(this).data('next');
-        console.log(scroller);
     $('html, body').stop().animate({
         scrollTop: $('.'+scroller).offset().top
     }, 1200);

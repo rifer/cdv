@@ -2703,7 +2703,6 @@ h2,
 h3,
 h4 {
   margin: 0 0 .5em;
-  font-family: "Roboto", sans-serif;
 }
 /* Larger than phablet */
 @media (min-width: 550px) {
@@ -2746,6 +2745,12 @@ a.next span {
 }
 a.next span i {
   color: #67727a;
+}
+a.next.invert span {
+  background-color: #67727a;
+}
+a.next.invert span i {
+  color: #ffffff;
 }
 header h1 {
   color: #ffffff;
@@ -3255,12 +3260,22 @@ header .main-nav .container a[data-next] {
       -ms-flex-preferred-size: 100%;
           flex-basis: 100%;
 }
+ul.breadcrumb {
+  list-style-type: none;
+}
+ul.breadcrumb li {
+  display: inline-block;
+  font-size: .8em;
+}
+ul.breadcrumb li a {
+  text-decoration: none;
+}
 .parallax-window {
   min-height: 100vh;
   background: transparent;
 }
 .main {
-  padding-bottom: 80px;
+  padding-bottom: 280px;
   margin: 30px auto 0;
 }
 .main.main-index {
@@ -3315,6 +3330,29 @@ header .main-nav .container a[data-next] {
   color: #ffffff;
   border-bottom: 4px solid #ffffff;
 }
+.testimonial-index h2 {
+  font-size: 2.3rem;
+  text-align: center;
+}
+.testimonial-index p.testimonial-intro {
+  text-align: center;
+  color: #67727a;
+  margin-bottom: 40px;
+}
+.testimonial-index .card-box {
+  margin-bottom: 20px;
+}
+.testimonial-index .card-box h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #55386f;
+}
+.testimonial-index .card-box p {
+  font-size: 1.3rem;
+}
+.testimonial-index .card-box img {
+  max-width: 100%;
+}
 .clear,
 .clear-footer {
   display: block;
@@ -3322,7 +3360,7 @@ header .main-nav .container a[data-next] {
   clear: both;
 }
 .clear-footer {
-  height: 80px;
+  height: 255px;
 }
 ul.unstyled {
   list-style-type: none;
@@ -3409,14 +3447,52 @@ ul.unstyled {
   font-size: 2em;
 }
 footer.main-footer {
-  background: #67727a;
+  background-color: #67727a;
+  background-image: url('../images/footer.jpg');
+  background-size: cover;
   color: #ffffff;
-  height: 80px;
+  height: 200px;
   width: 100%;
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 20px 0 10px;
+  padding: 25px 0;
+}
+footer.main-footer .columns {
+  border-left: 1px solid #67727a;
+  padding-left: 10px;
+}
+footer.main-footer h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+footer.main-footer ul {
+  line-height: .65em;
+}
+footer.main-footer ul li a {
+  color: #ffffff;
+  font-size: .8em;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+footer.main-footer ul li a:hover {
+  color: #c3d7df;
+  font-size: .85em;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+footer.main-footer aside {
+  height: 35px;
+  background: rgba(255, 255, 255, 0.12);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-top: 10px;
+  text-align: right;
+}
+footer.main-footer aside img {
+  width: 70px;
 }
 .modal.current .admin-layout {
   margin-bottom: 0px;

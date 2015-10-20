@@ -7,9 +7,7 @@
         <thead>
             <tr>
                 <th>{{'Name'|trans}}</th>
-                <th>{{'Biography'|trans}}</th>
                 <th>{{'Created'|trans}}</th>
-                <th>{{'Updated'|trans}}</th>
                 <th>{{'Slug'|trans}}</th>
                 <th>{{'Actions'|trans}}</th>
             </tr>
@@ -18,9 +16,7 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('woman_show', { 'id': entity.id }) }}">{{ entity.name }} {{ entity.surname }}</a></td>
-                <td>{{ entity.biography }}</td>
                 <td>{% if entity.created %}{{ entity.created|date('d-m-Y') }}{% endif %}</td>
-                <td>{% if entity.updated %}{{ entity.updated|date('d-m-Y') }}{% endif %}</td>
                 <td>{{ entity.slug }}</td>
                 <td>
                 <ul>
