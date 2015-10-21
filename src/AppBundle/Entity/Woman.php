@@ -46,16 +46,15 @@ class Woman
     private $surname;
 
     /**
-     * @Assert\NotBlank
      * @Gedmo\Translatable
-     * @ORM\Column(name="biography", type="text")
+     * @ORM\Column(name="biography", type="text", nullable=true)
      */
     private $biography;
 
     /**
      * @var string $image
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
 

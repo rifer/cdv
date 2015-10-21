@@ -1,0 +1,13 @@
+{% extends 'AppBundle:Default:layout_admin.html.twig' %}
+{% block admin_content -%}
+
+    <h1>{{ 'Woman creation'|trans }}</h1>
+    {{ form(form, {'attr': {'class': 'admin-form'}} ) }}
+    <aside class="admin-assets three columns">
+        {% include 'AppBundle:Woman:edition.html.twig' %}
+    </aside>
+{% endblock %}
+{% block javascripts %}
+    {{ tinymce_init() }}
+    <script src="{{ asset('assets/jquery-modal/jquery.modal.min.js') }}"></script>
+{% endblock %} 
