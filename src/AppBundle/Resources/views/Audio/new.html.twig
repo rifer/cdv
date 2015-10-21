@@ -1,18 +1,41 @@
-{% extends 'AppBundle:Default:layout_admin.html.twig'%}
+{% extends 'AppBundle:Default:layout_admin.html.twig' %}
 
 {% block admin_content -%}
-    <h4>{{'Audio creation'|trans}}</h4>
+    <h4>{{ 'Audio creation'|trans }}</h4>
 
-    {{ form(form, {'attr': {'class': 'admin-form'}} ) }}
- {# 
-	    <p>{{'Insert this code wherever you want it be displayed'|trans}} :</p>
-	    <p class="snippet">**insert.audio.<span id="display"></span>**</p>
+    {{ form(form, {'attr': {'class': 'admin-form','id':'form_'~object_class~'_'~entity.getClass|lower~'_'~foreign_key}} ) }}
+    {#
+           <p>{{'Insert this code wherever you want it be displayed'|trans}} :</p>
+           <p class="snippet">**insert.audio.<span id="display"></span>**</p>
 
-<script type="text/javascript">
-	$('input[type=file]').on('change', function () {
-		var snippet = $(this).val().replace(/^.*[\\\/]/, '');
-	  $('#display').text(snippet);
-	});
-</script>
-#}
+   <script type="text/javascript">
+       $('input[type=file]').on('change', function () {
+           var snippet = $(this).val().replace(/^.*[\\\/]/, '');
+         $('#display').text(snippet);
+       });
+   </script>
+   #}
+
+
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('assets/jquery.form.min.js') }}"></script>
+    <script>
+        // wait for the DOM to be loaded
+        $(document).ready(function () {
+            var options = {
+                success: updateEdition,
+                target: "#edition_aside_medias"
+            }
+
+            // bind 'myForm' and provide a simple callback function
+            $('#{{ 'form_'~object_class~'_'~entity.getClass|lower~'_'~foreign_key }}').ajaxForm(options);
+        });
+
+        function updateEdition() {
+            $('.jquery-modal').hide();
+            $('.modal').hide();
+        }
+
+    </script>
 {% endblock %}

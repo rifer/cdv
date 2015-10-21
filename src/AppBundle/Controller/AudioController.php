@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -46,7 +47,8 @@ class AudioController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl($entity->getObjectClass().'_show', array('id' => $entity->getForeignKey())));
+            return $this->redirect($this->generateUrl('woman_edition',array('id'=>$foreign_key)));
+
         }
 
         return $this->render('AppBundle:Audio:new.html.twig', array(
@@ -69,7 +71,7 @@ class AudioController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('button', 'submit', array('label' => 'Create'));
 
         return $form;
     }
@@ -81,10 +83,13 @@ class AudioController extends Controller
     public function newAction($foreign_key,$object_class)
     {
         $entity = new Audio();
+
         $form   = $this->createCreateForm($entity,$foreign_key,$object_class);
 
         return $this->render('AppBundle:Audio:new.html.twig', array(
             'entity' => $entity,
+            'foreign_key'=> $foreign_key,
+            'object_class'=>$object_class,
             'form'   => $form->createView(),
         ));
     }

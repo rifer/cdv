@@ -28,6 +28,10 @@
         <default key="_controller">AppBundle:Woman:edit</default>
     </route>
 
+    <route id="woman_edition" path="/{id}/edition">
+        <default key="_controller">AppBundle:Woman:edition</default>
+    </route>
+
     <route id="woman_update" path="/{id}/update" methods="POST|PUT">
         <default key="_controller">AppBundle:Woman:update</default>
     </route>

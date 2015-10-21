@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\WomanEditType;
 use AppBundle\Form\WomanSecondType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -212,7 +213,7 @@ class WomanController extends Controller
     */
     private function createEditForm(Woman $entity)
     {
-        $form = $this->createForm(new WomanType(), $entity, array(
+        $form = $this->createForm(new WomanEditType(), $entity, array(
             'action' => $this->generateUrl('woman_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
@@ -291,4 +292,27 @@ class WomanController extends Controller
             ->getForm()
         ;
     }
+
+
+    public function editionAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('AppBundle:Woman')->find($id);
+        $galleries = $em->getRepository('AppBundle:Woman')->findMedia("Gallery",$id,"woman");
+        $audios = $em->getRepository('AppBundle:Woman')->findMedia("Audio",$id,"woman");
+        $videos = $em->getRepository('AppBundle:Woman')->findMedia("Video",$id,"woman");
+        $documents = $em->getRepository('AppBundle:Woman')->findMedia("Document",$id,"woman");
+
+
+
+        return $this->render('AppBundle:Woman:edition.html.twig', array(
+            'entity' => $entity,
+            'galleries' => $galleries,
+            'audios' => $audios,
+            'videos' => $videos,
+            'documents' => $documents
+        ));
+    }
+
 }

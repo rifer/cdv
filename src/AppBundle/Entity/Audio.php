@@ -448,4 +448,9 @@ class Audio
     {
         $this->translations->removeElement($translation);
     }
+
+    public function getClass()
+    {
+        return "Audio";
+    }
 }
