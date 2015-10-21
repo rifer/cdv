@@ -3251,6 +3251,9 @@ header .main-nav .container .nav-bar-info img {
   width: 20px;
   vertical-align: middle;
 }
+header .main-nav .container .nav-bar-info a {
+  background: transparent;
+}
 header .main-nav .container nav {
   margin-left: auto;
 }
@@ -3344,6 +3347,9 @@ ul.breadcrumb li a {
 .testimonial-index .card-box {
   margin-bottom: 20px;
 }
+.testimonial-index .card-box h3 {
+  line-height: .5em;
+}
 .testimonial-index .card-box h3 a {
   font-size: 1.8rem;
   font-weight: 600;
@@ -3354,6 +3360,8 @@ ul.breadcrumb li a {
 }
 .testimonial-index .card-box img {
   max-width: 100%;
+  margin: 0 auto;
+  width: 100%;
 }
 .history-index .history-card .date {
   float: left;
@@ -3566,6 +3574,11 @@ footer.main-footer aside {
 footer.main-footer aside img {
   width: 70px;
 }
+.modal.current {
+  width: 500px;
+  max-height: 500px;
+  overflow-y: auto;
+}
 .modal.current .admin-layout {
   margin-bottom: 0px;
 }
@@ -3573,6 +3586,9 @@ footer.main-footer aside img {
   padding-top: 10px;
   margin: 0;
   width: 100%;
+}
+.modal.current .admin-layout .admin-form {
+  margin-bottom: 10px;
 }
 .modal.current .admin-layout .admin-form input {
   width: 280px;
@@ -3669,7 +3685,11 @@ footer.main-footer aside img {
 .admin-layout .admin-form .tabbable {
   margin: 10px 0 40px;
   display: block;
-  width: 810px;
+  width: 100%;
+}
+.admin-layout .admin-form .tabbable textarea {
+  min-height: 165px;
+  width: 100%;
 }
 .admin-layout .admin-form .tabbable ul.nav-tabs {
   list-style-type: none;
@@ -3710,6 +3730,10 @@ footer.main-footer aside img {
 }
 .admin-layout .admin-form .tabbable .tab-content .tab-pane.active {
   display: block;
+}
+.admin-layout .admin-assets ul li .add-media {
+  cursor: pointer;
+  color: #67727a;
 }
 /* Larger than mobile */
 /* Larger than phablet (also point when grid becomes active) */

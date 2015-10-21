@@ -1,13 +1,31 @@
 {% extends 'AppBundle:Default:layout_admin.html.twig' %}
 {% block admin_content -%}
-
-    <h1>{{ 'Woman creation'|trans }}</h1>
-    {{ form(form, {'attr': {'class': 'admin-form'}} ) }}
+	<div class="eight columns">
+		<h4>{{ entity.name }} {{ entity.surname }}</h4>
+	    {{ form(form, {'attr': {'class': 'admin-form'}} ) }}
+	</div>
     <aside class="admin-assets three columns">
         {% include 'AppBundle:Woman:edition.html.twig' %}
     </aside>
 {% endblock %}
 {% block javascripts %}
-    {{ tinymce_init() }}
     <script src="{{ asset('assets/jquery-modal/jquery.modal.min.js') }}"></script>
+
+    <script type="text/javascript">
+		$.modal.defaults = {
+		  overlay: "#000",        
+		  opacity: 0.75,         
+		  zIndex: 1,              
+		  escapeClose: true,      
+		  clickClose: true,       
+		  closeText: 'Close',     
+		  closeClass: '',         
+		  showClose: false,       
+		  modalClass: "modal",    
+		  spinnerHtml: null,      
+		  showSpinner: true,      
+		  fadeDuration: null,     
+		  fadeDelay: 1.0  
+		};
+    </script>
 {% endblock %} 

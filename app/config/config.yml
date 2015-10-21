@@ -189,4 +189,5 @@ liip_imagine:
         image_header:
             quality: 100
             filters:
-                thumbnail: { size: [711, 380], mode: outbound }
+                relative_resize: { increase: 400 }
+                crop: { start: [0, 50], size: [700, 380] }

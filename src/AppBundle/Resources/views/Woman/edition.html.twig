@@ -1,37 +1,43 @@
 <h5>{{'Edition'|trans}}</h5>
 <ul class="unstyled">
-    <li><a href="{{ path('gallery_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open">Añadir galería</a> </li>
+    <li><a href="{{ path('gallery_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open"><i class="fa fa-plus-circle"></i> {{ "Add gallery"|trans }}</a> </li>
     {% for gallery in galleries %}
         <ul class="unstyled">
-            <li><a href="{{ path('gallery_show', {'id': gallery.getId}) }}">{{ gallery }}</a> </li>
+            <li><span class="add-media" data-add="insert_media_gallery_{{gallery.getId}}"><i class="fa fa-caret-left"></i> {{ gallery }}</span> </li>
         </ul>
     {% else %}
 
     {% endfor %}
-    <li><a href="{{ path('audio_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open">{{ "Añadir audio"|trans }}</a></li>
+    <li><a href="{{ path('audio_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open"><i class="fa fa-plus-circle"></i> {{ "Añadir audio"|trans }}</a></li>
     {% for audio in audios %}
         <ul class="unstyled">
-            <li><a href="{{ path('audio_show', {'id': audio.getId}) }}">{{ audio }}</a></li>
+            <li><span class="add-media" data-add="insert_media_audio_{{audio.getId}}"><i class="fa fa-caret-left"></i> {{ audio }}</span></li>
         </ul>
     {% else %}
 
     {% endfor %}
 
-    <li><a href="{{ path('video_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open">{{ "Añadir vídeo"|trans }}</a></li>
+    <li><a href="{{ path('video_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open"><i class="fa fa-plus-circle"></i> {{ "Añadir vídeo"|trans }}</a></li>
     {% for video in videos %}
         <ul class="unstyled">
-            <li><a href="{{ path('video_show', {'id': video.getId}) }}">{{ video }}</a></li>
+            <li><span class="add-media" data-add="insert_media_video{{video.getId}}"><i class="fa fa-caret-left"></i>{{ video }}</span></li>
         </ul>
     {% else %}
 
     {% endfor %}
 
-    <li><a href="{{ path('document_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open">{{ "Añadir documento"|trans }}</a></li>
+    <li><a href="{{ path('document_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open"><i class="fa fa-plus-circle"></i> {{ "Añadir documento"|trans }}</a></li>
     {% for document in documents %}
         <ul class="unstyled">
-            <li><a href="{{ path('document_show', {'id': document.getId}) }}">{{ document }}</a></li>
+            <li><span class="add-media" data-add="insert_media"><i class="fa fa-caret-left"></i> {{ document }}</span></li>
         </ul>
     {% else %}
 
     {% endfor %}
 </ul>
+<script type="text/javascript">
+    $('.add-media').on('click', function(){
+        var mediaInsert = $(this).data("add");
+        $('textarea').val($('textarea').val()+"__"+mediaInsert+"__");
+    })
+</script>

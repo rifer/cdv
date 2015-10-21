@@ -1,11 +1,9 @@
 {% extends 'AppBundle:Default:layout_admin.html.twig' %}
 {% block admin_content -%}
 
-    <h1>{{'Woman creation'|trans}}</h1>
+    <h4>{{'Woman creation'|trans}}</h4>
     {{ form(form, {'attr': {'class': 'admin-form'}} ) }}
 
 {% endblock %}
 {% block javascripts %}
-    {{ tinymce_init() }}
-    <script src="{{asset('assets/jquery-modal/jquery.modal.min.js')}}"></script>
 {% endblock %} 
