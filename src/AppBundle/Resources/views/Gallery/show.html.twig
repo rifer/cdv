@@ -1,57 +1,60 @@
 {% extends 'AppBundle:Default:layout_admin.html.twig' %}
 
+{% block moreStyles %}
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/dropzone/dist/dropzone.css')}}" />
+{% endblock %}
+{% block moreJavascripts %}
+    <script src="{{asset('assets/dropzone/dist/dropzone.js')}}"></script>
+{% endblock %}
 {% block admin_content -%}
-    <h1>{{'Gallery'|trans}}</h1>
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>{{'Id'|trans}}</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>{{'Objectclass'|trans}}</th>
-                <td>{{ entity.objectClass }}</td>
-            </tr>
-            <tr>
-                <th>{{'Foreignkey'|trans}}</th>
-                <td>{{ entity.foreignKey }}</td>
-            </tr>
-            <tr>
-                <th>{{'Title'|trans}}</th>
-                <td>{{ entity.title }}</td>
-            </tr>
-            <tr>
-                <th>{{'Content'|trans}}</th>
-                <td>{{ entity.content }}</td>
-            </tr>
-            <tr>
-                <th>{{'Created'|trans}}</th>
-                <td>{{ entity.created|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>{{'Updated'|trans}}</th>
-                <td>{{ entity.updated|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>{{'Slug'|trans}}</th>
-                <td>{{ entity.slug }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="eight columns">
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('gallery') }}">
-           {{' Back to the list'|trans}}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('gallery_edit', { 'id': entity.id }) }}">
-            {{'Edit'|trans}}
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-            <li><a href="{{ path('image_new', {'gallery_id': entity.id}) }}">{{ "Añadir Imagen"|trans }}</a> </li>
-</ul>
+        <h4>{{'Gallery'|trans}}: {{entity.title}}</h4>
+        <p><b>{{'Content'|trans}}</b>: {{ entity.content }}</p>
+        <p><b>{{'Created at'|trans}}</b>: {{ entity.created|date('m-d-Y') }}</p>
+        <div id="UploadGallery" class="dropzone">
+          <div class="fallback">
+            <input name="file" type="file" multiple />
+          </div>
+        </div>
+
+<div id="preview-template" style="display: none;">
+    <div class="dz-preview dz-file-preview">
+      <div class="dz-details">
+        <div class="dz-filename"><span data-dz-name></span></div>
+        <div class="dz-size" data-dz-size></div>
+        <img data-dz-thumbnail />
+      </div>
+      <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+      <div class="dz-success-mark"><span>✔</span></div>
+      <div class="dz-error-mark"><span>✘</span></div>
+      <div class="dz-error-message"><span data-dz-errormessage></span></div>   
+      <input type="text" placeholder="Title">
+    </div>
+</div>
+        <script type="text/javascript">
+            Dropzone.options.UploadGallery = { 
+                url: "{{ path('image_new', {'gallery_id': entity.id}) }}",
+                previewTemplate:  document.querySelector('#preview-template').innerHtml
+            };   
+        </script> 
+    </div>
+    <aside class="admin-assets three columns">
+        <ul class="unstyled">
+            <li>
+                <a href="{{ path('gallery') }}">
+                   {{' Back to the list'|trans}}
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('gallery_edit', { 'id': entity.id }) }}">
+                    {{'Edit'|trans}}
+                </a>
+            </li>
+            <li>{{ form(delete_form) }}</li>
+        </ul>      
+    </aside>
+
+
 {% endblock %}

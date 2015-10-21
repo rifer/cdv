@@ -3682,6 +3682,12 @@ footer.main-footer aside img {
 .admin-layout .admin-form label.mce-label {
   margin-top: 0px;
 }
+.admin-layout .admin-form button {
+  margin-top: 20px;
+  background-color: #55386f;
+  color: #ffffff;
+  font-weight: 500;
+}
 .admin-layout .admin-form .tabbable {
   margin: 10px 0 40px;
   display: block;

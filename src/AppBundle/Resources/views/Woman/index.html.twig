@@ -2,7 +2,9 @@
 
 {% block admin_content -%}
     <h1>{{'Woman list'|trans}}</h1>
-
+            <a href="{{ path('woman_new') }}">
+                {{'Create a new entry'|trans}}
+            </a>
     <table class="records_list">
         <thead>
             <tr>
@@ -19,25 +21,12 @@
                 <td>{% if entity.created %}{{ entity.created|date('d-m-Y') }}{% endif %}</td>
                 <td>{{ entity.slug }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('woman_show', { 'id': entity.id }) }}">{{'show'|trans}}</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('woman_edit', { 'id': entity.id }) }}">{{'edit'|trans}}</a>
-                    </li>
-                </ul>
+                    <span><a href="{{ path('woman_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a></span>
+                    <span><a href="{{ path('woman_show', { 'id': entity.id }) }}"><i class="fa fa-eye"></i></a></span>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('woman_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
     {% endblock %}

@@ -191,3 +191,9 @@ liip_imagine:
             filters:
                 relative_resize: { increase: 400 }
                 crop: { start: [0, 50], size: [700, 380] }
+
+#Gallery uploader
+oneup_uploader:
+    mappings:
+        gallery:
+            frontend: dropzone
