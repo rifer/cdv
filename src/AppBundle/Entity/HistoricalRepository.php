@@ -10,4 +10,8 @@ namespace AppBundle\Entity;
  */
 class HistoricalRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function findAll() 
+	{
+	    return $this->findBy(array(), array('date' => 'ASC'));
+	}
 }
