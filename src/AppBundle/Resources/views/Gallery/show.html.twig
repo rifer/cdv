@@ -18,28 +18,6 @@
             <input name="file" type="file" multiple />
           </div>
         </form>
-
-{# <div id="preview-template" style="display: none;">
-    <div class="dz-preview dz-file-preview">
-      <div class="dz-details">
-        <div class="dz-filename"><span data-dz-name></span></div>
-        <div class="dz-size" data-dz-size></div>
-        <img data-dz-thumbnail />
-      </div>
-      <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
-      <div class="dz-success-mark"><span>✔</span></div>
-      <div class="dz-error-mark"><span>✘</span></div>
-      <div class="dz-error-message"><span data-dz-errormessage></span></div>   
-      <input type="text" placeholder="Title">
-    </div>
-</div>
-        <script type="text/javascript">
-            Dropzone.options.UploadGallery = { 
-                url: "{{ path('image_new', {'gallery_id': entity.id}) }}",
-                previewTemplate:  document.querySelector('#preview-template').innerHtml
-            };   
-        </script> 
-    #}
     </div>
     <aside class="admin-assets three columns">
         <ul class="unstyled">
@@ -56,6 +34,28 @@
             <li>{{ form(delete_form) }}</li>
         </ul>      
     </aside>
+{% endblock %}
+{% block javascripts %}
+<script>
+  Dropzone.options.UploadGallery = {
+    init: function() {
+      this.on("addedfile", function(file) {
+        var removeButton = Dropzone.createElement("<i class='fa fa-trash-o'></i>");
+        var addCaption = Dropzone.createElement("<input type='text' name='title' placeholder='Title'></input>");
+        var addDescription = Dropzone.createElement("<input type='text' name='description' placeholder='Description'></input>");
+        var _this = this;
 
+        removeButton.addEventListener("click", function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          _this.removeFile(file);
+        });
 
+        file.previewElement.appendChild(removeButton);
+        file.previewElement.appendChild(addCaption);
+        file.previewElement.appendChild(addDescription);
+      });
+    }
+  };
+</script>
 {% endblock %}
