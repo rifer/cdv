@@ -21,7 +21,7 @@ class TestimonialController extends Controller
         $testimonials = $paginator->paginate(
             $query,
             $request->query->getInt('page', 1)/*page number*/,
-            10/*limit per page*/
+            25/*limit per page*/
         );
 
         $breadcrumbs = $this->get("white_october_breadcrumbs");
