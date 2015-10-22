@@ -4,16 +4,17 @@
     <div class="main container history-index">
         {{ wo_render_breadcrumbs() }}
         <div class="row">
-            <section class="twelve columns">
+            <section class="twelve columns section-intro-wrapper">
                 <h2 class="section-title-intro">{{'Jail\'s history' |trans}}</h2>
                 <p class="section-intro">Fue ideada por Victoria Kent, primera directora general de Prisiones. El proyecto era construir una prisión modelo para mujeres, ya que anteriormente estas eran hacinadas en depósitos de reclusas, que eran llamadas galeras de mujeres. Con la cárcel de Ventas, Kent se propuso dignificar la condición de la mujer reclusa de cara a su reinserción.</p>
             </section>
+            <section class="timeline">
                 {% for entity in entities %}
                     <article class="twelve columns history-card">
                         <div class="date">
-                        <span class="icon-point">
-                            <i class="fa fa-calendar-check-o"></i>
-                        </span>
+                            <span class="icon-point">
+                                <i class="fa fa-calendar-check-o"></i>
+                            </span>
                             <h6>{{ entity.getYear }}</h6>
                             <p>{{ entity.getMonth|trans }}</p>
                             <figure>
@@ -24,8 +25,28 @@
                         <div class="content">
                             <p>{{ entity.content }}</p>
                         </div>
-                    </article>        
+                        <div class="clear"></div> 
+                    </article>
                 {% endfor %}
+            </section>
         </div>
     </div>
+{#    <script type="text/javascript">
+    $(document).ready(function(){
+        $('.history-card').each(function(){
+            if ($('.history-card:nth-child(even) .content').innerHeight() > $('.history-card:nth-child(even) .date').innerHeight()) {
+                $('.content').css('border-left', '5px solid #55386f')
+            }
+            else if ($('.history-card:nth-child(even) .content').innerHeight() < $('.history-card:nth-child(even) .date').innerHeight()) {
+                $('.date').css('border-right', '5px solid #55386f')
+            }
+            else if ($('.history-card:nth-child(odd) .content').innerHeight() > $('.history-card:nth-child(odd) .date').innerHeight()) {
+                $('.content').css('border-right', '5px solid #55386f')
+            }
+            else if ($('.history-card:nth-child(odd) .content').innerHeight() < $('.history-card:nth-child(odd) .date').innerHeight()) {
+                $('.date').css('border-left', '5px solid #55386f')
+            };
+        });
+    });
+    </script> #}
     {% endblock %}

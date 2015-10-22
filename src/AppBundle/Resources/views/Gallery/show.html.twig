@@ -13,13 +13,13 @@
         <h4>{{'Gallery'|trans}}: {{entity.title}}</h4>
         <p><b>{{'Content'|trans}}</b>: {{ entity.content }}</p>
         <p><b>{{'Created at'|trans}}</b>: {{ entity.created|date('m-d-Y') }}</p>
-        <div id="UploadGallery" class="dropzone">
+        <form  id="UploadGallery" class="dropzone" action="{{ oneup_uploader_endpoint('gallery') }}">
           <div class="fallback">
             <input name="file" type="file" multiple />
           </div>
-        </div>
+        </form>
 
-<div id="preview-template" style="display: none;">
+{# <div id="preview-template" style="display: none;">
     <div class="dz-preview dz-file-preview">
       <div class="dz-details">
         <div class="dz-filename"><span data-dz-name></span></div>
@@ -39,6 +39,7 @@
                 previewTemplate:  document.querySelector('#preview-template').innerHtml
             };   
         </script> 
+    #}
     </div>
     <aside class="admin-assets three columns">
         <ul class="unstyled">

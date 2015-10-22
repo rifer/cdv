@@ -9,7 +9,7 @@
  * Released under the MIT license
  * http://jquery.org/license
  *
- * Date: 2015-10-22T11:00Z
+ * Date: 2015-10-22T14:35Z
  */
 
 (function( global, factory ) {

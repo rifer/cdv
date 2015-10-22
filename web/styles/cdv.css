@@ -3363,19 +3363,28 @@ ul.breadcrumb li a {
   margin: 0 auto;
   width: 100%;
 }
+.history-index .timeline:before {
+  content: '';
+  left: 44.4%;
+  margin-left: -2px;
+  position: absolute;
+  top: 165px;
+  height: 90%;
+  width: 5px;
+  background: #55386f;
+}
 .history-index .history-card {
   position: relative;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
-.history-index .history-card:last-child {
-  border-bottom: none;
+.history-index .history-card:first-child {
+  margin-top: 30px;
 }
 .history-index .history-card .date {
   float: left;
   width: 399px;
   text-align: right;
   padding-right: 25px;
-  border-right: 4px solid #55386f;
   padding-bottom: 4em;
 }
 .history-index .history-card .date h6 {
@@ -3424,6 +3433,7 @@ ul.breadcrumb li a {
 }
 .history-index .history-card .content p {
   margin-top: 0;
+  padding-bottom: 20px;
 }
 .history-index .history-card:nth-child(odd) .date {
   float: right;
@@ -3439,8 +3449,6 @@ ul.breadcrumb li a {
 .history-index .history-card:nth-child(odd) .content {
   float: left;
   padding-left: 25px;
-  border-right: 4px solid #55386f;
-  position: absolute;
   height: 100%;
 }
 .history-index .history-card:nth-child(odd) .content p {
@@ -3823,6 +3831,9 @@ footer.main-footer aside img {
 /* Larger than desktop */
 /* Larger than Desktop HD */
 @media (max-width: 1200px) {
+  .history-index .timeline:before {
+    display: none;
+  }
   .history-index .history-card,
   .history-index .history-card:nth-child(odd) {
     border-bottom: none;
