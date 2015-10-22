@@ -8,3 +8,5 @@ scripts:
   	- app/Resources/public/scripts/table_controller.js
   parallax.min.js:
   	- app/Resources/public/scripts/parallax.js
+  admin.js:
+  	- app/Resources/public/scripts/admin.js

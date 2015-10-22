@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "hash": "1579af70329b6ec55b713802e1570695",
+    "content-hash": "ad77b5d23147923899d74605487b999a",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",

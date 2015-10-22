@@ -11,22 +11,5 @@
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('assets/jquery-modal/jquery.modal.min.js') }}"></script>
-
-    <script type="text/javascript">
-		$.modal.defaults = {
-		  overlay: "#000",        
-		  opacity: 0.75,         
-		  zIndex: 1,              
-		  escapeClose: true,      
-		  clickClose: true,       
-		  closeText: 'Close',     
-		  closeClass: '',         
-		  showClose: false,       
-		  modalClass: "modal",    
-		  spinnerHtml: null,      
-		  showSpinner: true,      
-		  fadeDuration: null,     
-		  fadeDelay: 1.0  
-		};
-    </script>
+    <script src="{{ asset('scripts/admin.js')}}"></script>
 {% endblock %} 
