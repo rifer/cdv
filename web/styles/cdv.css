@@ -3417,9 +3417,10 @@ ul.breadcrumb li a {
   border: 5px solid #ffffff;
 }
 .history-index .history-card .content {
-  float: right;
+  float: left;
   width: 399px;
-  padding-top: 100px;
+  padding-top: 110px;
+  padding-left: 25px;
 }
 .history-index .history-card .content p {
   margin-top: 0;
@@ -3427,11 +3428,13 @@ ul.breadcrumb li a {
 .history-index .history-card:nth-child(odd) .date {
   float: right;
   text-align: left;
-  padding-left: 25px;
+  padding-left: 0;
+  position: relative;
+  left: -75px;
   border-right: none;
 }
 .history-index .history-card:nth-child(odd) .date .icon-point {
-  left: -132px;
+  left: -57px;
 }
 .history-index .history-card:nth-child(odd) .content {
   float: left;
@@ -3834,6 +3837,7 @@ footer.main-footer aside img {
     border-right: none;
     padding-left: none;
     padding-bottom: 0;
+    left: 0;
   }
   .history-index .history-card .date .icon-point,
   .history-index .history-card:nth-child(odd) .date .icon-point {
