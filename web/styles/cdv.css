@@ -3363,13 +3363,19 @@ ul.breadcrumb li a {
   margin: 0 auto;
   width: 100%;
 }
+.history-index .history-card {
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+.history-index .history-card:last-child {
+  border-bottom: none;
+}
 .history-index .history-card .date {
   float: left;
-  width: 45.867%;
+  width: 399px;
   text-align: right;
   padding-right: 25px;
   border-right: 4px solid #55386f;
-  padding-left: none;
   padding-bottom: 4em;
 }
 .history-index .history-card .date h6 {
@@ -3405,12 +3411,15 @@ ul.breadcrumb li a {
   text-align: center;
   padding: 6px 9px;
   position: relative;
-  left: 45px;
-  top: 5px;
+  left: 49px;
+  top: -30px;
+  z-index: 1;
+  border: 5px solid #ffffff;
 }
 .history-index .history-card .content {
   float: right;
-  width: 46%;
+  width: 399px;
+  padding-top: 100px;
 }
 .history-index .history-card .content p {
   margin-top: 0;
@@ -3419,15 +3428,17 @@ ul.breadcrumb li a {
   float: right;
   text-align: left;
   padding-left: 25px;
-  border-left: 4px solid #55386f;
   border-right: none;
 }
 .history-index .history-card:nth-child(odd) .date .icon-point {
-  left: -45px;
+  left: -132px;
 }
 .history-index .history-card:nth-child(odd) .content {
   float: left;
-  padding-right: 20px;
+  padding-left: 25px;
+  border-right: 4px solid #55386f;
+  position: absolute;
+  height: 100%;
 }
 .history-index .history-card:nth-child(odd) .content p {
   text-align: right;
@@ -3809,6 +3820,43 @@ footer.main-footer aside img {
 /* Larger than desktop */
 /* Larger than Desktop HD */
 @media (max-width: 1200px) {
+  .history-index .history-card,
+  .history-index .history-card:nth-child(odd) {
+    border-bottom: none;
+  }
+  .history-index .history-card .date,
+  .history-index .history-card:nth-child(odd) .date {
+    float: none;
+    width: 90%;
+    text-align: left;
+    padding-left: 25px;
+    border-left: 4px solid #55386f;
+    border-right: none;
+    padding-left: none;
+    padding-bottom: 0;
+  }
+  .history-index .history-card .date .icon-point,
+  .history-index .history-card:nth-child(odd) .date .icon-point {
+    left: -44px;
+    top: 0;
+    border: none;
+  }
+  .history-index .history-card .content,
+  .history-index .history-card:nth-child(odd) .content {
+    float: none;
+    width: 90%;
+    padding-top: 0;
+    padding-left: 25px;
+    border-left: 4px solid #55386f;
+    border-right: none;
+    position: relative;
+  }
+  .history-index .history-card .content p,
+  .history-index .history-card:nth-child(odd) .content p {
+    text-align: left;
+    margin: 0;
+    padding-bottom: 10px;
+  }
   .admin-layout .admin-menu {
     position: relative;
     width: 100%;
