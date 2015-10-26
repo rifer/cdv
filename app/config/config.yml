@@ -189,8 +189,18 @@ liip_imagine:
         image_header:
             quality: 100
             filters:
+                interlace:
+                    mode: line
+                strip: ~
                 relative_resize: { increase: 400 }
                 crop: { start: [0, 50], size: [700, 380] }
+        image_history:
+            quality: 100
+            filters:
+                interlace:
+                    mode: line
+                strip: ~
+                thumbnail: { allow_upscale: true, size: [332, 332], mode: outbound }
 
 #Gallery uploader
 oneup_uploader:

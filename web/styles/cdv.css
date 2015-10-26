@@ -3401,10 +3401,29 @@ ul.breadcrumb li a {
 }
 .history-index .history-card .date figure {
   margin: 1em 0 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  float: right;
 }
 .history-index .history-card .date figure img {
   max-width: 100%;
-  width: 220px;
+  width: 190px;
+  height: 190px;
+  border-radius: 100px;
+}
+.history-index .history-card .date figure figcaption {
+  font-size: 1.3rem;
+  font-style: italic;
+  max-width: 190px;
+  text-align: center;
+  padding-top: 10px;
 }
 .history-index .history-card .date .icon-point {
   display: inline-block;
@@ -3418,12 +3437,11 @@ ul.breadcrumb li a {
   border-radius: 30px;
   background-clip: padding-box;
   text-align: center;
-  padding: 6px 9px;
+  padding: 6px 8px 6px 10px;
   position: relative;
-  left: 49px;
-  top: -30px;
+  left: 45px;
+  top: -19px;
   z-index: 1;
-  border: 5px solid #ffffff;
 }
 .history-index .history-card .content {
   float: left;
@@ -3444,7 +3462,10 @@ ul.breadcrumb li a {
   border-right: none;
 }
 .history-index .history-card:nth-child(odd) .date .icon-point {
-  left: -57px;
+  left: -51px;
+}
+.history-index .history-card:nth-child(odd) .date figure {
+  float: left;
 }
 .history-index .history-card:nth-child(odd) .content {
   float: left;
@@ -3827,6 +3848,26 @@ footer.main-footer aside img {
   header .main-nav .container a {
     padding: 5px 1px;
   }
+  .main.main-index section.blockquote-index h2,
+  .main.main-index section.figure h2 {
+    font-size: 2.2rem;
+  }
+  .main.main-index section.blockquote-index blockquote,
+  .main.main-index section.figure blockquote {
+    font-size: 1.2rem;
+  }
+  .main.main-index section.blockquote-index p,
+  .main.main-index section.figure p {
+    font-size: 1.2rem;
+  }
+  footer.main-footer {
+    position: relative;
+    height: 100%;
+  }
+  footer.main-footer aside {
+    position: relative;
+    margin-top: 20px;
+  }
 }
 /* Larger than desktop */
 /* Larger than Desktop HD */
@@ -3855,6 +3896,11 @@ footer.main-footer aside img {
     left: -44px;
     top: 0;
     border: none;
+  }
+  .history-index .history-card .date figure,
+  .history-index .history-card:nth-child(odd) .date figure {
+    float: none;
+    padding-bottom: 20px;
   }
   .history-index .history-card .content,
   .history-index .history-card:nth-child(odd) .content {
