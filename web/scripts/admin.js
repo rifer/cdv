@@ -4,16 +4,16 @@
 $('.out-modal ul.nav-tabs li a').on('click', function(){
     $('.out-modal ul.nav-tabs li ').removeClass('active');
     $(this).parent('li').addClass('active');
-    var tabContent = $(this).data('tab');
+    var tabContent = $(this).data('target');
     $('.out-modal .tab-pane').removeClass('active');
-    $(tabContent).addClass('active');
+    $('.out-modal').find(tabContent).addClass('active');
 });
 $('.on-modal ul.nav-tabs li a').on('click', function(){
     $('.on-modal ul.nav-tabs li ').removeClass('active');
     $(this).parent('li').addClass('active');
     var tabContent = $(this).data('target');
     $('.on-modal .tab-pane').removeClass('active');
-    $(tabContent).addClass('active');
+    $('.on-modal').find(tabContent).addClass('active');
 });
 //MENU DROPDOWN
 
