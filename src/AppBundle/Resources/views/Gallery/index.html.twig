@@ -1,21 +1,21 @@
 {% extends 'AppBundle:Default:layout_admin.html.twig' %}
 
 {% block admin_content -%}
-    <h1>{{'Gallery list'|trans}}</h1>
+    <h1>{{ 'Gallery list'|trans }}</h1>
 
     <table class="records_list">
         <thead>
-            <tr>
-                <th>{{'Id'|trans}}</th>
-                <th>{{'Objectclass'|trans}}</th>
-                <th>{{'Foreignkey'|trans}}</th>
-                <th>{{'Title'|trans}}</th>
-                <th>{{'Content'|trans}}</th>
-                <th>{{'Created'|trans}}</th>
-                <th>{{'Updated'|trans}}</th>
-                <th>{{'Slug'|trans}}</th>
-                <th>{{'Actions'|trans}}</th>
-            </tr>
+        <tr>
+            <th>{{ 'Id'|trans }}</th>
+            <th>{{ 'Objectclass'|trans }}</th>
+            <th>{{ 'Foreignkey'|trans }}</th>
+            <th>{{ 'Title'|trans }}</th>
+            <th>{{ 'Content'|trans }}</th>
+            <th>{{ 'Created'|trans }}</th>
+            <th>{{ 'Updated'|trans }}</th>
+            <th>{{ 'Slug'|trans }}</th>
+            <th>{{ 'Actions'|trans }}</th>
+        </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
@@ -29,25 +29,18 @@
                 <td>{% if entity.updated %}{{ entity.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ entity.slug }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('gallery_show', { 'id': entity.id }) }}">{{'show'|trans}}</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('gallery_edit', { 'id': entity.id }) }}">{{'edit'|trans}}</a>
-                    </li>
-                </ul>
+                    <ul>
+                        <li>
+                            <a href="{{ path('gallery_show', { 'id': entity.id }) }}">{{ 'show'|trans }}</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('gallery_edit', { 'id': entity.id }) }}">{{ 'edit'|trans }}</a>
+                        </li>
+                    </ul>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('gallery_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+{% endblock %}

@@ -3,26 +3,29 @@
 {% block admin_content -%}
     <h4>{{'Gallery creation'|trans}}</h4>
 
-    {{ form(form, {'attr': {'class': 'admin-form'}} ) }}
+	{{ form(form, {'attr': {'class': 'admin-form','id':'form_'~object_class~'_'~entity.getClass|lower~'_'~foreign_key}} ) }}
 
 
-{#	    <p>{{'Insert this code wherever you want it be displayed'|trans}} :</p>
-	    <p class="snippet">**insert.gallery.<span id="display"></span>**</p>
+{% endblock %}
+{% block javascripts %}
+	<script type="text/javascript" src="{{ asset('assets/jquery.form.min.js') }}"></script>
+	<script src="{{ asset('scripts/admin.js')}}"></script>
+	<script>
+		// wait for the DOM to be loaded
+		$(document).ready(function () {
+			var options = {
+				success: updateEdition,
+				target: "#edition_aside_medias"
+			}
 
-<script type="text/javascript">
-	$('input[type=text]').keyup(function () {
-		var snippet = $(this).val();
-	  $('#display').text(snippet);
-	});
+			// bind 'myForm' and provide a simple callback function
+			$('#{{ 'form_'~object_class~'_'~entity.getClass|lower~'_'~foreign_key }}').ajaxForm(options);
+		});
 
-	//Esto es una prueba para cuando haya un listado de assets en la columna de la derecha, al pulsar sobre alguno de ellos, que tendrá un (por ejemplo) data-add-media=insert.gallery.id se añadirá al textarea de crear nuevo testimonio
+		function updateEdition() {
+			$('.jquery-modal').hide();
+			$('.modal').hide();
+		}
 
-$("#add").click(function(){
-      $('textarea').val($('textarea').val()+'new content');
-  });
-
-</script>
-#}
-
-
+	</script>
 {% endblock %}
