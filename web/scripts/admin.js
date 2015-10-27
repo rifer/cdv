@@ -39,3 +39,19 @@ $.modal.defaults = {
     fadeDuration: null,
     fadeDelay: 1.0
 };
+
+// DOCUMENT VALIDATION
+
+var file = document.getElementById('appbundle_document_file');
+
+file.onchange = function(e){
+    var ext = this.value.match(/\.([^\.]+)$/)[1];
+    switch(ext)
+    {
+        case 'pdf':
+            break;
+        default:
+            alert('the file must be a .pdf file');
+            this.value='';
+    }
+};
