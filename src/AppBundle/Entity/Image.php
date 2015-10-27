@@ -423,4 +423,9 @@ class Image
     {
         $this->translations->removeElement($translation);
     }
+
+    public function getClass()
+    {
+        return "Image";
+    }
 }
