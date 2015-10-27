@@ -3449,6 +3449,12 @@ ul.breadcrumb li a {
   padding-top: 110px;
   padding-left: 25px;
 }
+.history-index .history-card .content h4 {
+  text-align: left;
+  font-weight: 400;
+  font-size: 2rem;
+  font-weight: 600;
+}
 .history-index .history-card .content p {
   margin-top: 0;
   padding-bottom: 20px;
@@ -3471,6 +3477,10 @@ ul.breadcrumb li a {
   float: left;
   padding-left: 25px;
   height: 100%;
+}
+.history-index .history-card:nth-child(odd) .content h4 {
+  text-align: right;
+  padding-right: 45px;
 }
 .history-index .history-card:nth-child(odd) .content p {
   text-align: right;
@@ -3911,6 +3921,10 @@ footer.main-footer aside img {
     border-left: 4px solid #55386f;
     border-right: none;
     position: relative;
+  }
+  .history-index .history-card .content h4,
+  .history-index .history-card:nth-child(odd) .content h4 {
+    text-align: left;
   }
   .history-index .history-card .content p,
   .history-index .history-card:nth-child(odd) .content p {
