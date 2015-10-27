@@ -18,10 +18,7 @@
                             <h6>{{ entity.getYear }}</h6>
                             <p>{{ entity.getMonth|trans }}</p>
                             <figure>
-                                <img src="{{asset('uploads/historical/images/' ~ entity.image)}}">
-                            {#
-                                <img src="{{asset('uploads/historical/images/' ~ entity.image | imagine_filter('image_history'))}}">
-                            #}
+                                <img src="{{asset(('uploads/historical/images/' ~ entity.image) | imagine_filter('image_history'))}}">
                                 <figcaption>{{entity.caption}}</figcaption>
                             </figure>
                         </div>
