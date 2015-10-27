@@ -3649,10 +3649,13 @@ footer.main-footer aside img {
 .modal.current .admin-layout .admin-form .tabbable {
   width: 100%;
 }
-.modal.current .snippet {
+.modal.current .file-error {
   background: #55386f;
   color: #ffffff;
-  padding: 5px 10px;
+  width: 100%;
+  font-size: .9em;
+  position: absolute;
+  bottom: 20%;
 }
 .admin-layout {
   margin-bottom: 50px;

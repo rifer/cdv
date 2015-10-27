@@ -41,17 +41,15 @@ $.modal.defaults = {
 };
 
 // DOCUMENT VALIDATION
-
-var file = document.getElementById('appbundle_document_file');
-
-file.onchange = function(e){
+$('#appbundle_document_file').on('change', function(){
     var ext = this.value.match(/\.([^\.]+)$/)[1];
     switch(ext)
     {
         case 'pdf':
+            $('.file-error').addClass('hide');
             break;
         default:
-            alert('the file must be a .pdf file');
+            $('.file-error').removeClass('hide');
             this.value='';
     }
-};
+});
