@@ -67,6 +67,17 @@ class HistoricalType extends AbstractType
                                     'required'=>false
                                 ),
                             )
+                        ),
+                        'caption' => array(
+                            'locale_options' => array(            // [3.b]
+                                'es' => array(
+                                    'label' => 'Pie de foto'
+                                ),
+                                'en' => array(
+                                    'label' => 'Caption',
+                                    'required'=>false
+                                ),
+                            )
                         )
                     )
                 )

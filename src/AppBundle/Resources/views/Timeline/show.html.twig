@@ -9,10 +9,7 @@
                     <h3>{{entity.head}}</h3>
                         <p>{{ entity.content }}</p>
                             <figure>
-                                <img src="{{asset('uploads/historical/images/' ~ entity.image)}}">
-                            {#
-                                <img src="{{asset('uploads/historical/images/' ~ entity.image | imagine_filter('image_history'))}}">
-                            #}
+                                <img src="{{asset('uploads/historical/images/' ~ entity.image) | imagine_filter('image_history')}}">
                                 <figcaption>{{entity.caption}}</figcaption>
                             </figure>
                 </article>
