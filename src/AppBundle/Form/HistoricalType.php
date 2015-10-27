@@ -32,7 +32,10 @@ class HistoricalType extends AbstractType
             ->add('translations', 'a2lix_translations_gedmo', array(
                     'translatable_class' => "AppBundle\Entity\Historical",
                     'fields' => array(
-                        'content' => array(
+                        'slug'  => array(
+                            'display' => false
+                        ),
+                        'head' => array(
                             'locale_options' => array(            // [3.b]
                                 'es' => array(
                                     'label' => 'Título'
@@ -42,8 +45,29 @@ class HistoricalType extends AbstractType
                                     'required'=>false
                                 ),
                             )
+                        ),
+                        'intro' => array(
+                            'locale_options' => array(            // [3.b]
+                                'es' => array(
+                                    'label' => 'Resumen'
+                                ),
+                                'en' => array(
+                                    'label' => 'Resume',
+                                    'required'=>false
+                                ),
+                            )
+                        ),
+                        'content' => array(
+                            'locale_options' => array(            // [3.b]
+                                'es' => array(
+                                    'label' => 'Contenido'
+                                ),
+                                'en' => array(
+                                    'label' => 'Content',
+                                    'required'=>false
+                                ),
+                            )
                         )
-
                     )
                 )
             )

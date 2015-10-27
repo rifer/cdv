@@ -44,6 +44,20 @@ class Historical
     /**
      * @Assert\NotBlank
      * @Gedmo\Translatable
+     * @ORM\Column(name="head", type="string", length=255)
+     */
+    private $head;
+
+    /**
+     * @Assert\NotBlank
+     * @Gedmo\Translatable
+     * @ORM\Column(name="intro", type="text")
+     */
+    private $intro;
+
+    /**
+     * @Assert\NotBlank
+     * @Gedmo\Translatable
      * @ORM\Column(name="content", type="text")
      */
     private $content;
@@ -54,6 +68,13 @@ class Historical
      * @ORM\Column(name="image", type="string", length=255)
      */
     private $image;
+
+    /**
+     * @Assert\NotBlank
+     * @Gedmo\Translatable
+     * @ORM\Column(name="caption", type="string", length=255)
+     */
+    private $caption;
 
     /**
      * @Assert\File(maxSize="6000000")
@@ -76,12 +97,21 @@ class Historical
     private $updated;
 
     /**
+     * @var string $slug
+     * @Gedmo\Slug(fields={"head"})
+     * @Gedmo\Translatable
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
+    private $slug;
+
+    /**
      * @ORM\OneToMany(
      *   targetEntity="HistoricalTranslation",
      *   mappedBy="object",
      *   cascade={"persist", "remove"}
      * )
      */
+
     private $translations;
 
     /**
@@ -220,6 +250,53 @@ class Historical
         return $this->id;
     }
 
+    /**
+     * Set head
+     *
+     * @param string $head
+     *
+     * @return Historical
+     */
+    public function setHead($head)
+    {
+        $this->head = $head;
+
+        return $this;
+    }
+
+    /**
+     * Get head
+     *
+     * @return string
+     */
+    public function getHead()
+    {
+        return $this->head;
+    }
+
+    /**
+     * Set intro
+     *
+     * @param string $intro
+     *
+     * @return Historical
+     */
+    public function setIntro($intro)
+    {
+        $this->intro = $intro;
+
+        return $this;
+    }
+
+    /**
+     * Get intro
+     *
+     * @return string
+     */
+    public function getIntro()
+    {
+        return $this->intro;
+    }
 
     /**
      * Set content
@@ -270,6 +347,30 @@ class Historical
     }
 
     /**
+     * Set caption
+     *
+     * @param string $caption
+     *
+     * @return Historical
+     */
+    public function setCaption($caption)
+    {
+        $this->caption = $caption;
+
+        return $this;
+    }
+
+    /**
+     * Get caption
+     *
+     * @return string
+     */
+    public function getCaption()
+    {
+        return $this->caption;
+    }
+
+    /**
      * Set created
      *
      * @param \DateTime $created
@@ -315,6 +416,35 @@ class Historical
     public function getUpdated()
     {
         return $this->updated;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Woman
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    public function __toString()
+    {
+        return $this->head;
     }
 
     /**

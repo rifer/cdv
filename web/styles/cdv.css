@@ -3368,8 +3368,8 @@ ul.breadcrumb li a {
   left: 44.4%;
   margin-left: -2px;
   position: absolute;
-  top: 165px;
-  height: 90%;
+  top: 215px;
+  height: 79%;
   width: 5px;
   background: #55386f;
 }
@@ -3789,6 +3789,10 @@ footer.main-footer aside img {
 }
 .admin-layout .admin-form .tabbable .tab-content .tab-pane.active {
   display: block;
+}
+.admin-layout .img-table {
+  width: 200px;
+  max-width: 100%;
 }
 .admin-layout .admin-assets ul li .add-media {
   cursor: pointer;

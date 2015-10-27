@@ -1,39 +1,48 @@
-{% extends '::base.html.twig' %}
+{% extends 'AppBundle:Default:layout_admin.html.twig' %}
 
-{% block body -%}
-    <div class="main container history-index">
-        {{ wo_render_breadcrumbs() }}
-        <div class="row">
-            <section class="twelve columns section-intro-wrapper">
-                <h2 class="section-title-intro">{{'Jail\'s history' |trans}}</h2>
-                <p class="section-intro">Fue ideada por Victoria Kent, primera directora general de Prisiones. El proyecto era construir una prisión modelo para mujeres, ya que anteriormente estas eran hacinadas en depósitos de reclusas, que eran llamadas galeras de mujeres. Con la cárcel de Ventas, Kent se propuso dignificar la condición de la mujer reclusa de cara a su reinserción.</p>
-            </section>
-            <section class="timeline">
+{% block admin_content -%}
+    <h1>{{ "Historical list"|trans }}</h1>
+<table class="records_list">
+        <thead>
+            <tr>
+                <th>{{'Date'|trans}}</th>
+                <th>{{'Title'|trans}}</th>
+                <th>{{'Resume'|trans}}</th>
+                <th>{{'Content'|trans}}</th>
+                <th>{{'Image'|trans}}</th>
+                <th>{{'Image caption'|trans}}</th>
+                <th>{{'Actions'|trans}}</th>
+            </tr>
+        </thead>
+        <tbody>
                 {% for entity in entities %}
-                    <article class="twelve columns history-card">
-                        <div class="date">
-                            <span class="icon-point">
-                                <i class="fa fa-calendar-check-o"></i>
-                            </span>
-                            <h6>{{ entity.getYear }}</h6>
-                            <p>{{ entity.getMonth|trans }}</p>
-                            <figure>
-                                <img src="{{asset('uploads/historical/images/' ~ entity.image)}}">
-                            {#
-                                <img src="{{asset('uploads/historical/images/' ~ entity.image | imagine_filter('image_history'))}}">
-                            #}
-                                <figcaption>Pié de foto, habría que meter este campo también, no?</figcaption>
-                            </figure>
-                        </div>
-                        <div class="content">
-                            <h4>La prisión modelo</h4>
-                            <p>{{ entity.content }}</p>
-                            <p><a href="{{ path('historical_show', { 'id': entity.id }) }}">{{'Read all'|trans}}</a></p>
-                        </div>
-                        <div class="clear"></div> 
-                    </article>
+                    <tr>
+                        <td>{{entity.getYear}} {{entity.getMonth|trans}}</td>
+                        <td><a href="{{ path('historical_show', { 'id': entity.id }) }}">{{entity.head}}</a></td>
+                        <td>{{entity.intro}}</td>
+                        <td>{{entity.content}}</td>
+                        <td><img class="img-table" src="{{asset('uploads/historical/images/' ~ entity.image)}}"></td>
+                        <td>{{entity.caption}}</td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('historical_show', { 'id': entity.id }) }}">{{'show'|trans}}</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('historical_edit', { 'id': entity.id }) }}">{{'edit'|trans}}</a>
+                                </li>
+                            </ul>                         
+                        </td>
+
+                    </tr>
                 {% endfor %}
-            </section>
-        </div>
-    </div>
+        </tbody>
+    </table>
+            <ul>
+                <li>
+                    <a href="{{ path('historical_new') }}">
+                        Create a new entry
+                    </a>
+                </li>
+            </ul>
     {% endblock %}

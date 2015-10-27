@@ -1,32 +1,48 @@
-{% extends '::base.html.twig' %}
+{% extends 'AppBundle:Default:layout_admin.html.twig' %}
 
-{% block body -%}
-    <h1>Historical</h1>
+{% block admin_content -%}
+    <h1>{{ "Historical show"|trans }}</h1>
 
     <table class="record_properties">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>{{'Id'|trans}}</th>
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Content</th>
+                <th>{{'Date'|trans}}</th>
+                <td>{{entity.getYear}} {{entity.getMonth|trans}}</td>
+            </tr>
+            <tr>
+                <th>{{'Title'|trans}}</th>
+                <td>{{ entity.head }}</td>
+            </tr>
+            <tr>
+                <th>{{'Resume'|trans}}</th>
+                <td>{{ entity.intro }}</td>
+            </tr>
+            <tr>
+                <th>{{'Content'|trans}}</th>
                 <td>{{ entity.content }}</td>
             </tr>
             <tr>
-                <th>Image</th>
-                <td>{{ entity.image }}</td>
+                <th>{{'Image'|trans}}</th>
+                <td><img class="img-table" src="{{asset('uploads/historical/images/' ~ entity.image)}}"></td>
             </tr>
             <tr>
-                <th>Created</th>
+                <th>{{'Caption'|trans}}</th>
+                <td>{{ entity.caption }}</td>
+            </tr>
+            <tr>
+                <th>{{'Created'|trans}}</th>
                 <td>{{ entity.created|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Updated</th>
+                <th>{{'Updated'|trans}}</th>
                 <td>{{ entity.updated|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Modified</th>
+                <th>{{'Modified'|trans}}</th>
                 <td>{{ entity.modified }}</td>
             </tr>
         </tbody>
@@ -35,12 +51,12 @@
         <ul class="record_actions">
     <li>
         <a href="{{ path('historical') }}">
-            Back to the list
+            {{'Back to the list'|trans}}
         </a>
     </li>
     <li>
         <a href="{{ path('historical_edit', { 'id': entity.id }) }}">
-            Edit
+            {{'Edit'|trans}}
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
