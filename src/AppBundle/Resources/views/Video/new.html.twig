@@ -3,7 +3,7 @@
 {% block admin_content -%}
     <h4>{{'Video creation'|trans}}</h4>
 
-	{{ form(form, {'attr': {'class': 'admin-form','id':'form_'~object_class~'_'~entity.getClass|lower~'_'~foreign_key}} ) }}
+	{{ form(form, {'attr': {'class': 'admin-form on-modal','id':'form_'~object_class~'_'~entity.getClass|lower~'_'~foreign_key}} ) }}
     {#
 	    <p>{{'Insert this code wherever you want it be displayed'|trans}} :</p>
 	    <p class="snippet">**insert.video.<span id="display"></span>**</p>

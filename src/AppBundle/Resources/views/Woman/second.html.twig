@@ -3,7 +3,7 @@
 {% block admin_content -%}
 	<div class="eight columns">
 		<h4>{{ entity.name }} {{ entity.surname }}</h4>
-	    {{ form(form, {'attr': {'class': 'admin-form'}} ) }}
+	    {{ form(form, {'attr': {'class': 'admin-form out-modal'}} ) }}
 	</div>
     <aside class="admin-assets three columns">
 		{{ render(controller('AppBundle:Woman:edition',{'id':entity.id})) }}

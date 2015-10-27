@@ -3,7 +3,7 @@
 {% block admin_content -%}
     <h1>{{ "Historical creation"|trans }}</h1>
 
-    {{ form_start(form, {'action': path('historical_create'), 'method': 'post','attr': {'class': 'admin-form'}}) }}
+    {{ form_start(form, {'action': path('historical_create'), 'method': 'post','attr': {'class': 'admin-form out-modal'}}) }}
     {{  form_widget( form.date.day, { 'attr': { 'style': 'display:none' } } )  }}
 
     {{ form_rest(form) }}
