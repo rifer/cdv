@@ -6,7 +6,7 @@
     {{ form(edit_form, {'attr': {'class': 'admin-form'}} ) }}
 	{{ form(delete_form) }}
 	</div>
-    <aside class="admin-assets three columns" id="edition_aside_medias">
+    <aside class="admin-assets three columns">
         {{ render(controller('AppBundle:Woman:edition',{'id':entity.id})) }}
     </aside>
 {% endblock %}

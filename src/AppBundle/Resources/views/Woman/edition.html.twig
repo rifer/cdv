@@ -1,37 +1,70 @@
-<h5>{{'Edition'|trans}}</h5>
-<ul class="unstyled">
-    <li><a href="{{ path('gallery_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open"><i class="fa fa-plus-circle"></i> {{ "Add gallery"|trans }}</a> </li>
-    {% for gallery in galleries %}
-        <ul class="unstyled">
-            <li><span class="add-media" data-add="insert_media_gallery_{{gallery.getId}}"><i class="fa fa-caret-left"></i> {{ gallery }}</span> </li>
-        </ul>
-    {% else %}
+<div id="edition_aside_medias">
+    <h5>{{ 'Edition'|trans }}</h5>
+    <ul class="unstyled">
+        <li><a href="{{ path('gallery_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open"><i
+                        class="fa fa-plus-circle"></i> {{ "Add gallery"|trans }}</a></li>
+        {% for gallery in galleries %}
+            <ul class="unstyled">
+                <li><span class="add-media" data-add="insert_media_gallery_{{ gallery.getId }}"><i
+                                class="fa fa-caret-left"></i> {{ gallery }}</span></li>
+            </ul>
+        {% else %}
 
-    {% endfor %}
-    <li><a href="{{ path('audio_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open"><i class="fa fa-plus-circle"></i> {{ "Añadir audio"|trans }}</a></li>
-    {% for audio in audios %}
-        <ul class="unstyled">
-            <li><span class="add-media" data-add="insert_media_audio_{{audio.getId}}"><i class="fa fa-caret-left"></i> {{ audio }}</span></li>
-        </ul>
-    {% else %}
+        {% endfor %}
+        <li><a href="{{ path('audio_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open"><i
+                        class="fa fa-plus-circle"></i> {{ "Añadir audio"|trans }}</a></li>
+        {% for audio in audios %}
+            <ul class="unstyled">
+                <li><span class="add-media" data-add="insert_media_audio_{{ audio.getId }}"><i
+                                class="fa fa-caret-left"></i> {{ audio }}</span></li>
+            </ul>
+        {% else %}
 
-    {% endfor %}
+        {% endfor %}
 
-    <li><a href="{{ path('video_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open"><i class="fa fa-plus-circle"></i> {{ "Añadir vídeo"|trans }}</a></li>
-    {% for video in videos %}
-        <ul class="unstyled">
-            <li><span class="add-media" data-add="insert_media_video{{video.getId}}"><i class="fa fa-caret-left"></i> {{ video }}</span></li>
-        </ul>
-    {% else %}
+        <li><a href="{{ path('video_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open"><i
+                        class="fa fa-plus-circle"></i> {{ "Añadir vídeo"|trans }}</a></li>
+        {% for video in videos %}
+            <ul class="unstyled">
+                <li><span class="add-media" data-add="insert_media_video{{ video.getId }}"><i
+                                class="fa fa-caret-left"></i> {{ video }}</span></li>
+            </ul>
+        {% else %}
 
-    {% endfor %}
+        {% endfor %}
 
-    <li><a href="{{ path('document_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open"><i class="fa fa-plus-circle"></i> {{ "Añadir documento"|trans }}</a></li>
-    {% for document in documents %}
-        <ul class="unstyled">
-            <li><span class="add-media" data-add="insert_media"><i class="fa fa-caret-left"></i> {{ document }}</span></li>
-        </ul>
-    {% else %}
+        <li><a href="{{ path('document_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open"><i
+                        class="fa fa-plus-circle"></i> {{ "Añadir documento"|trans }}</a></li>
+        {% for document in documents %}
+            <ul class="unstyled">
+                <li><span class="add-media" data-add="insert_media"><i
+                                class="fa fa-caret-left"></i> {{ document }}</span></li>
+            </ul>
+        {% else %}
 
-    {% endfor %}
-</ul>
+        {% endfor %}
+    </ul>
+</div>
+<script>
+
+    $('.add-media').on('click', function(){
+        var mediaInsert = $(this).data("add")
+                , areaEn = $('textarea[id*="en_biography"]')
+                , areaEs = $('textarea[id*="es_biography"]')
+                , cursorPosEs = areaEs.prop('selectionStart')
+                , cursorPosEn = areaEn.prop('selectionStart')
+                , valEs = areaEs.val()
+                , valEn = areaEn.val()
+                , textBeforeEs = valEs.substring(0, cursorPosEs)
+                , textAfterEs = valEs.substring(cursorPosEs, valEs.length)
+                , textBeforeEn = valEn.substring(0, cursorPosEn)
+                , textAfterEn = valEn.substring(cursorPosEn, valEn.length);
+
+        if ($('.a2lix_translationsFields-en').hasClass('active')){
+            areaEn.val(textBeforeEn+"[["+mediaInsert+"]]"+textAfterEn);
+        }
+        else if ($('.a2lix_translationsFields-es').hasClass('active')) {
+            areaEs.val(textBeforeEs+"[["+mediaInsert+"]]"+textAfterEs);
+        }
+    });
+</script>

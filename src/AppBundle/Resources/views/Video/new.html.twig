@@ -3,7 +3,7 @@
 {% block admin_content -%}
     <h4>{{'Video creation'|trans}}</h4>
 
-    {{ form(form, {'attr': {'class': 'admin-form'}} ) }}
+	{{ form(form, {'attr': {'class': 'admin-form','id':'form_'~object_class~'_'~entity.getClass|lower~'_'~foreign_key}} ) }}
     {#
 	    <p>{{'Insert this code wherever you want it be displayed'|trans}} :</p>
 	    <p class="snippet">**insert.video.<span id="display"></span>**</p>
@@ -15,4 +15,26 @@
 	});
 </script>
 #}
+{% endblock %}
+{% block javascripts %}
+	<script type="text/javascript" src="{{ asset('assets/jquery.form.min.js') }}"></script>
+	<script src="{{ asset('scripts/admin.js')}}"></script>
+	<script>
+		// wait for the DOM to be loaded
+		$(document).ready(function () {
+			var options = {
+				success: updateEdition,
+				target: "#edition_aside_medias"
+			}
+
+			// bind 'myForm' and provide a simple callback function
+			$('#{{ 'form_'~object_class~'_'~entity.getClass|lower~'_'~foreign_key }}').ajaxForm(options);
+		});
+
+		function updateEdition() {
+			$('.jquery-modal').hide();
+			$('.modal').hide();
+		}
+
+	</script>
 {% endblock %}

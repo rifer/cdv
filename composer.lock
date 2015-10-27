@@ -5,7 +5,6 @@
         "This file is @generated automatically"
     ],
     "hash": "1579af70329b6ec55b713802e1570695",
-    "content-hash": "ad77b5d23147923899d74605487b999a",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -944,12 +943,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "8bf241d036a6888895bfb97f7bc278ddf20a2524"
+                "reference": "e899830607a4e13d73f9cee4cb91bd55fec648d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/8bf241d036a6888895bfb97f7bc278ddf20a2524",
-                "reference": "8bf241d036a6888895bfb97f7bc278ddf20a2524",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/e899830607a4e13d73f9cee4cb91bd55fec648d6",
+                "reference": "e899830607a4e13d73f9cee4cb91bd55fec648d6",
                 "shasum": ""
             },
             "require": {
@@ -1015,7 +1014,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2015-10-21 16:29:25"
+            "time": "2015-10-23 06:34:45"
         },
         {
             "name": "imagine/imagine",

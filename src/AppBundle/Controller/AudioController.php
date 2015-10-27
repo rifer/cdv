@@ -47,7 +47,11 @@ class AudioController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('woman_edition',array('id'=>$foreign_key)));
+            if ($this->get('request')->isXmlHttpRequest())
+            {
+                return $this->redirect($this->generateUrl('woman_edition',array('id'=>$foreign_key)));
+            }
+            return $this->redirect($this->generateUrl($entity->getObjectClass().'_show', array('id' => $entity->getForeignKey())));
 
         }
 

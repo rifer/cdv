@@ -368,4 +368,9 @@ class Gallery
     {
         return $this->getTitle();
     }
+
+    public function getClass()
+    {
+        return "Gallery";
+    }
 }

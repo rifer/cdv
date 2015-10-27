@@ -326,4 +326,9 @@ class Video
     {
         $this->translations->removeElement($translation);
     }
+
+    public function getClass()
+    {
+        return "Video";
+    }
 }

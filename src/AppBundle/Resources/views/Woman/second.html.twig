@@ -5,7 +5,7 @@
 		<h4>{{ entity.name }} {{ entity.surname }}</h4>
 	    {{ form(form, {'attr': {'class': 'admin-form'}} ) }}
 	</div>
-    <aside class="admin-assets three columns" id="edition_aside_medias">
+    <aside class="admin-assets three columns">
 		{{ render(controller('AppBundle:Woman:edition',{'id':entity.id})) }}
     </aside>
 {% endblock %}

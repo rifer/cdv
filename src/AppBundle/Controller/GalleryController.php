@@ -46,7 +46,11 @@ class GalleryController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('gallery_show', array('id' => $entity->getId())));
+            if ($this->get('request')->isXmlHttpRequest())
+            {
+                return $this->redirect($this->generateUrl('woman_edition',array('id'=>$foreign_key)));
+            }
+            return $this->redirect($this->generateUrl($entity->getObjectClass().'_show', array('id' => $entity->getForeignKey())));
         }
 
         return $this->render('AppBundle:Gallery:new.html.twig', array(
@@ -85,6 +89,8 @@ class GalleryController extends Controller
 
         return $this->render('AppBundle:Gallery:new.html.twig', array(
             'entity' => $entity,
+            'foreign_key'=> $foreign_key,
+            'object_class'=>$object_class,
             'form'   => $form->createView(),
         ));
     }

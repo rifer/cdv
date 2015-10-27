@@ -44,7 +44,7 @@ class Document
 
     /**
      * @var string $name
-     *
+     * @Gedmo\Translatable
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
@@ -57,8 +57,7 @@ class Document
     private $content;
 
     /**
-     * @var string $document
-     * @Gedmo\Translatable
+     * @var string $document     *
      * @ORM\Column(name="document", type="string", length=255)
      */
     private $document;
@@ -463,5 +462,10 @@ class Document
     public function removeTranslation(\AppBundle\Entity\VideoTranslation $translation)
     {
         $this->translations->removeElement($translation);
+    }
+
+    public function getClass()
+    {
+        return "Document";
     }
 }

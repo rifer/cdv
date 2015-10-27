@@ -48,6 +48,10 @@ class VideoController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            if ($this->get('request')->isXmlHttpRequest())
+            {
+                return $this->redirect($this->generateUrl('woman_edition',array('id'=>$foreign_key)));
+            }
             return $this->redirect($this->generateUrl($entity->getObjectClass().'_show', array('id' => $entity->getForeignKey())));
         }
 
@@ -87,6 +91,8 @@ class VideoController extends Controller
 
         return $this->render('AppBundle:Video:new.html.twig', array(
             'entity' => $entity,
+            'foreign_key'=> $foreign_key,
+            'object_class'=>$object_class,
             'form' => $form->createView(),
         ));
     }
