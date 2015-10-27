@@ -10,3 +10,5 @@ scripts:
   	- app/Resources/public/scripts/parallax.js
   admin.js:
   	- app/Resources/public/scripts/admin.js
+  media_snippet.js:
+    - app/Resources/public/scripts/media_snippet.js

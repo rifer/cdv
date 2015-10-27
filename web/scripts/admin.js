@@ -1,10 +1,11 @@
+'use strict';
 //TABS TEXTAREA
 
 $('.out-modal ul.nav-tabs li a').on('click', function(){
-    $('ul.nav-tabs li ').removeClass('active');
+    $('.out-modal ul.nav-tabs li ').removeClass('active');
     $(this).parent('li').addClass('active');
-    var tabContent = $(this).data('target');
-    $('.tab-pane').removeClass('active');
+    var tabContent = $(this).data('tab');
+    $('.out-modal .tab-pane').removeClass('active');
     $(tabContent).addClass('active');
 });
 $('.on-modal ul.nav-tabs li a').on('click', function(){
@@ -24,7 +25,7 @@ $('.wrapper-dropdown').on('click', function(event){
 //MODAL SETUP
 
 $.modal.defaults = {
-    overlay: "#000",
+    overlay: '#000',
     opacity: 0.75,
     zIndex: 1,
     escapeClose: true,
@@ -32,7 +33,7 @@ $.modal.defaults = {
     closeText: 'Close',
     closeClass: '',
     showClose: false,
-    modalClass: "modal",
+    modalClass: 'modal',
     spinnerHtml: null,
     showSpinner: true,
     fadeDuration: null,
