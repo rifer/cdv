@@ -165,6 +165,13 @@ services:
         class: Twig_Extensions_Extension_Text
         tags:
                 - { name: twig.extension }
+    app.twig_extension:
+            class: AppBundle\Twig\Extension\AppExtension
+            public: false
+            arguments:
+                doctrine: "@doctrine"
+            tags:
+                - { name: twig.extension }
 
 # app/config/config.yml
 liip_imagine:

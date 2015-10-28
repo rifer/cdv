@@ -232,4 +232,20 @@ class AudioController extends Controller
             ->getForm()
         ;
     }
+
+    public function show_snippetAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('AppBundle:Audio')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Audio entity.');
+        }
+
+        return $this->render('AppBundle:Audio:show_snippet.html.twig', array(
+            'entity'      => $entity,
+
+        ));
+    }
 }
