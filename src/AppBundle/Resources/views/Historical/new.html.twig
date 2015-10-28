@@ -19,6 +19,7 @@
 </ul>
 {% endblock %}
 {% block javascripts %}
+    {{ tinymce_init() }}
     <script src="{{ asset('assets/jquery-modal/jquery.modal.min.js') }}"></script>
     <script src="{{ asset('scripts/admin.js')}}"></script>
 {% endblock %} 

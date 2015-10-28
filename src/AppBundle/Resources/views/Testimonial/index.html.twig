@@ -14,7 +14,7 @@
                     <div class="row">
                 {% endif %}
                         <article class="three columns card-box">
-                            <img src="{{asset('uploads/woman/images/' ~ testimonial.image)}}">
+                            <img src="{{asset('uploads/woman/images/' ~ testimonial.image) | imagine_filter('image_testim_index')}}">
                             <h3><a href="{{ path('app_testimonial_show', {'slug': testimonial.slug}) }}">{{ testimonial }}</a></h3>
                             <p>
                                 {{testimonial.biography|truncate(90)|raw}}

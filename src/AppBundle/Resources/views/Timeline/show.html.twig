@@ -4,14 +4,17 @@
     <div class="main container">
             {{ wo_render_breadcrumbs() }}
         <div class="row">
-            <main class="nine columns">
+            <main class="history-show">
                 <article>
-                    <h3>{{entity.head}}</h3>
-                        <p>{{ entity.content }}</p>
-                            <figure>
-                                <img src="{{asset('uploads/historical/images/' ~ entity.image) | imagine_filter('image_history')}}">
-                                <figcaption>{{entity.caption}}</figcaption>
-                            </figure>
+                    <h3>{{entity.head}}<span>({{entity.getMonth}}, {{entity.getYear}})</span></h3>
+                        <figure class="four columns main-history-figure">
+                            <img src="{{asset('uploads/historical/images/' ~ entity.image) | imagine_filter('image_history')}}">
+                            <figcaption>{{entity.caption}}</figcaption>
+                        </figure>
+                        <p class="eight columns main-history-intro">{{ entity.intro }}</p>
+                        <div class="twelve columns main-history-content">
+                            {{entity.content|raw}}
+                        </div>
                 </article>
             </main>
         </div>
