@@ -1,4 +1,10 @@
 {% extends 'base.html.twig' %}
+{% block moreStyles %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/angular-tooltips/dist/angular-tooltips.min.css')}}">
+    <style type="text/css">
+
+    </style>
+{% endblock %}
 {% block moreJavascripts %}
     <script type="text/javascript" src="{{ asset('assets/underscore/underscore-min.js')}}"></script>
     <script type="text/javascript" src="{{ asset('assets/angular/angular.min.js')}}"></script>
@@ -23,47 +29,39 @@
                     <th class="name">
                     	<a href="" ng-click="columnToOrder='name';reverse=!reverse">Nombre <i class="fa fa-sort"></i></a>
                     </th>
-                    <th class="old"> 
-                    	<a href="" ng-click="columnToOrder='old';reverse=!reverse"> Edad <i class="fa fa-sort"></i></a>
+                    <th class="years"> 
+                    	<a href="" ng-click="columnToOrder='years';reverse=!reverse"> Edad <i class="fa fa-sort"></i></a>
                     </th>
-                    <th class="data"> 
-                    	<a href="" ng-click="columnToOrder='data';reverse=!reverse"> Fecha muerte <i class="fa fa-sort"></i></a>
+                    <th class="date"> 
+                    	<a href="" ng-click="columnToOrder='date';reverse=!reverse"> Fecha ingreso <i class="fa fa-sort"></i></a>
                     </th>
-                    <th class="kind"> 
-                    	<a href="" ng-click="columnToOrder='kind';reverse=!reverse"> Forma muerte <i class="fa fa-sort"></i></a>
+                    <th class="death"> 
+                        <a href="" ng-click="columnToOrder='death';reverse=!reverse"> Fecha muerte <i class="fa fa-sort"></i></a>
+                    </th>
+                    <th class="deathtype"> 
+                    	<a href="" ng-click="columnToOrder='deathtype';reverse=!reverse"> Forma muerte <i class="fa fa-sort"></i></a>
+                    </th>
+                    <th class="files"> 
+                        <a href="" ng-click="columnToOrder='files';reverse=!reverse"> Legajos <i class="fa fa-sort"></i></a>
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="item in filteredList | orderBy:columnToOrder:reverse">
-                	<td>{{ '{{item.name}}' }}</td>
-                	<td>{{ '{{item.old}}' }}</td>
-                	<td>{{ '{{item.data}}' }}</td>
-                	<td>{{ '{{item.kind}}' }}</td>
+                	<td ng-if="item.notes">{{ '{{item.name}}' }} <a href=""tooltips tooltip-show-trigger="ng-click click" tooltip-content="{{ '{{item.notes}}' }}" style="z-index:10;position: relative;"><i class="fa fa-exclamation-circle"></i></a></td>
+                    <td ng-if="!item.notes">{{ '{{item.name}}' }}</td>
+                	<td>{{ '{{item.years}}' }}</td>
+                	<td>{{ '{{item.date}}' }}</td>
+                    <td>{{ '{{item.death}}' }}</td>
+                	<td>{{ '{{item.deathtype}}' }}</td>
+                    <td>{{ '{{item.files}}' }}</td>
                 </tr>
             </tbody>
         </table>
-{# 	    <div class="row">
-            <div class="three columns">
-                <input type="text" ng-model="newName" class="form-control" placeholder="Nombre">
-            </div>
-            <div class="three columns">
-                <input type="number" ng-model="newOld" class="form-control" placeholder="Edad">
-            </div>
-            <div class="two columns">
-                <input type="date" ng-model="newData" class="form-control" placeholder="Fecha">
-            </div>
-            <div class="three columns">
-                <input type="text" ng-model="newKind" class="form-control" placeholder="Muerte">
-            </div>
-            <div class="one columns">
-                <button ng-click="add()" type="button" class="button-primary"><i class="fa fa-plus-circle"></i>
-                </button>
-            </div>
-        </div> #}
     </div>
 </div>
 {% endblock %}
 {% block javascripts %}
     <script type="text/javascript" src="{{ asset('scripts/table_controller.min.js')}}"></script>
+    <script src="{{ asset('assets/angular-tooltips/dist/angular-tooltips.min.js')}}"></script>
 {% endblock %}

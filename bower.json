@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "dependencies": {
     "waypoints": "~4.0.0",
-    "lightgallery": "~1.2.4"
+    "lightgallery": "~1.2.4",
+    "angular-tooltips": "~0.1.25"
   },
   "devDependencies": {}
 }
