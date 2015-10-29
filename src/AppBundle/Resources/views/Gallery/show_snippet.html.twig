@@ -1,0 +1,52 @@
+<p class="caption">
+    <i class="fa fa-picture-o"></i> {{gallery.title}}
+</p>
+{% for entity in gallery %}
+    {% for caption in entity.captions %}
+        <div class="caption{{caption.id}}" style="display:none">
+            <h4>{{caption.title}}</h4>
+            <p>{{caption.description}}</p>
+        </div>
+    {% endfor %}
+    <div class="gallery">
+        {% for image in gallery.images %}
+            <a href="{{ asset('images/' ~ image ) }}" data-sub-html=".caption{{image.caption.id}}">
+                <img class="thumbnail" src="{{ asset('images/' ~ image ) }}"/>
+            </a>
+        {% endfor %}
+    </div>
+{% endfor %}
+
+{#
+                    <div class="caption2" style="display:none">
+                        <h4>Bowness Bay</h4>
+
+                        <p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm
+                            extremely happy I was passing the right place at the right time....</p>
+                    </div>
+                    <div class="caption3" style="display:none">
+                        <h4>Sunset Serenity</h4>
+
+                        <p>A gorgeous Sunset tonight captured at Coniston Water....</p>
+                    </div>
+                    <div class="gallery">
+                        <a href="{{ asset('images/sr1.jpg') }}" data-sub-html=".caption3">
+                            <img class="thumbnail" src="{{ asset('images/sr1.jpg') }}"/>
+                        </a>
+                        <a href="{{ asset('images/sr2.jpg') }}" data-sub-html=".caption2">
+                            <img class="thumbnail" src="{{ asset('images/sr2.jpg') }}"/>
+                        </a>
+                        <a href="{{ asset('images/sr3.jpg') }}">
+                            <img class="thumbnail" src="{{ asset('images/sr3.jpg') }}"/>
+                        </a>
+                        <a href="{{ asset('images/sr4.jpg') }}">
+                            <img class="thumbnail" src="{{ asset('images/sr4.jpg') }}"/>
+                        </a>
+                        <a href="{{ asset('images/sr5.jpg') }}">
+                            <img class="thumbnail" src="{{ asset('images/sr5.jpg') }}"/>
+                        </a>
+                        <a href="{{ asset('images/sr6.jpg') }}">
+                            <img class="thumbnail" src="{{ asset('images/sr6.jpg') }}"/>
+                        </a>
+                    </div>
+#}
