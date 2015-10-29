@@ -44,7 +44,7 @@
         {% for document in documents %}
             <ul class="unstyled">
                 <li>
-                    <span class="add-media" data-add="insert_media_document_{{ document.getId }}"><i class="fa fa-caret-left"></i> {{ document }}</span>
+                    <span class="add-media" data-add="insert_media_document_{{ document.getId }}"> {{'Added document:'|trans}} {{ document }}</span>
                 </li>
             </ul>
         {% else %}

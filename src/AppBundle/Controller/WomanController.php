@@ -243,7 +243,7 @@ class WomanController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('woman_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('woman_show', array('id' => $id)));
         }
 
         return $this->render('AppBundle:Woman:edit.html.twig', array(
