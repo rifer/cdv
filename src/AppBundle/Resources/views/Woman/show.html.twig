@@ -1,41 +1,53 @@
 {% extends 'AppBundle:Default:layout_admin.html.twig' %}
 
 {% block admin_content -%}
-    <h1>{{'Woman'|trans}}</h1>
+    <h1>{{ 'Woman'|trans }}</h1>
 
-     <main class="eight columns">
+    <main class="eight columns">
         <article>
-            <header class="top-article" style="background-image: url('{{asset('uploads/woman/images/' ~ entity.image | imagine_filter('image_header'))}}');">
+            <header class="top-article"
+                    style="background-image: url('{{ asset('uploads/woman/images/' ~ entity.image | imagine_filter('image_header')) }}');">
                 <h2>{{ entity.name }} {{ entity.surname }}</h2>
             </header>
-                <p class="intro">{{ entity.biography|raw }}</p>
+            {% set snippets= insert_snippets(entity,entity.biography|raw) %}
+            {% for snippet in snippets %}
+                {% if snippet is not iterable %}
+                    {{ snippet }}
+                {% else %}
+                    <div class="clearfix"></div>
+                    {{ render(controller('AppBundle:'~snippet[0]|capitalize~':show_snippet',{'id':snippet[1]})) }}
+                    <div class="clearfix"></div>
+                {% endif %}
+            {% endfor %}
             <footer>
                 <p>
-                    {{'Created'|trans}}: <b>{{ entity.created|date('m-d-Y') }}</b> || {{'Updated'|trans}}: <b>{{ entity.updated|date('m-d-Y') }}</b>
+                    {{ 'Created'|trans }}: <b>{{ entity.created|date('m-d-Y') }}</b> || {{ 'Updated'|trans }}:
+                    <b>{{ entity.updated|date('m-d-Y') }}</b>
                 </p>
+
                 <p>
-                    {{'Friendly URL'}}: <b>{{ entity.slug }}</b>
+                    {{ 'Friendly URL' }}: <b>{{ entity.slug }}</b>
                 </p>
 
             </footer>
         </article>
-        </main>
-        <aside class="admin-assets three columns">
+    </main>
+    <aside class="admin-assets three columns">
 
-            <h5>{{'Actions'|trans}}</h5>
-            <ul class="unstyled">
-                <li>
-                    <a href="{{ path('woman') }}">
-                        {{'Back to the list'|trans}}
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ path('woman_edit', { 'id': entity.id }) }}">
-                        {{'Edit'|trans}}
-                    </a>
-                </li>
-                <li>{{ form(delete_form) }}</li>
-            </ul>
-        </aside>
+        <h5>{{ 'Actions'|trans }}</h5>
+        <ul class="unstyled">
+            <li>
+                <a href="{{ path('woman') }}">
+                    {{ 'Back to the list'|trans }}
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('woman_edit', { 'id': entity.id }) }}">
+                    {{ 'Edit'|trans }}
+                </a>
+            </li>
+            <li>{{ form(delete_form) }}</li>
+        </ul>
+    </aside>
 
 {% endblock %}

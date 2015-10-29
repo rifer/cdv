@@ -238,4 +238,21 @@ class VideoController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm();
     }
+
+
+    public function show_snippetAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('AppBundle:Audio')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Audio entity.');
+        }
+
+        return $this->render('AppBundle:Video:show_snippet.html.twig', array(
+            'entity'      => $entity,
+
+        ));
+    }
 }

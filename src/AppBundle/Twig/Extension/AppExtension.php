@@ -50,10 +50,34 @@ class AppExtension extends \Twig_Extension
         );
     }
 
-    public function insertSnippets($biography)
+    public function insertSnippets($object, $field)
     {
-    
+        preg_match_all('/\[\[insert_media_\w*\]\]/', $field, $abstract);
+        $array_medias=$abstract[0];
+
+        foreach ($array_medias as $media)
+        {
+            $media=str_ireplace("[[insert_media_","",$media);
+            $media=str_ireplace("]]","",$media);
+            $media_type[]=preg_split('/_/',$media);
+        }
+
+
+        $text = preg_split('/\[\[insert_media_\w*\]\]/', $field);
+
+        $result = array();
+        for ($i = 0; $i < count($text);  $i++)
+        {
+            $result[]=$text[$i];
+            if ($i<count($media_type))
+            {
+                $result[]=$media_type[$i];
+            }
+        }
+
+        return $result;
     }
+
 
     public function hasImage($media)
     {
