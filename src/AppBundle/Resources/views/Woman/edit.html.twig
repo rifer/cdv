@@ -3,7 +3,7 @@
 {% block admin_content -%}
      <div class="eight columns">
      <h1>{{'Woman edit'|trans}}</h1>
-    {{ form(edit_form, {'attr': {'class': 'admin-form out-modal'}} ) }}
+    {{ form(edit_form, {'attr': {'class': 'admin-form out-modal', 'data-place' : 'out-modal'}} ) }}
 	{{ form(delete_form) }}
 	</div>
     <aside class="admin-assets three columns">

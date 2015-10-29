@@ -3649,6 +3649,9 @@ footer.main-footer aside img {
   max-height: 500px;
   overflow-y: auto;
 }
+.modal.current .close-modal {
+  display: none;
+}
 .modal.current .admin-layout {
   margin-bottom: 0px;
 }

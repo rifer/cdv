@@ -3,7 +3,7 @@
 {% block admin_content -%}
     <h4>{{'Document creation'|trans}}</h4>
 
-    {{ form(form, {'attr': {'class': 'admin-form on-modal','id':'form_'~object_class~'_'~entity.getClass|lower~'_'~foreign_key}} ) }}
+    {{ form(form, {'attr': {'class': 'admin-form on-modal', 'data-place' : 'on-modal', 'id':'form_'~object_class~'_'~entity.getClass|lower~'_'~foreign_key}} ) }}
     <div class="file-error hide">Debes usar pdfs</div>
 {% endblock %}
 {% block javascripts %}

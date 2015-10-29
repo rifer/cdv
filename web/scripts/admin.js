@@ -1,44 +1,21 @@
 'use strict';
 //TABS TEXTAREA
 
-$('.out-modal ul.nav-tabs li a').on('click', function(){
-    $('.out-modal ul.nav-tabs li ').removeClass('active');
+$('ul.nav-tabs li a').on('click', function(){
+    var place = $(this).parents('.admin-form').data('place');
+    $('.'+place+' ul.nav-tabs li ').removeClass('active');
     $(this).parent('li').addClass('active');
     var tabContent = $(this).data('target');
-    $('.out-modal .tab-pane').removeClass('active');
-    $('.out-modal').find(tabContent).addClass('active');
+    $('.'+place+' .tab-pane').removeClass('active');
+    $('.'+place).find(tabContent).addClass('active');
 });
-$('.on-modal ul.nav-tabs li a').on('click', function(){
-    $('.on-modal ul.nav-tabs li ').removeClass('active');
-    $(this).parent('li').addClass('active');
-    var tabContent = $(this).data('target');
-    $('.on-modal .tab-pane').removeClass('active');
-    $('.on-modal').find(tabContent).addClass('active');
-});
+
 //MENU DROPDOWN
 
 $('.wrapper-dropdown').on('click', function(event){
     $(this).toggleClass('active');
     event.stopPropagation();
 }); 
-
-//MODAL SETUP
-
-$.modal.defaults = {
-    overlay: '#000',
-    opacity: 0.75,
-    zIndex: 1,
-    escapeClose: true,
-    clickClose: true,
-    closeText: 'Close',
-    closeClass: '',
-    showClose: false,
-    modalClass: 'modal',
-    spinnerHtml: null,
-    showSpinner: true,
-    fadeDuration: null,
-    fadeDelay: 1.0
-};
 
 // DOCUMENT VALIDATION
 $('#appbundle_document_file').on('change', function(){
