@@ -58,11 +58,12 @@ class Video
 
 
     /**
-     * @var string $html_content
+     * @var string $video_id
      * @Assert\NotBlank
-     * @ORM\Column(name="html_content", type="text")
+     * @Assert\Length(max="255", min="5")
+     * @ORM\Column(name="video_id", type="string", length=255)
      */
-    private $html_content;
+    private $video_id;
 
     /**
      * @var dateTime $created
@@ -218,13 +219,13 @@ class Video
     /**
      * Set htmlContent
      *
-     * @param string $htmlContent
+     * @param string $videoId
      *
      * @return Video
      */
-    public function setHtmlContent($htmlContent)
+    public function setvideoId($videoId)
     {
-        $this->html_content = $htmlContent;
+        $this->video_id = $video_id;
 
         return $this;
     }
@@ -234,9 +235,9 @@ class Video
      *
      * @return string
      */
-    public function getHtmlContent()
+    public function getvideoId()
     {
-        return $this->html_content;
+        return $this->video_id;
     }
 
     /**

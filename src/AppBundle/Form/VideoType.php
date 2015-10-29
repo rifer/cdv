@@ -36,7 +36,7 @@ class VideoType extends AbstractType
                     )
                 )
             )
-            ->add('html_content')
+            ->add('video_id', 'text', array('label' => 'Youtube video ID'))
 
         ;
     }

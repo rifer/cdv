@@ -12,24 +12,19 @@
                     <header class="top-article" style="background-image: url('{{asset("uploads/woman/images/" ~ testimonial.image) | imagine_filter('image_testim_show')}}');">
                         <h2>{{testimonial.name}} {{testimonial.surname}}</h2>
                     </header>
-                    <p class="intro">{{testimonial.biography|raw}}</p>
-
-                    <p class="caption"><i class="fa fa-file-audio-o"></i> Primera entrevista a Sole</p>
-
-                    <div class="player">
-                        <audio controls>
-                            <!-- Audio files -->
-                            <source src="{{ asset('audio/01sreal.mp3') }}" type="audio/mp3">
-                            <a href="{{ asset('audio/01sreal.mp3') }}">{{'Download'|trans}}</a>
-                        </audio>
-                    </div>
-
-                    <p class="caption"><i class="fa fa-file-video-o"></i>
-                        Primer video de Sole</p>
-
-                    <div class="player">
-                        <div data-video-id="L1h9xxCU20g" data-type="youtube"></div>
-                    </div>
+                {#    <p class="intro">{{testimonial.biography|raw}}</p> #}
+            <p class="intro">
+                {% autoescape false %}
+                    {% set snippets= insert_snippets(testimonial,testimonial.biography|raw) %}
+                        {% for snippet in snippets %}
+                            {% if snippet is not iterable %}
+                                {{ snippet }}
+                            {% else %}
+                                {{ render(controller('AppBundle:'~snippet[0]|capitalize~':show_snippet',{'id':snippet[1]})) }}
+                            {% endif %}
+                        {% endfor %}
+                {% endautoescape %}            
+                </p>
                     <p class="caption"><i class="fa fa-picture-o"></i> Primera galería de Sole</p>
 
                     <div class="caption2" style="display:none">

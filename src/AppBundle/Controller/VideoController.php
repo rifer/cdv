@@ -244,10 +244,10 @@ class VideoController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AppBundle:Audio')->find($id);
+        $entity = $em->getRepository('AppBundle:Video')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Audio entity.');
+            throw $this->createNotFoundException('Unable to find Video entity.');
         }
 
         return $this->render('AppBundle:Video:show_snippet.html.twig', array(

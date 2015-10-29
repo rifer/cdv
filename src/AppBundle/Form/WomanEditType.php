@@ -29,6 +29,10 @@ class WomanEditType extends AbstractType
                             'display' => false
                         ),
                         'biography' => array(
+                            'attr'=>array(
+                                'class'=>'tinymce',
+                                'data-theme' => 'custom'
+                            ),
                             'locale_options' => array(            // [3.b]
                                 'es' => array(
                                     'label' => 'Biografía'

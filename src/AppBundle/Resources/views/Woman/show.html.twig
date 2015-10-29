@@ -6,19 +6,21 @@
     <main class="eight columns">
         <article>
             <header class="top-article"
-                    style="background-image: url('{{ asset('uploads/woman/images/' ~ entity.image | imagine_filter('image_header')) }}');">
+                    style="background-image: url('{{asset("uploads/woman/images/" ~ entity.image) | imagine_filter('image_testim_show')}}');">
                 <h2>{{ entity.name }} {{ entity.surname }}</h2>
             </header>
-            {% set snippets= insert_snippets(entity,entity.biography|raw) %}
-            {% for snippet in snippets %}
-                {% if snippet is not iterable %}
-                    {{ snippet }}
-                {% else %}
-                    <div class="clearfix"></div>
-                    {{ render(controller('AppBundle:'~snippet[0]|capitalize~':show_snippet',{'id':snippet[1]})) }}
-                    <div class="clearfix"></div>
-                {% endif %}
-            {% endfor %}
+            <p class="intro">
+                {% autoescape false %}
+                {% set snippets= insert_snippets(entity,entity.biography|raw) %}
+                {% for snippet in snippets %}
+                    {% if snippet is not iterable %}
+                        {{ snippet }}
+                    {% else %}
+                        {{ render(controller('AppBundle:'~snippet[0]|capitalize~':show_snippet',{'id':snippet[1]})) }}
+                    {% endif %}
+                {% endfor %}
+                {% endautoescape %}
+            </p>   
             <footer>
                 <p>
                     {{ 'Created'|trans }}: <b>{{ entity.created|date('m-d-Y') }}</b> || {{ 'Updated'|trans }}:
