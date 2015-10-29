@@ -1,9 +1,16 @@
-
+'use strict';
 // Insert media snippet inside textarea
 
 $('.add-media').on('click', function(){
-var mediaInsert = $(this).data("add")
-	, areaEn = $('textarea[id*="en_biography"]')
+var mediaInsert = $(this).data('add');
+var snBlock = $(this).siblings('p.snippet');
+if (snBlock.hasClass('hide')) {
+	snBlock.removeClass('hide').append('Copy and paste where you want it appears: <p>[['+mediaInsert+']]</p>');
+}
+else{
+	snBlock.addClass('hide').empty();
+};
+/*	, areaEn = $('textarea[id*="en_biography"]')
 	, areaEs = $('textarea[id*="es_biography"]')
 	, cursorPosEs = areaEs.prop('selectionStart')
 	, cursorPosEn = areaEn.prop('selectionStart')
@@ -19,5 +26,5 @@ var mediaInsert = $(this).data("add")
 	}
 	else if ($('.a2lix_translationsFields-es').hasClass('active')) {
 		areaEs.val(textBeforeEs+"[["+mediaInsert+"]]"+textAfterEs);
-	}
+	}*/
 });

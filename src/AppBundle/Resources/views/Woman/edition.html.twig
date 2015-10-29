@@ -5,8 +5,10 @@
                         class="fa fa-plus-circle"></i> {{ "Add gallery"|trans }}</a></li>
         {% for gallery in galleries %}
             <ul class="unstyled">
-                <li><span class="add-media" data-add="insert_media_gallery_{{ gallery.getId }}"><i
-                                class="fa fa-caret-left"></i> {{ gallery }}</span></li>
+                <li>
+                    <span class="add-media" data-add="insert_media_gallery_{{ gallery.getId }}"><i class="fa fa-caret-left"></i> {{ gallery }}</span>
+                    <p class="hide snippet"></p>
+                </li>
             </ul>
         {% else %}
 
@@ -15,8 +17,10 @@
                         class="fa fa-plus-circle"></i> {{ "Añadir audio"|trans }}</a></li>
         {% for audio in audios %}
             <ul class="unstyled">
-                <li><span class="add-media" data-add="insert_media_audio_{{ audio.getId }}"><i
-                                class="fa fa-caret-left"></i> {{ audio }}</span></li>
+                <li>
+                    <span class="add-media" data-add="insert_media_audio_{{ audio.getId }}"><i class="fa fa-caret-left"></i> {{ audio }}</span>
+                    <p class="hide snippet"></p>
+                </li>
             </ul>
         {% else %}
 
@@ -26,8 +30,10 @@
                         class="fa fa-plus-circle"></i> {{ "Añadir vídeo"|trans }}</a></li>
         {% for video in videos %}
             <ul class="unstyled">
-                <li><span class="add-media" data-add="insert_media_video_{{ video.getId }}"><i
-                                class="fa fa-caret-left"></i> {{ video }}</span></li>
+                <li>
+                    <span class="add-media" data-add="insert_media_video_{{ video.getId }}"><i class="fa fa-caret-left"></i> {{ video }}</span>
+                    <p class="hide snippet"></p>
+                </li>
             </ul>
         {% else %}
 
@@ -37,8 +43,9 @@
                         class="fa fa-plus-circle"></i> {{ "Añadir documento"|trans }}</a></li>
         {% for document in documents %}
             <ul class="unstyled">
-                <li><span class="add-media" data-add="insert_media_document_{{ document.getId }}"><i
-                                class="fa fa-caret-left"></i> {{ document }}</span></li>
+                <li>
+                    <span class="add-media" data-add="insert_media_document_{{ document.getId }}"><i class="fa fa-caret-left"></i> {{ document }}</span>
+                </li>
             </ul>
         {% else %}
 

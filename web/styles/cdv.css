@@ -3821,6 +3821,24 @@ footer.main-footer aside img {
   cursor: pointer;
   color: #67727a;
 }
+.admin-layout .admin-assets ul li .snippet {
+  font-size: .8em;
+  margin: 0 0 0 -20px;
+  background: #c3d7df;
+  padding: 3px 5px;
+  -webkit-border-radius: 4px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 4px;
+  -moz-background-clip: padding;
+  border-radius: 4px;
+  background-clip: padding-box;
+}
+.admin-layout .admin-assets ul li .snippet p {
+  padding: 2px 5px;
+  background: #ffffff;
+  color: #55386f;
+  font-size: 1.2em;
+}
 /* Larger than mobile */
 /* Larger than phablet (also point when grid becomes active) */
 @media (max-width: 560px) {
