@@ -2,12 +2,13 @@
 {% block moreStyles %}
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/angular-tooltips/dist/angular-tooltips.min.css')}}">
     <style type="text/css">
-
+    .fix {position: relative;z-index: 10;}
     </style>
 {% endblock %}
 {% block moreJavascripts %}
     <script type="text/javascript" src="{{ asset('assets/underscore/underscore-min.js')}}"></script>
     <script type="text/javascript" src="{{ asset('assets/angular/angular.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('assets/ngstorage/ngStorage.min.js')}}"></script>
 {% endblock %}
 {% block body %}
 <div class="main table-data container" ng-app="myApp">
@@ -16,6 +17,7 @@
 		<p>El presente listado muestra el número de personas fallecidas entre las fechas señaladas en la Cárcel de Ventas.</p>
 		<p>El objeto de este listado es hacer publicidad de estos fallecimientos como forma de homenaje y reparación a las víctimas, así como para facilitar la búsqueda de información tanto a familiares y amigos como a investigadores. </p>
 	</div>
+
     <div ng-controller="TableCtrl">
     	<div class="row">
 	        <input class="six columns" ng-model="searchText" placeholder="Buscar" type="search" ng-change="search()" /> 
@@ -48,7 +50,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="item in filteredList | orderBy:columnToOrder:reverse">
-                	<td ng-if="item.notes">{{ '{{item.name}}' }} <a href=""tooltips tooltip-show-trigger="ng-click click" tooltip-content="{{ '{{item.notes}}' }}" style="z-index:10;position: relative;"><i class="fa fa-exclamation-circle"></i></a></td>
+                	<td ng-if="item.notes">{{ '{{item.name}}' }} <a href="" tooltips tooltip-content="{{ '{{item.notes}}' }}" class="fix"><i class="fa fa-exclamation-circle"></i></a></td>
                     <td ng-if="!item.notes">{{ '{{item.name}}' }}</td>
                 	<td>{{ '{{item.years}}' }}</td>
                 	<td>{{ '{{item.date}}' }}</td>

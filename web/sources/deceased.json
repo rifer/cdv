@@ -763,5 +763,680 @@
 		"deathtype" : "Fusilada",
 		"files" : "D-L",
 		"notes" : ""
+	},
+	{
+		"name" : "López Laserna, Felisa ",
+		"date" : "18-10-1940 ",
+		"years" : "25 ",
+		"death" : "14-9-1941",
+		"deathtype" : "Enfermedad",
+		"files" : "D-L ",
+		"notes" : ""
+	},
+	{
+		"name" : "López Lobo, Aurora ",
+		"date" : "10-5-1939 ",
+		"years" : "23 ",
+		"death" : "31-7-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "D-L ",
+		"notes" : ""
+	},
+	{
+		"name" : "López López, Josefa ",
+		"date" : "2-9-1939 ",
+		"years" : "64 ",
+		"death" : "11-12.1939 ",
+		"deathtype" : "Enfermedad",
+		"files" : "D-L ",
+		"notes" : ""
+	},
+	{
+		"name" : "Losada Losada, Purificación ",
+		"date" : "17-6-1940 ",
+		"years" : "19 ",
+		"death" : "29-8-1940 ",
+		"deathtype" : "Enfermedad",
+		"files" : "D-L ",
+		"notes" : "El expediente es de la prisión de Colmenar Viejo, donde ingresó el 11 de marzo de 1940 procedente de la de Fuencarral. "
+	},
+	{
+		"name" : "Lozano Hernández, María ",
+		"date" : "1-12-1939 ",
+		"years" : "29 ",
+		"death" : "19-1-1940 ",
+		"deathtype" : "Fusilada",
+		"files" : "D-L ",
+		"notes" : "Ingresó con un niño de cinco meses de edad, de nombre Florentino Salcedo Lozano, que falleció el 17 de enero de 1940. "
+	},
+	{
+		"name" : "Maestre (o Maestro) Muñoz, Aurelia ",
+		"date" : "23-9-1940 ",
+		"years" : "50 ",
+		"death" : "22-7-1941 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A. ",
+		"notes" : ""
+	},
+	{
+		"name" : "Manjón García, Felicitas ",
+		"date" : "12-4-1939 ",
+		"years" : "34",
+		"death" : "12-7-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A. ",
+		"notes" : "Se trata de una de las escasísimas presas comunes fusiladas durante esta etapa, condenada por un delito de asesinato. "
+	},
+	{
+		"name" : "Manzanero Salas, Dionisia ",
+		"date" : "17-5-1939 ",
+		"years" : "20 ",
+		"death" : "5-8-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Martín [o Martínez] Elías, Antonia ",
+		"date" : "29-4-1939 ",
+		"years" : "49 ",
+		"death" : "6-9-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "En la lista del cementerio del Este aparece como “Antonia Martín Elías” (Núñez y Rojas, 1997: 123 y 207). En la orden de ejecución incorporada aparece mencionada Felipa del Moral Álvarez, presente en la lista del cementerio del Este (Núñez y Rojas, 1997: 123 y 212) pero cuyo expediente no se ha conservado "
+	},
+	{
+		"name" : "Martín Aguilar, Francisca ",
+		"date" : "4-5-1939 ",
+		"years" : "35 ",
+		"death" : "2-4-1941 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "Aparece registrada por error, en la lista del cementerio del Este reproducida por Núñez y Rojas (1997: 148 y 207) como “Francisco”. "
+	},
+	{
+		"name" : "Martín Núñez, Mª Cruz ",
+		"date" : "1-6-1939 ",
+		"years" : "28 ",
+		"death" : "16-6-1939 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Martínez López, Josefa ",
+		"date" : "2-7-1939 ",
+		"years" : "42 ",
+		"death" : "16-2-1940 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Martínez Talavera, Saturnina ",
+		"date" : "12-2-1940 ",
+		"years" : "51 ",
+		"death" : "6-6-1945 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : " Ingresó procedente de la prisión de Getafe, en la que había entrado el 10 de octubre de 1939. El 19 de febero de 1942 salió en libertad, pero reingresó en Ventas tan dos días después, en concepto de presa preventiva, por orden del juzgado de Aranjuez.   "
+	},
+	{
+		"name" : "Mateo López, Francisca ",
+		"date" : "4-4-1939 ",
+		"years" : "49 ",
+		"death" : "1-6-1939 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Mayoral Díaz, Luisa ",
+		"date" : "2-8-1939 ",
+		"years" : "57 ",
+		"death" : "6-8-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Megoya (o Megolla) Rivero, Victoria ",
+		"date" : "4-5-1939 ",
+		"years" : "45 ",
+		"death" : "16-9-1941",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "En el registro del cementerio aparece como “Mengoya” (Núñez y Rojas, 1997: 151 y 211). "
+	},
+	{
+		"name" : "Méndez (o Menéndez) García, Vicenta ",
+		"date" : "5-8-1941 ",
+		"years" : "33 ",
+		"death" : "25-2-1942 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "Ingresó procedente de la prisión de Alcalá de Henares. "
+	},
+	{
+		"name" : "Merodio Garay, Bonifacia ",
+		"date" : "4-4-1939 ",
+		"years" : "50 ",
+		"death" : "27-6-1939 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Molina Tembleque, Manuela ",
+		"date" : "11-4-1939 ",
+		"years" : "62 ",
+		"death" : "17-6-1939 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Montegrifo López, María",
+		"date" : "¿-8(¿)-1940 ",
+		"years" : "64 ",
+		"death" : "10-3-1941 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : " El expediente pertenece a la Prisión de Claudio Coello -en el número cien de la calle homónima de la capital- donde ingresó con fecha de 27 abril de 1940. Desconozco la fecha del traslado a Ventas, pero un oficio militar incorporado al expediente revela que el 19 de agosto de ese año ya estaba registrada en esta prisión. "
+	},
+	{
+		"name" : "Montes Soria, Genoveva ",
+		"date" : "2-7-1939 ",
+		"years" : "35 ",
+		"death" : "25-1-1940 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Muñoz García, Victoria ",
+		"date" : "6-6-1939 ",
+		"years" : "18 ",
+		"death" : "5-8-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Navas Traverzo, Elvira",
+		"date" : "11-4-1939 ",
+		"years" : "35 ",
+		"death" : "27-6-1940 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "En el registro del cementerio aparece como “Navas Traverso” (Núñez y Rojas, 1997: 138 y 215). "
+	},
+	{
+		"name" : "Noriega Pedrosa [o Pedraza], María ",
+		"date" : "16-6-1939 ",
+		"years" : "36 ",
+		"death" : "26-2-1940 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Novo Pérez, María ",
+		"date" : "19-4-1939",
+		"years" : "41",
+		"death" : "12-8-1940 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Del Olmo Bañuelos, Tomasa",
+		"date" : "29-4-1939 ",
+		"years" : "25 ",
+		"death" : "9-9-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "Figura equivocadamente como “Tomasa del Olmo Beañulos” en la lista del cementerio (Núñez y Rojas, 1997: 124 y 216)."
+	},
+	{
+		"name" : "Olmo Cerro, Covadonga ",
+		"date" : "10-5-1939 ",
+		"years" : "57 ",
+		"death" : "1-1-1943 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Del Olmo Muñoz, Ascensión ",
+		"date" : "12-4-1939 ",
+		"years" : "56 ",
+		"death" : "27-3-1941 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Orejón López, Francisca ",
+		"date" : "23-5-1939 ",
+		"years" : "36 ",
+		"death" : "17-7-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Orozco Córdoba, Milagros",
+		"date" : "24-7-1939 ",
+		"years" : "22 ",
+		"death" : "31-12-1940 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "Ingresó con un niño de quince meses llamado Justo de las Muelas Orozco."
+	},
+	{
+		"name" : "Orozco Córdoba, Paula ",
+		"date" : "24-7-1939 ",
+		"years" : "24 ",
+		"death" : "31-12-1940 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Ortiz Galera (o Galeza), Josefa ",
+		"date" : "4-4-1939 ",
+		"years" : "37 ",
+		"death" : "30-4-1940 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "De Pablo Garrido, Clara",
+		"date" : "29-4-1939 ",
+		"years" : "21 ",
+		"death" : "7-11-1940 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "Aparece como “Clara Pablo” en el registro del cementerio (Núñez y Rojas, 1997: 144 y 217)."
+	},
+	{
+		"name" : "Panticosa Riaza, María",
+		"date" : "20-4-1939 ",
+		"years" : "47 ",
+		"death" : "7-5-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "No está registrada en el cementerio del Este, lo que apunta la posibilidad de que fuera ejecutada en otro lugar. Probablemente se trate del primer fusilamiento de una presa de Ventas. El expediente incorpora la orden de ejecución. "
+	},
+	{
+		"name" : "Pasamontes Téllez, Juana ",
+		"date" : "4-4-1939 ",
+		"years" : "67 ",
+		"death" : "10-5-1940 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Peñalver Martínez, Paula",
+		"date" : "27-10-1941 ",
+		"years" : "55 ",
+		"death" : "15-1-1942 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : "Trasladada desde la prisión provincial de Alcalá de Henares, donde había ingresado el 30 de mayo de 1939."
+	},
+	{
+		"name" : "Perdiguero Frutos, Francisca ",
+		"date" : "5-10-1939 ",
+		"years" : "79 ",
+		"death" : "6-5-1940 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Pérez León, Delfina  ",
+		"date" : "5-4-1939 ",
+		"years" : "44 ",
+		"death" : "25-10-1940 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Pérez Moya, Aquilina",
+		"date" : "5-5-1944 ",
+		"years" : "¿?",
+		"death" : "11-6-1944 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Perpiñán García, Josefa ",
+		"date" : "17-6-1939",
+		"years" : "50 ",
+		"death" : "24-7-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Pinedo Robles, Alfonsa",
+		"date" : "4-1-1940 ",
+		"years" : "51 ",
+		"death" : "28-2-1940 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "Ingresó procedente de la prisión provincial de Aranjuez. En el registro del cementerio del Este aparece como “Pineda” (Núñez y Rojas, 1997: 132 y 221). "
+	},
+	{
+		"name" : "Pomariega Panizo, Ángeles",
+		"date" : "14-4-1939",
+		"years" : "20",
+		"death" : "8-7-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "Ingresó –por segunda vez- en Ventas con una niña de tres meses de nombre Encarnación Migueláñez. Figura en el registro del cementerio del Este como “Gomariaga Panizo” (Núñez y Rojas, 1997: 120 y 192). "
+	},
+	{
+		"name" : "Prieto San José, Juliana ",
+		"date" : "28-4-1939 ",
+		"years" : "42 ",
+		"death" : "5-6-1940 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Ramos García, Prado",
+		"date" : "2-6-1939 ",
+		"years" : "22 ",
+		"death" : "27-6-1940 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "En la lista del cementerio aparece como con el nombre “María” y los apellidos “Prados Ramos García” (Núñez y Rojas, 1997: 138 y 222). Probablemente el nombre sea María del Prado, y Ramos el primer apellido."
+	},
+	{
+		"name" : "Revaque Garea, Teresa Matilde",
+		"date" : "18-4-1939",
+		"years" : "39",
+		"death" : "13-8-1940",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "El expediente recoge tres causas abiertas contra ella: la 3.569, del Juzgado Militar Permanente nº 4; la 17.109, del Juzgado Militar de Funcionarios nº 7; y la 25.200, del Juzgado Militar de Funcionarios nº 6. La sentencia de muerte fue dictada por las dos primeras causas. En la lista del cementerio reproducida en Núñez y Rojas (1997:  141 y 224aparece equivocadamente como “Reisaque Garea, Teresa Matilde”. "
+	},
+	{
+		"name" : "Del Rey Mansilla, María ",
+		"date" : "11-4-1939 ",
+		"years" : "34 ",
+		"death" : "21-5-1940 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Ricote Merino, Emiliana ",
+		"date" : "16-4-1939 ",
+		"years" : "46 ",
+		"death" : "23-5-1940 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Rizaldo (o Rizaldos) Díaz, Rosa",
+		"date" : "7-4-1939",
+		"years" : "31",
+		"death" : "18-6-1940",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "En el registro del cementerio aparece equivocadamente como “Rizaldos” (Núñez y Rojas, 1997: 137 y 225).  Habría debido ser fusilada el 5 de septiembre de 1939 en compañía de Eloína Arnaiz y “Genara del Valle Martínez” -según reza la orden de entrega a la fuerza de ejecución incorporada al expediente- pero a la sazón se hallaba trasladada a la prisión de Tarragona, lo que da una idea del grado de coordinación existente entre las autoridades franquistas."
+	},
+	{
+		"name" : "Rodríguez Caballero, Agustina ",
+		"date" : "1-5-1939 ",
+		"years" : "51 ",
+		"death" : "14-7-1939 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Rodríguez de la Fuente, Luisa",
+		"date" : "1-5-1939 ",
+		"years" : "18 ",
+		"death" : "5-8-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "Figura literalmente como “de la Fuentes”."
+	},
+	{
+		"name" : "Rodríguez del Amo, Joaquina ",
+		"date" : "6-6-1940 ",
+		"years" : "19 ",
+		"death" : "27-6-1940 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Rodríguez Fernández, Josefa ",
+		"date" : "9-5-1939 ",
+		"years" : "59 ",
+		"death" : "31-7-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Rodríguez García, Emilia ",
+		"date" : "4-6-1939 ",
+		"years" : "46 ",
+		"death" : "4-7-1940 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Rolindes González Mariño, María ",
+		"date" : "19-4-1939 ",
+		"years" : "40 ",
+		"death" : "27-12-1939 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Rosado González, Bernarda ",
+		"date" : "24-4-1939 ",
+		"years" : "60 ",
+		"death" : "4-5-1940 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Ruiz Cueto, Teresa ",
+		"date" : "18-9-1939 ",
+		"years" : "50 ",
+		"death" : "18-12-1939 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Ruiz Rodil, Milagros ",
+		"date" : "19-7-1939 ",
+		"years" : "38 ",
+		"death" : "18-7-1945",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Sacristán Díaz, Tomasa ",
+		"date" : "11-2-1939 ",
+		"years" : "36 ",
+		"death" : "18-1-1942 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Sacristán Garnacho, Matea",
+		"date" : "3-11-1940 ",
+		"years" : "47 ",
+		"death" : "25-11-1941",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : "Ingresó procedente de la prisión de Aranjuez."
+	},
+	{
+		"name" : "Sánchez de Francisco, María ",
+		"date" : "5-4-1939 ",
+		"years" : "20 ",
+		"death" : "6-9-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Sánchez Fernández, Vicenta ",
+		"date" : "5-8-1939",
+		"years" : "25 ",
+		"death" : "20-1-1940 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Sánchez González, Natividad ",
+		"date" : "13-4-1939 ",
+		"years" : "49 ",
+		"death" : "15-4-1942 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Saugar Martínez, Felipa ",
+		"date" : "8-4-1939 ",
+		"years" : "62 ",
+		"death" : "1-5-1940 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Del Saz Trapero, Gregoria",
+		"date" : "27-10-1941 ",
+		"years" : "58 ",
+		"death" : "13-11-1943 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : "Ingresó en Ventas procedente de la prisión de Alcalá, a la que pertenece el expediente."
+	},
+	{
+		"name" : "Serena García, Gabriela ",
+		"date" : "28-5-1939 ",
+		"years" : "58 ",
+		"death" : "13-1-1940 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Solsona Montero, Ángeles",
+		"date" : "15-2-1942 ",
+		"years" : "23 ",
+		"death" : "23-2-1942 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "No aparece registrada en las listas del cementerio del Este, así como tampoco los otros dos reos que figuraban en la orden de entrega para ejecución, adjunta al expediente: Sebastián Díaz Diz [sic] y Zacarías Peláez Lumbreras. Se trata de toda una saca, la del 23 de febrero de 1942, que no figura en dicho registro."
+	},
+	{
+		"name" : "Soria Villa, Dolores ",
+		"date" : "23-10-1939 ",
+		"years" : "27 ",
+		"death" : "3-6-1940 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Torre Yela, Antonia",
+		"date" : "3-6-1939 ",
+		"years" : "18 ",
+		"death" : "19-2-1940 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "En el expediente figura erradamente como Llela"
+	},
+	{
+		"name" : "Treviño Pérez, Amelia ",
+		"date" : "6-12-1939 ",
+		"years" : "22",
+		"death" : "17-12-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Trullenque Martín, Teresa",
+		"date" : "18-9-1939 ",
+		"years" : "36 ",
+		"death" : "28-10-1940 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "Ingresó con una niña de un año, Dalia Forjas Trullenque, que falleció el 9 de octubre de 1939"
+	},
+	{
+		"name" : "Valdemoro Ortiz, Petra ",
+		"date" : "5-10-1939 ",
+		"years" : "28 ",
+		"death" : "11-11-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Velilla Hernández, Tomasa",
+		"date" : "19-4-1940 ",
+		"years" : "29 ",
+		"death" : "12-5-1942 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "Trasladada de la prisión de Alcalá, en la que había ingresado el 27 de abril de 1939."
+	},
+	{
+		"name" : "Ventura de Pedro, María Rosa",
+		"date" : "15-8-1940 ",
+		"years" : "24 ",
+		"death" : "20-1-1942 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : "El expediente es de la prisión de San Lorenzo del Escorial, donde había ingresado el 27 de abril de 1940."
+	},
+	{
+		"name" : "Vidal Martín, Clotilde ",
+		"date" : "6-5-1939 ",
+		"years" : "35 ",
+		"death" : "24-7-1939 ",
+		"deathtype" : "Fusilada",
+		"files" : "V.A ",
+		"notes" : ""
+	},
+	{
+		"name" : "Villaluengo Isasi, Julia",
+		"date" : "10-3-1940 ",
+		"years" : "17 ",
+		"death" : "21-12-1941 ",
+		"deathtype" : "Enfermedad",
+		"files" : "V.A ",
+		"notes" : "Ingresó procedente de la prisión de Bilbao, en la que había entrado el 26 de noviembre de 1939."
 	}
 ]
