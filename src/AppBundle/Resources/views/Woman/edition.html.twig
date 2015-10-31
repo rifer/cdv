@@ -7,19 +7,16 @@
             <ul class="unstyled">
                 <li>
                     <span class="add-media" data-add="insert_media_gallery_{{ gallery.getId }}"><i class="fa fa-caret-left"></i> {{ gallery }}</span>
-                    <p class="hide snippet"></p>
                 </li>
             </ul>
         {% else %}
 
         {% endfor %}
-        <li><a href="{{ path('audio_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open"><i
-                        class="fa fa-plus-circle"></i> {{ "Añadir audio"|trans }}</a></li>
+        <li><a href="{{ path('audio_new',{'foreign_key':entity.id,'object_class':'woman'}) }}" rel="modal:open"><i class="fa fa-plus-circle"></i> {{ "Añadir audio"|trans }}</a></li>
         {% for audio in audios %}
             <ul class="unstyled">
                 <li>
                     <span class="add-media" data-add="insert_media_audio_{{ audio.getId }}"><i class="fa fa-caret-left"></i> {{ audio }}</span>
-                    <p class="hide snippet"></p>
                 </li>
             </ul>
         {% else %}
@@ -32,7 +29,6 @@
             <ul class="unstyled">
                 <li>
                     <span class="add-media" data-add="insert_media_video_{{ video.getId }}"><i class="fa fa-caret-left"></i> {{ video }}</span>
-                    <p class="hide snippet"></p>
                 </li>
             </ul>
         {% else %}
