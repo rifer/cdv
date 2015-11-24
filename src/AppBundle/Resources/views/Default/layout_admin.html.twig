@@ -9,8 +9,8 @@
 					<nav>
 						<div class="wrapper-dropdown" tabindex="1"><b>{{'Woman'|trans}}</b> <i class="fa fa-chevron-circle-down"></i>
 							<ul class="dropdown">
-								<li><a href="#"><i class="fa fa-th-list"></i>{{'List'|trans}}</a></li>
-								<li><a href="#"><i class="fa fa-pencil"></i>{{'Create'|trans}}</a></li>
+								<li><a href="{{ path('woman') }}"><i class="fa fa-th-list"></i>{{'List'|trans}}</a></li>
+								<li><a href="{{ path('woman_new') }}"><i class="fa fa-pencil"></i>{{'Create'|trans}}</a></li>
 							</ul>
 						</div>
 						<div class="wrapper-dropdown" tabindex="2"><b>{{'Gallery'|trans}}</b> <i class="fa fa-chevron-circle-down"></i>
@@ -19,13 +19,13 @@
 								<li><a href="#"><i class="fa fa-pencil"></i>{{'Create'|trans}}</a></li>
 							</ul>
 						</div>
-						<div class="wrapper-dropdown" tabindex="3"><b>{{'Audio'|trans}}</b> <i class="fa fa-chevron-circle-down"></i>
+						<div class="wrapper-dropdown" tabindex="3"><b>{{'History'|trans}}</b> <i class="fa fa-chevron-circle-down"></i>
 							<ul class="dropdown">
-								<li><a href="#"><i class="fa fa-th-list"></i>{{'List'|trans}}</a></li>
-								<li><a href="#"><i class="fa fa-pencil"></i>{{'Create'|trans}}</a></li>
+								<li><a href="{{ path('historical') }}"><i class="fa fa-th-list"></i>{{'List'|trans}}</a></li>
+								<li><a href="{{ path('historical_new') }}"><i class="fa fa-pencil"></i>{{'Create'|trans}}</a></li>
 							</ul>
 						</div>
-						<div class="wrapper-dropdown" tabindex="4"><b>{{'Video'|trans}}</b> <i class="fa fa-chevron-circle-down"></i>
+						<div class="wrapper-dropdown" tabindex="4"><b>{{'Blog'|trans}}</b> <i class="fa fa-chevron-circle-down"></i>
 							<ul class="dropdown">
 								<li><a href="#"><i class="fa fa-th-list"></i>{{'List'|trans}}</a></li>
 								<li><a href="#"><i class="fa fa-pencil"></i>{{'Create'|trans}}</a></li>
@@ -42,4 +42,4 @@
 		{% endblock %}
 
 	{% block footer %}{% endblock %}
-	{% block commonJavascripts %}{% endblock %}
+	{% block commonJavascripts %}<script src="{{ asset('scripts/admin.js')}}"></script>{% endblock %}

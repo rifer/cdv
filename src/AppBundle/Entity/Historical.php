@@ -519,4 +519,9 @@ class Historical
     {
         return $this->date->format("Y");
     }
+
+    public function getClass()
+    {
+        return "Historical";
+    }
 }

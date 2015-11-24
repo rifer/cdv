@@ -32,4 +32,8 @@
         <default key="_controller">AppBundle:Historical:delete</default>
     </route>
 
+    <route id="historical_edition" path="/{id}/{object_class}/edition">
+        <default key="_controller">AppBundle:Woman:edition</default>
+    </route>
+
 </routes>

@@ -28,7 +28,7 @@
         <default key="_controller">AppBundle:Woman:edit</default>
     </route>
 
-    <route id="woman_edition" path="/{id}/edition">
+    <route id="woman_edition" path="/{id}/{object_class}/edition">
         <default key="_controller">AppBundle:Woman:edition</default>
     </route>
 

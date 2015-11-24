@@ -294,15 +294,15 @@ class WomanController extends Controller
     }
 
 
-    public function editionAction($id)
+    public function editionAction($id,$object_class)
     {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('AppBundle:Woman')->find($id);
-        $galleries = $em->getRepository('AppBundle:Woman')->findMedia("Gallery",$id,"woman");
-        $audios = $em->getRepository('AppBundle:Woman')->findMedia("Audio",$id,"woman");
-        $videos = $em->getRepository('AppBundle:Woman')->findMedia("Video",$id,"woman");
-        $documents = $em->getRepository('AppBundle:Woman')->findMedia("Document",$id,"woman");
+        $galleries = $em->getRepository('AppBundle:Woman')->findMedia("Gallery",$id,$object_class);
+        $audios = $em->getRepository('AppBundle:Woman')->findMedia("Audio",$id,$object_class);
+        $videos = $em->getRepository('AppBundle:Woman')->findMedia("Video",$id,$object_class);
+        $documents = $em->getRepository('AppBundle:Woman')->findMedia("Document",$id,$object_class);
 
 
 
@@ -311,7 +311,8 @@ class WomanController extends Controller
             'galleries' => $galleries,
             'audios' => $audios,
             'videos' => $videos,
-            'documents' => $documents
+            'documents' => $documents,
+            'object_class'=>$object_class
         ));
     }
 

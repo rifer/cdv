@@ -58,6 +58,10 @@ class HistoricalType extends AbstractType
                             )
                         ),
                         'content' => array(
+                            'attr'=>array(
+                                'class'=>'tinymce',
+                                'data-theme' => 'custom'
+                            ),
                             'locale_options' => array(            // [3.b]
                                 'es' => array(
                                     'label' => 'Contenido'

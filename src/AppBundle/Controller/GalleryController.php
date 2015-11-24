@@ -48,7 +48,7 @@ class GalleryController extends Controller
 
             if ($this->get('request')->isXmlHttpRequest())
             {
-                return $this->redirect($this->generateUrl('woman_edition',array('id'=>$foreign_key)));
+                return $this->redirect($this->generateUrl($entity->getObjectClass()."_edition",array('id'=>$foreign_key,'object_class'=>$entity->getObjectClass())));
             }
             return $this->redirect($this->generateUrl($entity->getObjectClass().'_show', array('id' => $entity->getForeignKey())));
         }
@@ -228,5 +228,22 @@ class GalleryController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
+    }
+
+
+    public function show_snippetAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('AppBundle:Gallery')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Gallery entity.');
+        }
+
+        return $this->render('AppBundle:Gallery:show_snippet.html.twig', array(
+            'gallery'      => $entity,
+
+        ));
     }
 }

@@ -438,4 +438,9 @@ class Woman
     {
         return $this->modified;
     }
+
+    public function getClass()
+    {
+        return "Woman";
+    }
 }
