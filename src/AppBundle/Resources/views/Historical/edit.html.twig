@@ -4,7 +4,10 @@
 
     <div class="eight columns">
         <h1>{{'Historical edition'|trans}}</h1>
-        {{ form(edit_form, {'attr': {'class': 'admin-form out-modal', 'data-place' : 'out-modal'}} ) }}
+        {{ form_start(edit_form, {'action': path('historical_update', {'id':entity.id}), 'method': 'put','attr': {'class': 'admin-form out-modal', 'data-place' : 'out-modal'}}) }}
+        {{  form_widget( edit_form.date.day, { 'attr': { 'style': 'display:none' } } )  }}
+        {{ form_rest(edit_form) }}
+        {{ form_end(edit_form, {'render_rest': false}) }}
         {{ form(delete_form) }}
     </div>
     <aside class="admin-assets three columns">

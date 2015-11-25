@@ -42,37 +42,37 @@ class Historical
     private $date;
 
     /**
-     * @Assert\NotBlank
+     *
      * @Gedmo\Translatable
-     * @ORM\Column(name="head", type="string", length=255)
+     * @ORM\Column(name="head", type="string", length=255, nullable=true)
      */
     private $head;
 
     /**
-     * @Assert\NotBlank
+     *
      * @Gedmo\Translatable
-     * @ORM\Column(name="intro", type="text")
+     * @ORM\Column(name="intro", type="text", nullable=true)
      */
     private $intro;
 
     /**
-     * @Assert\NotBlank
+     *
      * @Gedmo\Translatable
-     * @ORM\Column(name="content", type="text")
+     * @ORM\Column(name="content", type="text", nullable=true)
      */
     private $content;
 
     /**
      * @var string $image
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
 
     /**
-     * @Assert\NotBlank
+     *
      * @Gedmo\Translatable
-     * @ORM\Column(name="caption", type="string", length=255)
+     * @ORM\Column(name="caption", type="string", length=255, nullable=true)
      */
     private $caption;
 

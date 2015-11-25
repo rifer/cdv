@@ -298,7 +298,7 @@ class WomanController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AppBundle:Woman')->find($id);
+        $entity = $em->getRepository('AppBundle:'.ucfirst($object_class))->find($id);
         $galleries = $em->getRepository('AppBundle:Woman')->findMedia("Gallery",$id,$object_class);
         $audios = $em->getRepository('AppBundle:Woman')->findMedia("Audio",$id,$object_class);
         $videos = $em->getRepository('AppBundle:Woman')->findMedia("Video",$id,$object_class);
