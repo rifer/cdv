@@ -12,11 +12,11 @@
         <default key="_controller">AppBundle:Image:show</default>
     </route>
 
-    <route id="image_new" path="/new/{gallery_id}">
+    <route id="image_new" path="/new/">
         <default key="_controller">AppBundle:Image:new</default>
     </route>
 
-    <route id="image_create" path="/create/{gallery_id}" methods="POST">
+    <route id="image_create" path="/create/" methods="POST">
         <default key="_controller">AppBundle:Image:create</default>
     </route>
 

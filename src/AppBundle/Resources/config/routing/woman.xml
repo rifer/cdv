@@ -4,7 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="woman" path="/">
+    <route id="woman" path="/{category_id}">
         <default key="_controller">AppBundle:Woman:index</default>
     </route>
 
@@ -12,7 +12,7 @@
         <default key="_controller">AppBundle:Woman:show</default>
     </route>
 
-    <route id="woman_new" path="/new">
+    <route id="woman_new" path="/new/{category_id}">
         <default key="_controller">AppBundle:Woman:new</default>
     </route>
 
@@ -20,7 +20,7 @@
         <default key="_controller">AppBundle:Woman:second</default>
     </route>
 
-    <route id="woman_create" path="/create" methods="POST">
+    <route id="woman_create" path="/create/{category_id}" methods="POST">
         <default key="_controller">AppBundle:Woman:create</default>
     </route>
 

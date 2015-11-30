@@ -33,16 +33,15 @@ class ImageController extends Controller
      * Creates a new Image entity.
      *
      */
-    public function createAction(Request $request,$gallery_id)
+    public function createAction(Request $request)
     {
         $entity = new Image();
-        $form = $this->createCreateForm($entity,$gallery_id);
+        $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $gallery=$em->getRepository("AppBundle:Gallery")->find($gallery_id);
-            $entity->setGallery($gallery);
+
             $em->persist($entity);
             $em->flush();
 
@@ -65,7 +64,7 @@ class ImageController extends Controller
     private function createCreateForm(Image $entity,$gallery_id)
     {
         $form = $this->createForm(new ImageType(), $entity, array(
-            'action' => $this->generateUrl('image_create',array('gallery_id'=>$gallery_id)),
+            'action' => $this->generateUrl('image_create'),
             'method' => 'POST',
         ));
 
@@ -78,10 +77,10 @@ class ImageController extends Controller
      * Displays a form to create a new Image entity.
      *
      */
-    public function newAction($gallery_id)
+    public function newAction()
     {
         $entity = new Image();
-        $form   = $this->createCreateForm($entity,$gallery_id);
+        $form   = $this->createCreateForm($entity);
 
         return $this->render('AppBundle:Image:new.html.twig', array(
             'entity' => $entity,
