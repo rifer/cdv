@@ -39,7 +39,7 @@
         <h5>{{ 'Actions'|trans }}</h5>
         <ul class="unstyled">
             <li>
-                <a href="{{ path('woman') }}">
+                <a href="{{ path('woman',{'category_id':entity.category.id}) }}">
                     {{ 'Back to the list'|trans }}
                 </a>
             </li>

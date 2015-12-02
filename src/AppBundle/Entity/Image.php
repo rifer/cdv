@@ -449,4 +449,76 @@ class Image
     {
         return "Image";
     }
+
+    /**
+     * Set objectClass
+     *
+     * @param string $objectClass
+     *
+     * @return Image
+     */
+    public function setObjectClass($objectClass)
+    {
+        $this->objectClass = $objectClass;
+
+        return $this;
+    }
+
+    /**
+     * Get objectClass
+     *
+     * @return string
+     */
+    public function getObjectClass()
+    {
+        return $this->objectClass;
+    }
+
+    /**
+     * Set foreignKey
+     *
+     * @param string $foreignKey
+     *
+     * @return Image
+     */
+    public function setForeignKey($foreignKey)
+    {
+        $this->foreignKey = $foreignKey;
+
+        return $this;
+    }
+
+    /**
+     * Get foreignKey
+     *
+     * @return string
+     */
+    public function getForeignKey()
+    {
+        return $this->foreignKey;
+    }
+
+    /**
+     * Set single
+     *
+     * @param boolean $single
+     *
+     * @return Image
+     */
+    public function setSingle($single)
+    {
+        $this->single = $single;
+
+        return $this;
+    }
+
+    /**
+     * Get single
+     *
+     * @return boolean
+     */
+    public function getSingle()
+    {
+        return $this->single;
+    }
 }

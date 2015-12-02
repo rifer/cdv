@@ -1,29 +1,42 @@
 <div id="edition_aside_medias">
     <h5>{{ 'Edition'|trans }}</h5>
     <ul class="unstyled">
-        <li><a href="{{ path('image_new',{'foreign_key':entity.id,'object_class':object_class,'single':true}) }}" rel="modal:open"><i
+        <li><a href="{{ path('image_new',{'foreign_key':entity.id,'object_class':object_class,'single':'1'}) }}"
+               rel="modal:open"><i
                         class="fa fa-plus-circle"></i> {{ "Add single images"|trans }}</a></li>
-        {% for images in single_images %}
+        {% for image in single_images %}
             <ul class="unstyled">
                 <li>
-                    <span class="add-media" data-add="insert_media_gallery_{{ image.getId }}"><i class="fa fa-caret-left"></i> {{ image.title }}</span>
+                    <span class="add-media" data-add="insert_media_image_{{ image.getId }}"><i
+                                class="fa fa-caret-left"></i> {{ image.title }}</span>
                 </li>
             </ul>
         {% endfor %}
-        <li><a href="{{ path('gallery_new',{'foreign_key':entity.id,'object_class':object_class,'single':false}) }}" rel="modal:open"><i
+        <li><a href="{{ path('image_new',{'foreign_key':entity.id,'object_class':object_class,'single':'0'}) }}"
+               rel="modal:open"><i
                         class="fa fa-plus-circle"></i> {{ "Add grouped images"|trans }}</a></li>
-        {% for images in grouped_images %}
+        {% if grouped_images|length>0 %}
             <ul class="unstyled">
                 <li>
-                    <span class="add-media" data-add="insert_media_gallery_{{ image.getId }}"><i class="fa fa-caret-left"></i> {{ image.title }}</span>
+                    <span class="add-media" data-add="insert_media_gallery_{{ entity.getId }}"><i
+                                class="fa fa-caret-left"></i> {{ 'Insert Grouped Images'|trans }}</span>
                 </li>
             </ul>
-        {% endfor %}
-        <li><a href="{{ path('audio_new',{'foreign_key':entity.id,'object_class':object_class}) }}" rel="modal:open"><i class="fa fa-plus-circle"></i> {{ "Añadir audio"|trans }}</a></li>
+            {% for image in grouped_images %}
+                <ul class="unstyled">
+                    <li>
+                        <span> {{ image.title }}</span>
+                    </li>
+                </ul>
+            {% endfor %}
+        {% endif %}
+        <li><a href="{{ path('audio_new',{'foreign_key':entity.id,'object_class':object_class}) }}" rel="modal:open"><i
+                        class="fa fa-plus-circle"></i> {{ "Añadir audio"|trans }}</a></li>
         {% for audio in audios %}
             <ul class="unstyled">
                 <li>
-                    <span class="add-media" data-add="insert_media_audio_{{ audio.getId }}"><i class="fa fa-caret-left"></i> {{ audio }}</span>
+                    <span class="add-media" data-add="insert_media_audio_{{ audio.getId }}"><i
+                                class="fa fa-caret-left"></i> {{ audio }}</span>
                 </li>
             </ul>
         {% else %}
@@ -35,7 +48,8 @@
         {% for video in videos %}
             <ul class="unstyled">
                 <li>
-                    <span class="add-media" data-add="insert_media_video_{{ video.getId }}"><i class="fa fa-caret-left"></i> {{ video }}</span>
+                    <span class="add-media" data-add="insert_media_video_{{ video.getId }}"><i
+                                class="fa fa-caret-left"></i> {{ video }}</span>
                 </li>
             </ul>
         {% else %}
@@ -47,7 +61,8 @@
         {% for document in documents %}
             <ul class="unstyled">
                 <li>
-                    <span class="add-media" data-add="insert_media_document_{{ document.getId }}"> {{'Added document:'|trans}} {{ document }}</span>
+                    <span class="add-media"
+                          data-add="insert_media_document_{{ document.getId }}"> {{ 'Added document:'|trans }} {{ document }}</span>
                 </li>
             </ul>
         {% else %}
@@ -55,4 +70,4 @@
         {% endfor %}
     </ul>
 </div>
-<script src="{{ asset('scripts/media_snippet.js')}}"></script>
+<script src="{{ asset('scripts/media_snippet.js') }}"></script>
