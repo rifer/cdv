@@ -45,4 +45,11 @@
         <default key="_controller">AppBundle:Woman:delete</default>
     </route>
 
+    <route id="building_show" path="/building">
+        <default key="_controller">AppBundle:Default:building</default>
+    </route>
+
+    <route id="catchall" path="/catchall">
+        <default key="_controller">AppBundle:Default:catchall</default>
+    </route>
 </routes>

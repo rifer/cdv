@@ -1,10 +1,11 @@
 {% extends 'AppBundle:Default:layout_admin.html.twig' %}
 
 {% block admin_content -%}
-    <h1>{{'Gallery edit'|trans}}</h1>
+    <h4>{{'Gallery creation'|trans}}</h4>
 
-    {{ form(edit_form, {'attr': {'class': 'admin-form out-modal', 'data-place' : 'out-modal'}} ) }}
-    {{ form(delete_form) }}
+	{{ form(form, {'attr': {'class': 'admin-form out-modal', 'data-place' : 'out-modal'}} ) }}
+
+
 {% endblock %}
 {% block javascripts %}
     {{ tinymce_init() }}

@@ -36,14 +36,14 @@ class Gallery
     /**
      * @var string $objectClass
      *
-     * @ORM\Column(name="object_class", type="string", length=255)
+     * @ORM\Column(name="object_class", type="string", length=255, nullable=true)
      */
     protected $objectClass;
 
     /**
      * @var string $foreignKey
      *
-     * @ORM\Column(name="foreign_key", type="string", length=64)
+     * @ORM\Column(name="foreign_key", type="string", length=64, nullable=true)
      */
     protected $foreignKey;
 

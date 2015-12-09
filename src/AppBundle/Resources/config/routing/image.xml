@@ -31,4 +31,11 @@
     <route id="image_delete" path="/{id}/delete" methods="POST|DELETE">
         <default key="_controller">AppBundle:Image:delete</default>
     </route>
+
+     <route id="image_in_gallery_new" path="/new/{foreign_key}/{object_class}/{single}/{gallery_id}">
+        <default key="_controller">AppBundle:Image:newInGallery</default>
+    </route>
+    <route id="image_in_gallery_create" path="/create/{foreign_key}/{object_class}/{single}/{gallery_id}" methods="POST">
+        <default key="_controller">AppBundle:Image:createInGallery</default>
+    </route>
 </routes>

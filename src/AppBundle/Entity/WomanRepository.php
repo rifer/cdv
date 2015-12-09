@@ -47,7 +47,7 @@ class WomanRepository extends \Doctrine\ORM\EntityRepository
     {
         $em = $this->getEntityManager();
         $dql = "select g from AppBundle:" . ucfirst($media_type) . " g where g.foreignKey=:foreign_key and g.objectClass=:object_class ";
-        if ($image_type!==null)
+        if ($image_type !== null)
         {
             $dql .= ' and g.single=:single ';
         }
@@ -55,7 +55,7 @@ class WomanRepository extends \Doctrine\ORM\EntityRepository
         $query = $em->createQuery($dql);
         $query->setParameter("foreign_key", $foreign_key);
         $query->setParameter("object_class", $object_class);
-        if ($image_type!==null)
+        if ($image_type !== null)
         {
             $query->setParameter("single", $image_type);
         }
@@ -66,5 +66,25 @@ class WomanRepository extends \Doctrine\ORM\EntityRepository
     public function findSlug($slug)
     {
 
+    }
+
+    public function findBuilding($category)
+    {
+        $em = $this->getEntityManager();
+        $dql = "select b from AppBundle:Woman b where b.category=:category";
+        $query = $em->createQuery($dql);
+        $query->setParameter("category", $category);
+
+        return $query->getSingleResult();
+    }
+
+    public function findCatchAll($category)
+    {
+        $em = $this->getEntityManager();
+        $dql = "select b from AppBundle:Woman b where b.category=:category";
+        $query = $em->createQuery($dql);
+        $query->setParameter("category", $category);
+
+        return $query->getResult();
     }
 }

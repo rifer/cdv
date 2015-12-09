@@ -1,61 +1,48 @@
 {% extends 'AppBundle:Default:layout_admin.html.twig' %}
 
-{% block moreStyles %}
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/dropzone/dist/dropzone.css')}}" />
-{% endblock %}
-{% block moreJavascripts %}
-    <script src="{{asset('assets/dropzone/dist/dropzone.js')}}"></script>
-{% endblock %}
 {% block admin_content -%}
 
     <div class="eight columns">
 
-        <h4>{{'Gallery'|trans}}: {{entity.title}}</h4>
-        <p><b>{{'Content'|trans}}</b>: {{ entity.content }}</p>
-        <p><b>{{'Created at'|trans}}</b>: {{ entity.created|date('m-d-Y') }}</p>
-        <form  id="UploadGallery" class="dropzone" action="{{ oneup_uploader_endpoint('gallery') }}">
-          <div class="fallback">
-            <input name="file" type="file" multiple />
-          </div>
-        </form>
+        <h4>{{ 'Gallery'|trans }}: {{ entity.title }}</h4>
+
+        <p><b>{{ 'Content'|trans }}</b>: {{ entity.content|raw }}</p>
+        <div id="gallery_image_thumbs">
+            {% for image in entity.images %}
+                <div class="image_thumbnail">
+                    <img src="{{asset('uploads/gallery/images/' ~ image.image) | imagine_filter('image_testim_index')}}">
+                    <a href="{{ path('image_edit', {'id': image.id}) }}">Editar</a>
+                </div>
+            {% endfor %}
+        </div>
+
     </div>
+
     <aside class="admin-assets three columns">
-        <ul class="unstyled">
-            <li>
-                <a href="{{ path('gallery') }}">
-                   {{' Back to the list'|trans}}
-                </a>
-            </li>
-            <li>
-                <a href="{{ path('gallery_edit', { 'id': entity.id }) }}">
-                    {{'Edit'|trans}}
-                </a>
-            </li>
-            <li>{{ form(delete_form) }}</li>
-        </ul>      
+        <div id="edition_aside_medias">
+            <h5>{{ 'Edition'|trans }}</h5>
+            <ul class="unstyled">
+
+                <li>
+                    <a href="{{ path('image_in_gallery_new',{'foreign_key':entity.id,'object_class':entity.getclass|lower,'single':'0','gallery_id':entity.id}) }}"
+                       rel="modal:open"><i
+                                class="fa fa-plus-circle"></i> {{ "Add  image"|trans }}</a></li>
+
+                <li>
+                    <a href="{{ path('gallery') }}">
+                        {{ ' Back to the list'|trans }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('gallery_edit', { 'id': entity.id }) }}">
+                        {{ 'Edit'|trans }}
+                    </a>
+                </li>
+                <li>{{ form(delete_form) }}</li>
+            </ul>
+        </div>
     </aside>
 {% endblock %}
 {% block javascripts %}
-<script>
-  Dropzone.options.UploadGallery = {
-    init: function() {
-      this.on("addedfile", function(file) {
-        var removeButton = Dropzone.createElement("<i class='fa fa-trash-o'></i>");
-        var addCaption = Dropzone.createElement("<input type='text' name='title' placeholder='Title'></input>");
-        var addDescription = Dropzone.createElement("<input type='text' name='description' placeholder='Description'></input>");
-        var _this = this;
-
-        removeButton.addEventListener("click", function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          _this.removeFile(file);
-        });
-
-        file.previewElement.appendChild(removeButton);
-        file.previewElement.appendChild(addCaption);
-        file.previewElement.appendChild(addDescription);
-      });
-    }
-  };
-</script>
+    <script src="{{ asset('assets/jquery-modal/jquery.modal.min.js') }}"></script>
 {% endblock %}

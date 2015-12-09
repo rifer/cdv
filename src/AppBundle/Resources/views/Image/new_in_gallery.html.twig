@@ -1,0 +1,32 @@
+{% extends 'AppBundle:Default:layout_admin.html.twig' %}
+
+{% block admin_content -%}
+    <h1>{{ "Image creation"|trans }}</h1>
+
+
+    {{ form(form, {'attr': {'class': 'admin-form on-modal', 'data-place' : 'on-modal', 'id':'form_'~object_class~'_'~entity.getClass|lower~'_'~foreign_key}} ) }}
+
+
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('assets/jquery.form.min.js') }}"></script>
+    <script src="{{ asset('scripts/admin.js')}}"></script>
+    <script>
+        // wait for the DOM to be loaded
+        $(document).ready(function () {
+            var options = {
+                success: updateEdition,
+                target: "#gallery_image_thumbs"
+            }
+
+            // bind 'myForm' and provide a simple callback function
+            $('#{{ 'form_'~object_class~'_'~entity.getClass|lower~'_'~foreign_key }}').ajaxForm(options);
+        });
+
+        function updateEdition() {
+            $('.jquery-modal').hide();
+            $('.modal').hide();
+        }
+
+    </script>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% for image in gallery.images %}
+    <div class="image_thumbnail">
+        <img src="{{ asset('uploads/gallery/images/' ~ image.image) | imagine_filter('image_testim_index') }}">
+        <a href="{{ path('image_edit', {'id': image.id}) }}">Editar</a>
+    </div>
+{% endfor %}

@@ -16,4 +16,22 @@ class DefaultController extends Controller
         // replace this example code with whatever you need
         return $this->render('AppBundle:Default:index.html.twig');
     }
+
+    public function buildingAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $category = $em->getRepository("AppBundle:Category")->find(2);
+        $building = $em->getRepository("AppBundle:Woman")->findBuilding($category);
+
+        return $this->render('AppBundle:Default:building.html.twig');
+    }
+
+    public function catchallAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $category = $em->getRepository("AppBundle:Category")->find(3);
+        $building = $em->getRepository("AppBundle:Woman")->findCatchAll($category);
+
+        return $this->render('AppBundle:Default:catchall.html.twig');
+    }
 }

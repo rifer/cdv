@@ -99,6 +99,63 @@ class ImageController extends Controller
         ));
     }
 
+
+      public function newInGalleryAction($foreign_key, $object_class,$single,$gallery_id)
+    {
+        $entity = new Image();
+        $form = $this->createCreateInGalleryForm($entity, $foreign_key, $object_class,$single,$gallery_id);
+
+        return $this->render('AppBundle:Image:new_in_gallery.html.twig', array(
+            'entity' => $entity,
+            'foreign_key' => $foreign_key,
+            'single'=>$single,
+            'gallery_id'=>$gallery_id,
+            'object_class' => $object_class,
+            'form' => $form->createView(),
+        ));
+    }
+
+    private function createCreateInGalleryForm(Image $entity, $foreign_key, $object_class,$single,$gallery_id)
+    {
+        $form = $this->createForm(new ImageType(), $entity, array(
+            'action' => $this->generateUrl('image_in_gallery_create', array('foreign_key' => $foreign_key, 'object_class' => $object_class,'single'=>$single,'gallery_id'=>$gallery_id)),
+            'method' => 'POST',
+        ));
+
+        $form->add('submit', 'submit', array('label' => 'Create'));
+
+        return $form;
+    }
+
+    public function createInGalleryAction(Request $request, $foreign_key, $object_class,$single,$gallery_id)
+    {
+        $entity = new Image();
+        $form = $this->createCreateForm($entity, $foreign_key, $object_class,$single);
+        $form->handleRequest($request);
+
+        if ($form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $gallery=$em->getRepository("AppBundle:Gallery")->find($gallery_id);
+            $entity->setForeignKey($foreign_key);
+            $entity->setObjectClass($object_class);
+            $entity->setGallery($gallery);
+            $entity->setSingle($single);
+            $em->persist($entity);
+            $em->flush();
+
+            if ($this->get('request')->isXmlHttpRequest())
+            {
+                return $this->redirect($this->generateUrl("gallery_image_list", array('id' => $gallery_id)));
+            }
+
+        }
+
+        return $this->render('AppBundle:Image:new.html.twig', array(
+            'entity' => $entity,
+            'form' => $form->createView(),
+        ));
+    }
     /**
      * Finds and displays a Image entity.
      *
@@ -187,9 +244,12 @@ class ImageController extends Controller
 
         if ($editForm->isValid())
         {
+            $entity->setModified(1);
+            $em->persist($entity);
+            $entity->setModified(0);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('image_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('gallery_show', array('id' => $entity->getGallery()->getId())));
         }
 
         return $this->render('AppBundle:Image:edit.html.twig', array(

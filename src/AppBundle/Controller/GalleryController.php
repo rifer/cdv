@@ -97,6 +97,52 @@ class GalleryController extends Controller
         ));
     }
 
+
+    private function createCreateSingleForm(Gallery $entity)
+    {
+        $form = $this->createForm(new GalleryType(), $entity, array(
+            'action' => $this->generateUrl('gallery_create_single'),
+            'method' => 'POST',
+        ));
+
+        $form->add('submit', 'submit', array('label' => 'Create'));
+
+        return $form;
+    }
+
+    public function newSingleAction()
+    {
+        $entity = new Gallery();
+        $form = $this->createCreateSingleForm($entity);
+
+        return $this->render('AppBundle:Gallery:new_single.html.twig', array(
+            'entity' => $entity,
+            'form' => $form->createView(),
+        ));
+    }
+
+
+    public function createSingleAction(Request $request)
+    {
+        $entity = new Gallery();
+        $form = $this->createCreateSingleForm($entity);
+        $form->handleRequest($request);
+
+        if ($form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('gallery_show', array('id' => $entity->getId())));
+        }
+
+        return $this->render('AppBundle:Gallery:new_single.html.twig', array(
+            'entity' => $entity,
+            'form' => $form->createView(),
+        ));
+    }
+
     /**
      * Finds and displays a Gallery entity.
      *
@@ -255,6 +301,17 @@ class GalleryController extends Controller
         return $this->render('AppBundle:Gallery:show_snippet.html.twig', array(
             'images' => $images,
             'woman' => $woman
+        ));
+    }
+
+    public function imageListAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $gallery = $em->getRepository("AppBundle:Gallery")->find($id);
+
+        return $this->render('AppBundle:Gallery:image_list.html.twig', array(
+            'gallery' => $gallery,
+
         ));
     }
 }
