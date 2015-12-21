@@ -1,20 +1,22 @@
 {% extends 'AppBundle:Default:layout_admin.html.twig' %}
 
 {% block admin_content -%}
-    <h1>{{ "Historical edition"|trans }}</h1>
 
-    {{ form(edit_form, {'attr': {'class': 'admin-form out-modal', 'data-place' : 'out-modal'}} ) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('historical') }}">
-            {{'Back to the list'|trans}}
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <div class="eight columns">
+        <h1>{{'Historical edition'|trans}}</h1>
+        {{ form_start(edit_form, {'action': path('historical_update', {'id':entity.id}), 'method': 'put','attr': {'class': 'admin-form out-modal', 'data-place' : 'out-modal'}}) }}
+        {{  form_widget( edit_form.date.day, { 'attr': { 'style': 'display:none' } } )  }}
+        {{ form_rest(edit_form) }}
+        {{ form_end(edit_form, {'render_rest': false}) }}
+        {{ form(delete_form) }}
+    </div>
+    <aside class="admin-assets three columns">
+        {{ render(controller('AppBundle:Woman:edition',{'id':entity.id,'object_class':entity.getClass|lower})) }}
+    </aside>
 {% endblock %}
+
 {% block javascripts %}
+    {{ tinymce_init() }}
     <script src="{{ asset('assets/jquery-modal/jquery.modal.min.js') }}"></script>
-    <script src="{{ asset('scripts/admin.js')}}"></script>
+
 {% endblock %} 

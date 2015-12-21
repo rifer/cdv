@@ -14,6 +14,16 @@
                         <p class="eight columns main-history-intro">{{ entity.intro }}</p>
                         <div class="twelve columns main-history-content">
                             {{entity.content|raw}}
+                            {% autoescape false %}
+                                {% set snippets= insert_snippets(entity,entity.content|raw) %}
+                                {% for snippet in snippets %}
+                                    {% if snippet is not iterable %}
+                                        {{ snippet }}
+                                    {% else %}
+                                        {{ render(controller('AppBundle:'~snippet[0]|capitalize~':show_snippet',{'id':snippet[1]})) }}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endautoescape %}
                         </div>
                 </article>
             </main>

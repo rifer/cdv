@@ -2,17 +2,17 @@
 
 {% block admin_content -%}
      <div class="eight columns">
-     <h1>{{'Woman edit'|trans}}</h1>
+     <h1>{{entity.category.name~' edit'|trans}}</h1>
     {{ form(edit_form, {'attr': {'class': 'admin-form out-modal', 'data-place' : 'out-modal'}} ) }}
 	{{ form(delete_form) }}
 	</div>
     <aside class="admin-assets three columns">
-        {{ render(controller('AppBundle:Woman:edition',{'id':entity.id})) }}
+        {{ render(controller('AppBundle:Woman:edition',{'id':entity.id,'object_class':entity.getClass|lower})) }}
     </aside>
 {% endblock %}
 
 {% block javascripts %}
     {{ tinymce_init() }}
     <script src="{{ asset('assets/jquery-modal/jquery.modal.min.js') }}"></script>
-    <script src="{{ asset('scripts/admin.js')}}"></script>
+
 {% endblock %}

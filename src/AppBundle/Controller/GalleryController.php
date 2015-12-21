@@ -29,17 +29,19 @@ class GalleryController extends Controller
             'entities' => $entities,
         ));
     }
+
     /**
      * Creates a new Gallery entity.
      *
      */
-    public function createAction(Request $request,$foreign_key,$object_class)
+    public function createAction(Request $request, $foreign_key, $object_class)
     {
         $entity = new Gallery();
-        $form = $this->createCreateForm($entity,$foreign_key,$object_class);
+        $form = $this->createCreateForm($entity, $foreign_key, $object_class);
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isValid())
+        {
             $em = $this->getDoctrine()->getManager();
             $entity->setForeignKey($foreign_key);
             $entity->setObjectClass($object_class);
@@ -48,14 +50,14 @@ class GalleryController extends Controller
 
             if ($this->get('request')->isXmlHttpRequest())
             {
-                return $this->redirect($this->generateUrl('woman_edition',array('id'=>$foreign_key)));
+                return $this->redirect($this->generateUrl($entity->getObjectClass() . "_edition", array('id' => $foreign_key, 'object_class' => $entity->getObjectClass())));
             }
-            return $this->redirect($this->generateUrl($entity->getObjectClass().'_show', array('id' => $entity->getForeignKey())));
+            return $this->redirect($this->generateUrl($entity->getObjectClass() . '_show', array('id' => $entity->getForeignKey())));
         }
 
         return $this->render('AppBundle:Gallery:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -66,10 +68,10 @@ class GalleryController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Gallery $entity,$foreign_key,$object_class)
+    private function createCreateForm(Gallery $entity, $foreign_key, $object_class)
     {
         $form = $this->createForm(new GalleryType(), $entity, array(
-            'action' => $this->generateUrl('gallery_create',array('foreign_key'=>$foreign_key,'object_class'=>$object_class)),
+            'action' => $this->generateUrl('gallery_create', array('foreign_key' => $foreign_key, 'object_class' => $object_class)),
             'method' => 'POST',
         ));
 
@@ -82,16 +84,62 @@ class GalleryController extends Controller
      * Displays a form to create a new Gallery entity.
      *
      */
-    public function newAction($foreign_key,$object_class)
+    public function newAction($foreign_key, $object_class)
     {
         $entity = new Gallery();
-        $form   = $this->createCreateForm($entity,$foreign_key,$object_class);
+        $form = $this->createCreateForm($entity, $foreign_key, $object_class);
 
         return $this->render('AppBundle:Gallery:new.html.twig', array(
             'entity' => $entity,
-            'foreign_key'=> $foreign_key,
-            'object_class'=>$object_class,
-            'form'   => $form->createView(),
+            'foreign_key' => $foreign_key,
+            'object_class' => $object_class,
+            'form' => $form->createView(),
+        ));
+    }
+
+
+    private function createCreateSingleForm(Gallery $entity)
+    {
+        $form = $this->createForm(new GalleryType(), $entity, array(
+            'action' => $this->generateUrl('gallery_create_single'),
+            'method' => 'POST',
+        ));
+
+        $form->add('submit', 'submit', array('label' => 'Create'));
+
+        return $form;
+    }
+
+    public function newSingleAction()
+    {
+        $entity = new Gallery();
+        $form = $this->createCreateSingleForm($entity);
+
+        return $this->render('AppBundle:Gallery:new_single.html.twig', array(
+            'entity' => $entity,
+            'form' => $form->createView(),
+        ));
+    }
+
+
+    public function createSingleAction(Request $request)
+    {
+        $entity = new Gallery();
+        $form = $this->createCreateSingleForm($entity);
+        $form->handleRequest($request);
+
+        if ($form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('gallery_show', array('id' => $entity->getId())));
+        }
+
+        return $this->render('AppBundle:Gallery:new_single.html.twig', array(
+            'entity' => $entity,
+            'form' => $form->createView(),
         ));
     }
 
@@ -105,14 +153,15 @@ class GalleryController extends Controller
 
         $entity = $em->getRepository('AppBundle:Gallery')->find($id);
 
-        if (!$entity) {
+        if (!$entity)
+        {
             throw $this->createNotFoundException('Unable to find Gallery entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('AppBundle:Gallery:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -127,7 +176,8 @@ class GalleryController extends Controller
 
         $entity = $em->getRepository('AppBundle:Gallery')->find($id);
 
-        if (!$entity) {
+        if (!$entity)
+        {
             throw $this->createNotFoundException('Unable to find Gallery entity.');
         }
 
@@ -135,19 +185,19 @@ class GalleryController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('AppBundle:Gallery:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a Gallery entity.
-    *
-    * @param Gallery $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a Gallery entity.
+     *
+     * @param Gallery $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(Gallery $entity)
     {
         $form = $this->createForm(new GalleryType(), $entity, array(
@@ -159,6 +209,7 @@ class GalleryController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing Gallery entity.
      *
@@ -169,7 +220,8 @@ class GalleryController extends Controller
 
         $entity = $em->getRepository('AppBundle:Gallery')->find($id);
 
-        if (!$entity) {
+        if (!$entity)
+        {
             throw $this->createNotFoundException('Unable to find Gallery entity.');
         }
 
@@ -177,18 +229,20 @@ class GalleryController extends Controller
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
-        if ($editForm->isValid()) {
+        if ($editForm->isValid())
+        {
             $em->flush();
 
             return $this->redirect($this->generateUrl('gallery_show', array('id' => $id)));
         }
 
         return $this->render('AppBundle:Gallery:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a Gallery entity.
      *
@@ -198,11 +252,13 @@ class GalleryController extends Controller
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isValid())
+        {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('AppBundle:Gallery')->find($id);
 
-            if (!$entity) {
+            if (!$entity)
+            {
                 throw $this->createNotFoundException('Unable to find Gallery entity.');
             }
 
@@ -226,7 +282,36 @@ class GalleryController extends Controller
             ->setAction($this->generateUrl('gallery_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
+    }
+
+
+    public function show_snippetAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        /*
+         * en los testimonios no hay galerías, sino que las imágenes están relacionadas a la entidad testimonio (woman),
+         * o building o catchall.
+         * Entonces hay que coger las imágenes de la entidad (woman) que están agrupadas (single=0)
+         */
+        $woman = $em->getRepository('AppBundle:Woman')->find($id);
+        $images = $em->getRepository('AppBundle:Image')->findWomanGroupedImages($id);
+
+        return $this->render('AppBundle:Gallery:show_snippet.html.twig', array(
+            'images' => $images,
+            'woman' => $woman
+        ));
+    }
+
+    public function imageListAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $gallery = $em->getRepository("AppBundle:Gallery")->find($id);
+
+        return $this->render('AppBundle:Gallery:image_list.html.twig', array(
+            'gallery' => $gallery,
+
+        ));
     }
 }

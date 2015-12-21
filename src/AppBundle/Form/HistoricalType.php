@@ -19,72 +19,14 @@ class HistoricalType extends AbstractType
                 'date',
                 'date',
                 array(
-                    'format' =>'MMMM-yyyy  d',
+                    'format' => 'MMMM-yyyy  d',
                     'years' => range(1904, 1976),
                     'days' => array(1),
                     'empty_value' => array('year' => 'Select Year', 'month' => 'Select Month', 'day' => false)
                 )
-            )
-            ->add('file',null,array(
-                "required"=>null===$builder->getData()->getId()?true:false,
-                "label"=>"Imagen"
-            ))
-            ->add('translations', 'a2lix_translations_gedmo', array(
-                    'translatable_class' => "AppBundle\Entity\Historical",
-                    'fields' => array(
-                        'slug'  => array(
-                            'display' => false
-                        ),
-                        'head' => array(
-                            'locale_options' => array(            // [3.b]
-                                'es' => array(
-                                    'label' => 'Título'
-                                ),
-                                'en' => array(
-                                    'label' => 'Title',
-                                    'required'=>false
-                                ),
-                            )
-                        ),
-                        'intro' => array(
-                            'locale_options' => array(            // [3.b]
-                                'es' => array(
-                                    'label' => 'Resumen'
-                                ),
-                                'en' => array(
-                                    'label' => 'Resume',
-                                    'required'=>false
-                                ),
-                            )
-                        ),
-                        'content' => array(
-                            'locale_options' => array(            // [3.b]
-                                'es' => array(
-                                    'label' => 'Contenido'
-                                ),
-                                'en' => array(
-                                    'label' => 'Content',
-                                    'required'=>false
-                                ),
-                            )
-                        ),
-                        'caption' => array(
-                            'locale_options' => array(            // [3.b]
-                                'es' => array(
-                                    'label' => 'Pie de foto'
-                                ),
-                                'en' => array(
-                                    'label' => 'Caption',
-                                    'required'=>false
-                                ),
-                            )
-                        )
-                    )
-                )
-            )
-        ;
+            );
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      *

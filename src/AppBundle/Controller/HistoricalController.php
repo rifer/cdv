@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\HistoricalEditType;
+use AppBundle\Form\HistoricalSecondType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -44,7 +46,7 @@ class HistoricalController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('historical_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('historical_second_step', array('id' => $entity->getId())));
         }
 
         return $this->render('AppBundle:Historical:new.html.twig', array(
@@ -142,7 +144,7 @@ class HistoricalController extends Controller
     */
     private function createEditForm(Historical $entity)
     {
-        $form = $this->createForm(new HistoricalType(), $entity, array(
+        $form = $this->createForm(new HistoricalEditType(), $entity, array(
             'action' => $this->generateUrl('historical_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
@@ -220,5 +222,66 @@ class HistoricalController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
+    }
+
+
+    public function secondAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('AppBundle:Historical')->find($id);
+        $galleries = $em->getRepository('AppBundle:Woman')->findMedia("Gallery",$id,"historical");
+        $audios = $em->getRepository('AppBundle:Woman')->findMedia("Audio",$id,"historical");
+        $videos = $em->getRepository('AppBundle:Woman')->findMedia("Video",$id,"historical");
+        $documents = $em->getRepository('AppBundle:Woman')->findMedia("Document",$id,"historical");
+
+        $form   = $this->createSecondForm($entity);
+
+        return $this->render('AppBundle:Historical:second.html.twig', array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+            'galleries' => $galleries,
+            'audios' => $audios,
+            'videos' => $videos,
+            'documents' => $documents
+        ));
+    }
+
+    private function createSecondForm(Historical $entity)
+    {
+        $form = $this->createForm(new HistoricalSecondType(), $entity, array(
+            'action' => $this->generateUrl('historical_update_second', array('id'=>$entity->getId())),
+            'method' => 'PUT',
+        ));
+        $form->add('submit', 'submit', array('label' => 'Create'));
+
+        return $form;
+    }
+
+    public function updateSecondAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('AppBundle:Historical')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Historical entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createSecondForm($entity);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isValid()) {
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('historical_show', array('id' => $id)));
+        }
+
+        return $this->render('AppBundle:Historical:edit.html.twig', array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
     }
 }

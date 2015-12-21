@@ -12,11 +12,11 @@
         <default key="_controller">AppBundle:Image:show</default>
     </route>
 
-    <route id="image_new" path="/new/{gallery_id}">
+    <route id="image_new" path="/new/{foreign_key}/{object_class}/{single}">
         <default key="_controller">AppBundle:Image:new</default>
     </route>
 
-    <route id="image_create" path="/create/{gallery_id}" methods="POST">
+    <route id="image_create" path="/create/{foreign_key}/{object_class}/{single}" methods="POST">
         <default key="_controller">AppBundle:Image:create</default>
     </route>
 
@@ -32,4 +32,10 @@
         <default key="_controller">AppBundle:Image:delete</default>
     </route>
 
+     <route id="image_in_gallery_new" path="/new/{foreign_key}/{object_class}/{single}/{gallery_id}">
+        <default key="_controller">AppBundle:Image:newInGallery</default>
+    </route>
+    <route id="image_in_gallery_create" path="/create/{foreign_key}/{object_class}/{single}/{gallery_id}" methods="POST">
+        <default key="_controller">AppBundle:Image:createInGallery</default>
+    </route>
 </routes>

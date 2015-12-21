@@ -33,6 +33,12 @@ class Woman
      */
     private $id;
 
+    /** @ORM\ManyToOne(targetEntity="AppBundle\Entity\Category", inversedBy="womans")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     *
+     **/
+    private $category;
+
     /**
      * @Assert\NotBlank
      * @ORM\Column(name="name", type="string", length=128)
@@ -46,16 +52,15 @@ class Woman
     private $surname;
 
     /**
-     * @Assert\NotBlank
      * @Gedmo\Translatable
-     * @ORM\Column(name="biography", type="text")
+     * @ORM\Column(name="biography", type="text", nullable=true)
      */
     private $biography;
 
     /**
      * @var string $image
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
 
@@ -390,5 +395,58 @@ class Woman
         {
             unlink($file);
         }
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Woman
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set modified
+     *
+     * @param boolean $modified
+     *
+     * @return Woman
+     */
+    public function setModified($modified)
+    {
+        $this->modified = $modified;
+
+        return $this;
+    }
+
+    /**
+     * Get modified
+     *
+     * @return boolean
+     */
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    public function getClass()
+    {
+        return "Woman";
     }
 }

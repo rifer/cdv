@@ -32,4 +32,16 @@
         <default key="_controller">AppBundle:Gallery:delete</default>
     </route>
 
+    <route id="gallery_new_single" path="/new">
+        <default key="_controller">AppBundle:Gallery:newSingle</default>
+    </route>
+
+    <route id="gallery_create_single" path="/create" methods="POST">
+        <default key="_controller">AppBundle:Gallery:createSingle</default>
+    </route>
+
+  <route id="gallery_image_list" path="/gallery_image_list/{id}">
+        <default key="_controller">AppBundle:Gallery:imageList</default>
+    </route>
+
 </routes>

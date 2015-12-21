@@ -2,12 +2,12 @@
 {% block admin_content -%}
     <h1>Image edit</h1>
 
-    {{ form(edit_form) }}
+    {{ form(edit_form, {'attr': {'class': 'admin-form out-modal', 'data-place' : 'out-modal'}} ) }}
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('image') }}">
-            Back to the list
+        <a href="{{ path('gallery_show',{'id':entity.gallery.id}) }}">
+            {{ "Volver a la galería"|trans }}
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>

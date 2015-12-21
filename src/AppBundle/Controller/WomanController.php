@@ -19,29 +19,36 @@ class WomanController extends Controller
 
     /**
      * Lists all Woman entities.
+     * @param category_id
      *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction()
+    public function indexAction($category_id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AppBundle:Woman')->findAll();
+        $category= $em->getRepository('AppBundle:Category')->find($category_id);
+        $entities = $em->getRepository('AppBundle:Woman')->findByCategory($category);
 
         return $this->render('AppBundle:Woman:index.html.twig', array(
             'entities' => $entities,
+            'category' => $category
         ));
     }
     /**
      * Creates a new Woman entity.
      *
      */
-    public function createAction(Request $request)
+    public function createAction($category_id,Request $request)
     {
         $entity = new Woman();
+        $em = $this->getDoctrine()->getManager();
+
+        $category= $em->getRepository('AppBundle:Category')->find($category_id);
+        $entity->setCategory($category);
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
@@ -66,7 +73,7 @@ class WomanController extends Controller
     private function createCreateForm(Woman $entity)
     {
         $form = $this->createForm(new WomanType(), $entity, array(
-            'action' => $this->generateUrl('woman_create'),
+            'action' => $this->generateUrl('woman_create',array('category_id'=>$entity->getCategory()->getId())),
             'method' => 'POST',
         ));
         $form->add('submit', 'submit', array('label' => 'Create'));
@@ -82,13 +89,18 @@ class WomanController extends Controller
      * Displays a form to create a new Woman entity.
      *
      */
-    public function newAction()
+    public function newAction($category_id)
     {
         $entity = new Woman();
+        $em = $this->getDoctrine()->getManager();
+
+        $category= $em->getRepository('AppBundle:Category')->find($category_id);
+        $entity->setCategory($category);
         $form   = $this->createCreateForm($entity);
 
         return $this->render('AppBundle:Woman:new.html.twig', array(
             'entity' => $entity,
+            'category' => $category,
             'form'   => $form->createView(),
         ));
     }
@@ -294,24 +306,27 @@ class WomanController extends Controller
     }
 
 
-    public function editionAction($id)
+    public function editionAction($id,$object_class)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AppBundle:Woman')->find($id);
-        $galleries = $em->getRepository('AppBundle:Woman')->findMedia("Gallery",$id,"woman");
-        $audios = $em->getRepository('AppBundle:Woman')->findMedia("Audio",$id,"woman");
-        $videos = $em->getRepository('AppBundle:Woman')->findMedia("Video",$id,"woman");
-        $documents = $em->getRepository('AppBundle:Woman')->findMedia("Document",$id,"woman");
+        $entity = $em->getRepository('AppBundle:'.ucfirst($object_class))->find($id);
+        $single_images = $em->getRepository('AppBundle:Woman')->findMedia("Image",$id,$object_class,1);
+        $grouped_images = $em->getRepository('AppBundle:Woman')->findMedia("Image",$id,$object_class,0);
+        $audios = $em->getRepository('AppBundle:Woman')->findMedia("Audio",$id,$object_class);
+        $videos = $em->getRepository('AppBundle:Woman')->findMedia("Video",$id,$object_class);
+        $documents = $em->getRepository('AppBundle:Woman')->findMedia("Document",$id,$object_class);
 
 
 
         return $this->render('AppBundle:Woman:edition.html.twig', array(
             'entity' => $entity,
-            'galleries' => $galleries,
+            'single_images' => $single_images,
+            'grouped_images' => $grouped_images,
             'audios' => $audios,
             'videos' => $videos,
-            'documents' => $documents
+            'documents' => $documents,
+            'object_class'=>$object_class
         ));
     }
 

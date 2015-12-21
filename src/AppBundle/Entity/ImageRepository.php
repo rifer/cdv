@@ -10,4 +10,15 @@ namespace AppBundle\Entity;
  */
 class ImageRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findWomanGroupedImages($id)
+    {
+        $em = $this->getEntityManager();
+        $dql = "select g from AppBundle:Image g where g.foreignKey=:foreign_key and g.objectClass=:object_class  and g.single=:single order by g.created desc";
+        $query = $em->createQuery($dql);
+        $query->setParameter("foreign_key", $id);
+        $query->setParameter("single", 0);
+        $query->setParameter("object_class", 'woman');
+
+        return $query->getResult();
+    }
 }

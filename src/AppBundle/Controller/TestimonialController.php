@@ -15,8 +15,10 @@ class TestimonialController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $dql   = "SELECT a FROM AppBundle:Woman a";
+        $dql   = "SELECT a FROM AppBundle:Woman a where a.category=:category";
         $query = $em->createQuery($dql);
+        $category=$em->getRepository("AppBundle:Category")->find(1);
+        $query->setParameter("category", $category);
         $paginator  = $this->get('knp_paginator');
         $testimonials = $paginator->paginate(
             $query,

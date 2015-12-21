@@ -1,16 +1,16 @@
 <p class="caption">
-    <i class="fa fa-picture-o"></i> {{gallery.title}}
+    <i class="fa fa-picture-o"></i> {{woman}}
 </p>
-{% for entity in gallery %}
-    {% for caption in entity.captions %}
+{% for entity in images %}
+    {#{% for caption in entity.captions %}
         <div class="caption{{caption.id}}" style="display:none">
             <h4>{{caption.title}}</h4>
             <p>{{caption.description}}</p>
         </div>
-    {% endfor %}
+    {% endfor %}#}
     <div class="gallery">
-        {% for image in gallery.images %}
-            <a href="{{ asset('images/' ~ image ) }}" data-sub-html=".caption{{image.caption.id}}">
+        {% for image in images %}
+            <a href="{{ asset('images/' ~ image ) }}" data-sub-html=".caption{{image.id}}">
                 <img class="thumbnail" src="{{ asset('images/' ~ image ) }}"/>
             </a>
         {% endfor %}

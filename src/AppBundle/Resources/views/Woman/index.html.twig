@@ -1,8 +1,8 @@
 {% extends 'AppBundle:Default:layout_admin.html.twig' %}
 
 {% block admin_content -%}
-    <h1>{{'Woman list'|trans}}</h1>
-            <a href="{{ path('woman_new') }}">
+    <h1>{{category.name|trans}}</h1>
+            <a href="{{ path('woman_new',{'category_id':category.id}) }}">
                 {{'Create a new entry'|trans}}
             </a>
     <table class="records_list">

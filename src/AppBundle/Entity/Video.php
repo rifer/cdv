@@ -225,7 +225,7 @@ class Video
      */
     public function setvideoId($videoId)
     {
-        $this->video_id = $video_id;
+        $this->video_id = $videoId;
 
         return $this;
     }

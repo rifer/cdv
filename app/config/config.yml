@@ -226,3 +226,5 @@ oneup_uploader:
     mappings:
         gallery:
             frontend: dropzone
+        woman:
+            frontend: dropzone

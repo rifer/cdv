@@ -33,6 +33,20 @@ class Image
     private $gallery;
 
     /**
+     * @var string $objectClass
+     *
+     * @ORM\Column(name="object_class", type="string", length=255, nullable=true)
+     */
+    protected $objectClass;
+
+    /**
+     * @var string $foreignKey
+     *
+     * @ORM\Column(name="foreign_key", type="string", length=64, nullable=true)
+     */
+    protected $foreignKey;
+
+    /**
      * @var string $title
      * @Assert\NotBlank
      * @Assert\Length(max="255", min="5")
@@ -84,6 +98,13 @@ class Image
      * y persistir la entidad, porque el atributo file no se controla mediante doctrine porque no está en la bbdd
      */
     private $modified;
+
+    /**
+     * @var int single
+     * @ORM\Column(name="single", type="boolean", length=1, nullable=true)
+     * Indica si la imagen es para mostrar individual dentro del testimonio o se mostrará agrupada como en una galería
+     */
+    private $single;
 
     /**
      * @ORM\OneToMany(
@@ -427,5 +448,77 @@ class Image
     public function getClass()
     {
         return "Image";
+    }
+
+    /**
+     * Set objectClass
+     *
+     * @param string $objectClass
+     *
+     * @return Image
+     */
+    public function setObjectClass($objectClass)
+    {
+        $this->objectClass = $objectClass;
+
+        return $this;
+    }
+
+    /**
+     * Get objectClass
+     *
+     * @return string
+     */
+    public function getObjectClass()
+    {
+        return $this->objectClass;
+    }
+
+    /**
+     * Set foreignKey
+     *
+     * @param string $foreignKey
+     *
+     * @return Image
+     */
+    public function setForeignKey($foreignKey)
+    {
+        $this->foreignKey = $foreignKey;
+
+        return $this;
+    }
+
+    /**
+     * Get foreignKey
+     *
+     * @return string
+     */
+    public function getForeignKey()
+    {
+        return $this->foreignKey;
+    }
+
+    /**
+     * Set single
+     *
+     * @param boolean $single
+     *
+     * @return Image
+     */
+    public function setSingle($single)
+    {
+        $this->single = $single;
+
+        return $this;
+    }
+
+    /**
+     * Get single
+     *
+     * @return boolean
+     */
+    public function getSingle()
+    {
+        return $this->single;
     }
 }

@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class GalleryType extends AbstractType
+class HistoricalSecondType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,21 +15,35 @@ class GalleryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-
-
+            ->add('file',null,array(
+                "required"=>null===$builder->getData()->getId()?true:false,
+                "label"=>"Imagen"
+            ))
             ->add('translations', 'a2lix_translations_gedmo', array(
-                    'translatable_class' => "AppBundle\Entity\Gallery",
+                    'translatable_class' => "AppBundle\Entity\Historical",
                     'fields' => array(
                         'slug'  => array(
                             'display' => false
                         ),
-                        'title' => array(
+                        'head' => array(
+                            'required'=>true,
                             'locale_options' => array(            // [3.b]
                                 'es' => array(
                                     'label' => 'Título'
                                 ),
                                 'en' => array(
                                     'label' => 'Title',
+                                    'required'=>false
+                                ),
+                            )
+                        ),
+                        'intro' => array(
+                            'locale_options' => array(            // [3.b]
+                                'es' => array(
+                                    'label' => 'Resumen'
+                                ),
+                                'en' => array(
+                                    'label' => 'Resume',
                                     'required'=>false
                                 ),
                             )
@@ -41,15 +55,25 @@ class GalleryType extends AbstractType
                             ),
                             'locale_options' => array(            // [3.b]
                                 'es' => array(
-                                    'label' => 'Descripción'
+                                    'label' => 'Contenido'
                                 ),
                                 'en' => array(
-                                    'label' => 'Description',
+                                    'label' => 'Content',
                                     'required'=>false
                                 ),
                             )
                         ),
-
+                        'caption' => array(
+                            'locale_options' => array(            // [3.b]
+                                'es' => array(
+                                    'label' => 'Pie de foto'
+                                ),
+                                'en' => array(
+                                    'label' => 'Caption',
+                                    'required'=>false
+                                ),
+                            )
+                        )
                     )
                 )
             )
@@ -58,11 +82,12 @@ class GalleryType extends AbstractType
     
     /**
      * @param OptionsResolverInterface $resolver
+     *
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Gallery'
+            'data_class' => 'AppBundle\Entity\Historical'
         ));
     }
 
@@ -71,6 +96,6 @@ class GalleryType extends AbstractType
      */
     public function getName()
     {
-        return 'appbundle_gallery';
+        return 'appbundle_historical';
     }
 }
