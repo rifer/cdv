@@ -2790,7 +2790,7 @@ header .main-nav a:before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #c3d7df;
+  background: #ffffff;
   -webkit-transform: scaleY(0);
   -ms-transform: scaleY(0);
   transform: scaleY(0);
@@ -2807,7 +2807,7 @@ header .main-nav a:before {
 header .main-nav a:hover,
 header .main-nav a:focus,
 header .main-nav a:active {
-  color: #55386f;
+  color: #a99f5d;
 }
 header .main-nav a:hover:before,
 header .main-nav a:focus:before,
@@ -3166,7 +3166,7 @@ header .title {
   -ms-flex-align: center;
   align-items: center;
   height: 100vh;
-  background-color: rgba(179, 78, 255, 0.54);
+  background-color: rgba(169, 159, 93, 0.54);
   padding: 0 40px;
 }
 header .title .header-main-group {
@@ -3182,12 +3182,12 @@ header .title .header-main-group .text-group h1 {
 }
 header .title .header-main-group .text-group span {
   margin: 0 0 0 .2em;
-  color: #55386f;
+  color: #a99f5d;
   background-color: #ffffff;
   padding: 5px 3px;
 }
 header .main-nav {
-  background: #55386f;
+  background: #a99f5d;
   -webkit-transition: all 0.3s ease-in 0.3s;
   transition: all 0.3s ease-in 0.3s;
   font-size: 1em;
@@ -3264,7 +3264,7 @@ header .main-nav .container nav .menu-icon {
 }
 header .main-nav .container a {
   display: inline-block;
-  background: #55386f;
+  background: #a99f5d;
   font-size: .8em;
   -webkit-transition: padding 0.2s ease-in 0.2s;
   transition: padding 0.2s ease-in 0.2s;
@@ -3328,8 +3328,8 @@ ul.breadcrumb li a {
 .main.main-index section.blockquote-index h2,
 .main.main-index section.figure h2 {
   padding-bottom: 20px;
-  border-bottom: 4px solid #55386f;
-  color: #55386f;
+  border-bottom: 4px solid #a99f5d;
+  color: #a99f5d;
 }
 .main.main-index section.blockquote-index blockquote,
 .main.main-index section.figure blockquote {
@@ -3337,7 +3337,7 @@ ul.breadcrumb li a {
   margin-top: 40px;
 }
 .main.main-index section.figure {
-  background-color: rgba(85, 56, 111, 0.82);
+  background-color: rgba(169, 159, 93, 0.82);
   color: #ffffff;
 }
 .main.main-index section.figure h2 {
@@ -3353,7 +3353,7 @@ ul.breadcrumb li a {
 .testimonial-index .card-box h3 a {
   font-size: 1.8rem;
   font-weight: 600;
-  color: #55386f;
+  color: #a99f5d;
 }
 .testimonial-index .card-box p {
   font-size: 1.3rem;
@@ -3371,7 +3371,7 @@ ul.breadcrumb li a {
   top: 215px;
   height: 79%;
   width: 5px;
-  background: #55386f;
+  background: #a99f5d;
 }
 .history-index .history-card {
   position: relative;
@@ -3390,7 +3390,7 @@ ul.breadcrumb li a {
 .history-index .history-card .date h6 {
   margin-bottom: 0;
   font-size: 2.45rem;
-  color: #55386f;
+  color: #a99f5d;
   font-weight: 600;
   line-height: .8em;
 }
@@ -3427,7 +3427,7 @@ ul.breadcrumb li a {
 }
 .history-index .history-card .date .icon-point {
   display: inline-block;
-  background: #55386f;
+  background: #a99f5d;
   color: #ffffff;
   font-weight: 600;
   -webkit-border-radius: 30px;
@@ -3555,11 +3555,11 @@ ul.unstyled {
   color: #67727a;
 }
 .documents ul li a:hover {
-  border-bottom: 3px solid #55386f;
-  color: #55386f;
+  border-bottom: 3px solid #a99f5d;
+  color: #a99f5d;
 }
 .documents ul li a i {
-  color: #55386f;
+  color: #a99f5d;
   padding-right: 5px;
 }
 .gallery img.thumbnail {
@@ -3627,7 +3627,7 @@ footer.main-footer ul li a {
   transition: all 0.5s ease;
 }
 footer.main-footer ul li a:hover {
-  color: #c3d7df;
+  color: #ffffff;
   font-size: .85em;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -3670,7 +3670,7 @@ footer.main-footer aside img {
   width: 100%;
 }
 .modal.current .file-error {
-  background: #55386f;
+  background: #a99f5d;
   color: #ffffff;
   width: 100%;
   font-size: .9em;
@@ -3689,7 +3689,7 @@ footer.main-footer aside img {
   top: 0;
   width: 10%;
   padding-top: 60px;
-  background-color: #55386f;
+  background-color: #a99f5d;
   height: 100%;
 }
 .admin-layout .admin-menu .wrapper-dropdown {
@@ -3760,7 +3760,7 @@ footer.main-footer aside img {
 }
 .admin-layout .admin-form button[name^=appbundle] {
   margin-top: 20px;
-  background-color: #55386f;
+  background-color: #a99f5d;
   color: #ffffff;
   font-weight: 500;
 }
@@ -3776,11 +3776,11 @@ footer.main-footer aside img {
 .admin-layout .admin-form .tabbable ul.nav-tabs {
   list-style-type: none;
   margin-bottom: 0;
-  border-bottom: 1px solid rgba(85, 56, 111, 0.5);
+  border-bottom: 1px solid rgba(169, 159, 93, 0.5);
 }
 .admin-layout .admin-form .tabbable ul.nav-tabs li {
   display: inline-block;
-  background-color: #c3d7df;
+  background-color: #ffffff;
   border-radius: 10px 10px 0 0;
   margin: 0px;
   text-align: center;
@@ -3792,7 +3792,7 @@ footer.main-footer aside img {
   color: #67727a;
 }
 .admin-layout .admin-form .tabbable ul.nav-tabs li.active {
-  background-color: #55386f;
+  background-color: #a99f5d;
 }
 .admin-layout .admin-form .tabbable ul.nav-tabs li.active a {
   color: #ffffff;
@@ -3800,7 +3800,7 @@ footer.main-footer aside img {
 .admin-layout .admin-form .tabbable .tab-content {
   display: block;
   padding: 10px 20px 40px;
-  border: 1px solid rgba(85, 56, 111, 0.5);
+  border: 1px solid rgba(169, 159, 93, 0.5);
   border-top: 0;
 }
 .admin-layout .admin-form .tabbable .tab-content .tab-pane {
@@ -3824,7 +3824,7 @@ footer.main-footer aside img {
 .admin-layout .admin-assets ul li .snippet {
   font-size: .8em;
   margin: 0 0 0 -20px;
-  background: #c3d7df;
+  background: #ffffff;
   padding: 3px 5px;
   -webkit-border-radius: 4px;
   -webkit-background-clip: padding-box;
@@ -3836,7 +3836,7 @@ footer.main-footer aside img {
 .admin-layout .admin-assets ul li .snippet p {
   padding: 2px 5px;
   background: #ffffff;
-  color: #55386f;
+  color: #a99f5d;
   font-size: 1.2em;
 }
 /* Larger than mobile */
@@ -3940,7 +3940,7 @@ footer.main-footer aside img {
     width: 90%;
     text-align: left;
     padding-left: 25px;
-    border-left: 4px solid #55386f;
+    border-left: 4px solid #a99f5d;
     border-right: none;
     padding-left: none;
     padding-bottom: 0;
@@ -3963,7 +3963,7 @@ footer.main-footer aside img {
     width: 90%;
     padding-top: 0;
     padding-left: 25px;
-    border-left: 4px solid #55386f;
+    border-left: 4px solid #a99f5d;
     border-right: none;
     position: relative;
   }
@@ -3993,7 +3993,7 @@ footer.main-footer aside img {
   .admin-layout .admin-menu .wrapper-dropdown .dropdown {
     position: absolute;
     top: 40px;
-    background-color: #55386f;
+    background-color: #a99f5d;
     width: 100px;
     padding: 10px;
     z-index: 1;
