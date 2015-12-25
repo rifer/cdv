@@ -2659,6 +2659,12 @@ body {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
 }
+a {
+  color: #90781A;
+}
+a:hover {
+  color: #90781A;
+}
 h1,
 h2,
 h3,
@@ -3166,7 +3172,7 @@ header .title {
   -ms-flex-align: center;
   align-items: center;
   height: 100vh;
-  background-color: rgba(169, 159, 93, 0.54);
+  background-color: #ffffff;
   padding: 0 40px;
 }
 header .title .header-main-group {
@@ -3337,7 +3343,7 @@ ul.breadcrumb li a {
   margin-top: 40px;
 }
 .main.main-index section.figure {
-  background-color: rgba(169, 159, 93, 0.82);
+  background-color: #ffffff;
   color: #ffffff;
 }
 .main.main-index section.figure h2 {
@@ -3368,10 +3374,28 @@ ul.breadcrumb li a {
   left: 44.4%;
   margin-left: -2px;
   position: absolute;
-  top: 215px;
+  top: 285px;
   height: 79%;
   width: 5px;
   background: #a99f5d;
+}
+.history-index .timeline-navigation ul {
+  margin: 15px auto;
+  text-align: center;
+}
+.history-index .timeline-navigation ul li {
+  display: inline-block;
+  width: 6%;
+}
+.history-index .timeline-navigation ul li:after {
+  content: '';
+  display: inline-block;
+  border-bottom: 1px solid #a99f5d;
+  width: 30%;
+  vertical-align: middle;
+}
+.history-index .timeline-navigation ul li:last-child:after {
+  border: none;
 }
 .history-index .history-card {
   position: relative;
@@ -3776,7 +3800,7 @@ footer.main-footer aside img {
 .admin-layout .admin-form .tabbable ul.nav-tabs {
   list-style-type: none;
   margin-bottom: 0;
-  border-bottom: 1px solid rgba(169, 159, 93, 0.5);
+  border-bottom: 1px solid #ffffff;
 }
 .admin-layout .admin-form .tabbable ul.nav-tabs li {
   display: inline-block;
@@ -3800,7 +3824,7 @@ footer.main-footer aside img {
 .admin-layout .admin-form .tabbable .tab-content {
   display: block;
   padding: 10px 20px 40px;
-  border: 1px solid rgba(169, 159, 93, 0.5);
+  border: 1px solid #ffffff;
   border-top: 0;
 }
 .admin-layout .admin-form .tabbable .tab-content .tab-pane {

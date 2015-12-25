@@ -8,9 +8,20 @@
                 <h2 class="section-title-intro">{{'Jail\'s history' |trans}}</h2>
                 <p class="section-intro">Fue ideada por Victoria Kent, primera directora general de Prisiones. El proyecto era construir una prisión modelo para mujeres, ya que anteriormente estas eran hacinadas en depósitos de reclusas, que eran llamadas galeras de mujeres. Con la cárcel de Ventas, Kent se propuso dignificar la condición de la mujer reclusa de cara a su reinserción.</p>
             </section>
+            <section class="twelve columns timeline-navigation">
+                <ul>
+                {% for entity in entities %}
+                    <li>
+                        <a href="#{{ entity.id }}">{{ entity.getYear }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </section>
+        </div>
+        <div class="row">
             <section class="timeline">
                 {% for entity in entities %}
-                    <article class="twelve columns history-card">
+                    <article class="twelve columns history-card" id="{{ entity.id }}">
                         <div class="date">
                             <span class="icon-point">
                                 <i class="fa fa-calendar-check-o"></i>
