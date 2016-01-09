@@ -40,7 +40,8 @@
 
 # Node modules and non processed front assets
 /node_modules
-/app/Resources/public/*
+# Comento esta línea para tenerla disponible durante el desarrollo
+# /app/Resources/public/*
 
 #PhpStorm
 /.idea/*

@@ -1,13 +1,13 @@
 {% extends 'AppBundle:Default:layout_admin.html.twig' %}
 
 {% block admin_content -%}
-    <h1>{{ 'Woman'|trans }}</h1>
+    <h1></h1>
 
     <main class="eight columns">
         <article>
-            <header class="top-article"
-                    style="background-image: url('{{asset("uploads/woman/images/" ~ entity.image) | imagine_filter('image_testim_show')}}');">
-                <h2>{{ entity.name }} {{ entity.surname }}</h2>
+            <header class="top-article">
+                <img class="five columns" src="{{asset("uploads/woman/images/" ~ entity.image)}}">
+                <h2 class="seven columns">{{ entity.name }} {{ entity.surname }}</h2>
             </header>
             <p class="intro">
                 {% autoescape false %}
