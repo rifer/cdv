@@ -2752,7 +2752,7 @@ a.next span i {
   color: #67727a;
 }
 a.next.invert span {
-  background-color: #67727a;
+  background-color: #a99f5d;
 }
 a.next.invert span i {
   color: #ffffff;
@@ -3206,7 +3206,7 @@ header .main-nav.stuck {
   left: 0;
   width: 100%;
   z-index: 100;
-  height: 43px;
+  height: 40px;
   -webkit-backface-visibility: hidden;
   -o-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
@@ -3246,6 +3246,7 @@ header .main-nav .container {
 }
 header .main-nav .container .nav-bar-info {
   color: white;
+  height: 20px;
   zoom: 1;
   filter: alpha(opacity=0);
   -webkit-opacity: 0;
@@ -3253,6 +3254,9 @@ header .main-nav .container .nav-bar-info {
   opacity: 0;
   -webkit-transition: opacity 0.3s ease-in 0.3s;
   transition: opacity 0.3s ease-in 0.3s;
+}
+header .main-nav .container .nav-bar-info:before {
+  background: rgba(255, 255, 255, 0.5);
 }
 header .main-nav .container .nav-bar-info img {
   width: 20px;
