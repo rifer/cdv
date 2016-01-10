@@ -3935,9 +3935,48 @@ footer.main-footer aside img {
   .history-index .timeline-navigation ul li:after {
     width: 5%;
   }
+  .rwd-table {
+    margin: 1em 0;
+    min-width: 280px;
+  }
+  .rwd-table tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+  .rwd-table th {
+    display: none;
+  }
+  .rwd-table td {
+    display: block;
+    padding: 4px 0;
+    font-size: 1.3rem;
+  }
+  .rwd-table td .fix {
+    display: none;
+  }
+  .rwd-table td:first-child {
+    padding-top: .5em;
+  }
+  .rwd-table td:last-child {
+    padding-bottom: .5em;
+  }
+  .rwd-table td:before {
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 5.5em;
+    font-size: 1.1rem;
+    display: inline-block;
+  }
+  .rwd-table th,
+  .rwd-table td {
+    text-align: left;
+  }
+  ._720kb-tooltip {
+    display: none;
+  }
 }
 /* Larger than tablet */
-@media (max-width: 750px) {
+@media (max-width: 850px) {
   header .main-nav.stuck {
     font-size: .9em;
   }
