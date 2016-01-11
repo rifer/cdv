@@ -10,8 +10,8 @@
     {% endfor %}#}
     <div class="gallery">
         {% for image in images %}
-            <a href="{{ asset('images/' ~ image ) }}" data-sub-html=".caption{{image.id}}">
-                <img class="thumbnail" src="{{ asset('images/' ~ image ) }}"/>
+            <a href="{{ asset('images/' ~ image.image ) }}" data-sub-html=".caption{{image.id}}">
+                <img class="thumbnail" src="{{ asset('images/' ~ image.image ) }}"/>
             </a>
         {% endfor %}
     </div>

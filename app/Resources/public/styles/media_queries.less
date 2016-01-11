@@ -1,0 +1,238 @@
+/* Larger than mobile */
+@media (max-width: 400px) {}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (max-width: 560px) {
+	header{
+		.title{
+			text-align: center;
+			display: block;
+			.header-main-group{
+				margin-bottom: 40px;
+				img {
+					padding-top: 30%;
+					float: none;
+					margin: 0;
+				}
+			}
+		}
+		.main-nav{
+			&.stuck{
+				.container{
+					nav{
+						.menu-icon{
+							font-size: 2em;
+						}
+					}
+				}
+			}
+			.container{
+				.nav-bar-info{
+/*					order: 1*/
+				}
+				nav{
+					margin-left: auto;
+/*					order:2*/
+					.menu-icon{
+						display: block;
+						padding-top: 5px;
+						font-size: 1.5em;
+					}
+					.menu-wrapper{
+						display: none;
+						width: 100%;
+						.transition(all .3s ease-in .3s);
+						&.show-menu{
+							display: block;
+							position: absolute;
+							z-index: 1;
+							left: 0;
+							.transition(all .3s ease-in .3s);
+							a{
+								display: block;
+								margin: 0;
+								border-bottom: 1px solid @cdv-blue-light;
+								&:last-child{
+									border-bottom: 0px;
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+	}
+	.history-index{
+	  .timeline-navigation {
+	    ul {
+	      li {
+	        width: 15%;
+	        &:after {
+	          width: 5%;
+	        }
+	      }
+	    }
+	  }
+	}
+	.rwd-table {
+	  margin: 1em 0;
+	  min-width: 280px;
+	}
+	.rwd-table tr {
+	  border-top: 1px solid #ddd;
+	  border-bottom: 1px solid #ddd;
+	}
+	.rwd-table th {
+	  display: none;
+	}
+	.rwd-table td {
+	  display: block;
+	  padding: 4px 0;
+	  font-size: 1.3rem;
+	  .fix {
+	  	display: none;
+	  }
+	}
+	.rwd-table td:first-child {
+	  padding-top: .5em;
+	}
+	.rwd-table td:last-child {
+	  padding-bottom: .5em;
+	}
+	.rwd-table td:before {
+	  content: attr(data-th) ": ";
+	  font-weight: bold;
+	  width: 5.5em;
+	  font-size: 1.1rem;
+	  display: inline-block;
+	}
+	.rwd-table th, .rwd-table td {
+	  text-align: left;
+	}
+	._720kb-tooltip {
+		display: none;
+	}
+}
+
+/* Larger than tablet */
+@media (max-width: 850px) {
+	header{
+		.main-nav{
+			&.stuck{
+				font-size: .9em;
+				.container{
+					a{
+						padding: 5px 1px;
+					}
+				}
+			}
+			.container{
+				a{
+					padding: 5px 1px;
+				}
+			}
+		}
+	}
+	.main{
+		&.main-index{
+			section{
+				&.blockquote-index, &.figure {
+					h2{
+						font-size: 2.2rem;
+					}
+					blockquote{
+						font-size: 1.2rem;
+					}
+					p{
+						font-size: 1.2rem;
+					}
+				}
+			}
+		}
+	}
+	footer.main-footer{
+		position: relative;
+		height: 100%;
+		aside{
+			position: relative;
+			margin-top: 20px;
+		}
+	}
+}
+
+/* Larger than desktop */
+@media (max-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (max-width: 1200px) {
+	.history-index{
+		.timeline:before{
+			display: none;
+		}
+	  .history-card, .history-card:nth-child(odd){
+	  	border-bottom: none;
+	    .date {
+	      float: none;
+	      width: 90%;
+	      text-align: left;
+	      padding-left: 25px;
+	      border-left: 4px solid @cdv-blue-dark;
+	      border-right: none;
+	      padding-left: none;
+	      padding-bottom: 0;
+	      left: 0;
+	      .icon-point{
+	        left: -44px;
+	        top: 0;
+	        border: none;
+	      }
+	      figure{
+	      	float: none;
+	      	padding-bottom: 20px;
+	      }
+	    }
+	    .content{
+	      float: none;
+	      width: 90%;
+	      padding-top: 0;
+	      padding-left: 25px;
+          border-left: 4px solid @cdv-blue-dark;
+          border-right: none;
+          position: relative;
+          h4{
+          	text-align: left;
+          }
+          p {
+          	text-align: left;
+          	margin: 0;
+          	padding-bottom: 10px;
+          }
+	    }
+	  }
+	}
+
+	.admin-layout{
+	  .admin-menu{
+	  	position: relative;
+	    width: 100%;
+	    padding-top: 0px;
+	    height: 60px;
+	    .wrapper-dropdown {
+	    	display: inline-block;
+	    	border-bottom: 0;
+	        i {
+	        	padding: 5px 0 0 10px;
+	        }
+	      .dropdown {
+	      	position: absolute;
+	      	top: 40px;
+	      	background-color: @cdv-blue-dark;
+	      	width: 100px;
+	      	padding: 10px;
+	      	z-index: 1;
+	      }
+	    }
+	  }
+	}
+}

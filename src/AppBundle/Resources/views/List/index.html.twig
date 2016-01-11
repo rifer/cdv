@@ -25,7 +25,7 @@
 				Resultados: <b>{{ '{{filteredList.length}}' }}</b>
 	    	</span>
     	</div>
-        <table class="table  table-hover data-table sort display">
+        <table class="table  table-hover data-table sort display rwd-table">
             <thead>
                 <tr>
                     <th class="name">
@@ -50,13 +50,13 @@
             </thead>
             <tbody>
                 <tr ng-repeat="item in filteredList | orderBy:columnToOrder:reverse">
-                	<td ng-if="item.notes">{{ '{{item.name}}' }} <a href="" tooltips tooltip-content="{{ '{{item.notes}}' }}" class="fix"><i class="fa fa-exclamation-circle"></i></a></td>
-                    <td ng-if="!item.notes">{{ '{{item.name}}' }}</td>
-                	<td>{{ '{{item.years}}' }}</td>
-                	<td>{{ '{{item.date}}' }}</td>
-                    <td>{{ '{{item.death}}' }}</td>
-                	<td>{{ '{{item.deathtype}}' }}</td>
-                    <td>{{ '{{item.files}}' }}</td>
+                	<td  data-th="Nombre" ng-if="item.notes">{{ '{{item.name}}' }} <a href="" tooltips tooltip-content="{{ '{{item.notes}}' }}" class="fix"><i class="fa fa-exclamation-circle"></i></a></td>
+                    <td data-th="Nombre" ng-if="!item.notes">{{ '{{item.name}}' }}</td>
+                	<td data-th="Edad" >{{ '{{item.years}}' }}</td>
+                	<td data-th="F. ingreso" >{{ '{{item.date}}' }}</td>
+                    <td data-th="F. muerte" >{{ '{{item.death}}' }}</td>
+                	<td data-th="T. muerte" >{{ '{{item.deathtype}}' }}</td>
+                    <td data-th="Legajos" >{{ '{{item.files}}' }}</td>
                 </tr>
             </tbody>
         </table>

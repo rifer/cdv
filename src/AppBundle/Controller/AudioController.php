@@ -248,4 +248,25 @@ class AudioController extends Controller
 
         ));
     }
+
+    public function fastDeleteAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('AppBundle:Audio')->find($id);
+
+        if (!$entity)
+        {
+            throw $this->createNotFoundException('Unable to find Audio entity.');
+        }
+
+        $url= $this->generateUrl($entity->getObjectClass() . "_edit", array('id' => $entity->getForeignKey()));
+
+
+        $em->remove($entity);
+
+        $em->flush();
+
+        return $this->redirect($url);
+    }
+
 }

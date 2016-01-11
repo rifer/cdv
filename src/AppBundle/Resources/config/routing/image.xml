@@ -31,7 +31,9 @@
     <route id="image_delete" path="/{id}/delete" methods="POST|DELETE">
         <default key="_controller">AppBundle:Image:delete</default>
     </route>
-
+    <route id="image_fast_delete" path="/{id}/delete" methods="GET">
+        <default key="_controller">AppBundle:Image:fastDelete</default>
+    </route>
      <route id="image_in_gallery_new" path="/new/{foreign_key}/{object_class}/{single}/{gallery_id}">
         <default key="_controller">AppBundle:Image:newInGallery</default>
     </route>

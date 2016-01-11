@@ -245,4 +245,25 @@ class DocumentController extends Controller
 
         ));
     }
+
+    public function fastDeleteAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('AppBundle:Document')->find($id);
+
+        if (!$entity)
+        {
+            throw $this->createNotFoundException('Unable to find Document entity.');
+        }
+
+        $url= $this->generateUrl($entity->getObjectClass() . "_edit", array('id' => $entity->getForeignKey()));
+
+
+        $em->remove($entity);
+
+        $em->flush();
+
+        return $this->redirect($url);
+    }
+
 }

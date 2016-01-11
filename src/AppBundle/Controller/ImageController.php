@@ -204,6 +204,26 @@ class ImageController extends Controller
         ));
     }
 
+    public function fastDeleteAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('AppBundle:Image')->find($id);
+
+        if (!$entity)
+        {
+            throw $this->createNotFoundException('Unable to find Image entity.');
+        }
+
+        $url= $this->generateUrl($entity->getObjectClass() . "_edit", array('id' => $entity->getForeignKey()));
+
+
+        $em->remove($entity);
+
+        $em->flush();
+
+        return $this->redirect($url);
+    }
+
     /**
      * Creates a form to edit a Image entity.
      *

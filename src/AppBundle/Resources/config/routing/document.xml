@@ -31,5 +31,7 @@
     <route id="document_delete" path="/{id}/delete" methods="POST|DELETE">
         <default key="_controller">AppBundle:Document:delete</default>
     </route>
-
+    <route id="document_fast_delete" path="/{id}/delete" methods="GET">
+        <default key="_controller">AppBundle:Document:fastDelete</default>
+    </route>
 </routes>

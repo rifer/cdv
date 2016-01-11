@@ -8,7 +8,7 @@
             <ul class="unstyled">
                 <li>
                     <span class="add-media" data-add="insert_media_image_{{ image.getId }}"><i
-                                class="fa fa-caret-left"></i> {{ image.title }}</span>
+                                class="fa fa-caret-left"></i> {{ image.title }}</span> <a href="{{ path('image_fast_delete', {'id': image.id}) }}">({{ "Eliminar"|trans }})</a>
                 </li>
             </ul>
         {% endfor %}
@@ -25,7 +25,7 @@
             {% for image in grouped_images %}
                 <ul class="unstyled">
                     <li>
-                        <span> {{ image.title }}</span>
+                        <span> {{ image.title }}</span> <a href="{{ path('image_fast_delete', {'id': image.id}) }}">({{ "Eliminar"|trans }})</a>
                     </li>
                 </ul>
             {% endfor %}
@@ -36,7 +36,7 @@
             <ul class="unstyled">
                 <li>
                     <span class="add-media" data-add="insert_media_audio_{{ audio.getId }}"><i
-                                class="fa fa-caret-left"></i> {{ audio }}</span>
+                                class="fa fa-caret-left"></i> {{ audio }}</span> <a href="{{ path('audio_fast_delete', {'id': audio.id}) }}">({{ "Eliminar"|trans }})</a>
                 </li>
             </ul>
         {% else %}
@@ -49,7 +49,7 @@
             <ul class="unstyled">
                 <li>
                     <span class="add-media" data-add="insert_media_video_{{ video.getId }}"><i
-                                class="fa fa-caret-left"></i> {{ video }}</span>
+                                class="fa fa-caret-left"></i> {{ video }}</span> <a href="{{ path('video_fast_delete', {'id': video.id}) }}">({{ "Eliminar"|trans }})</a>
                 </li>
             </ul>
         {% else %}
@@ -62,7 +62,7 @@
             <ul class="unstyled">
                 <li>
                     <span class="add-media"
-                          data-add="insert_media_document_{{ document.getId }}"> {{ 'Added document:'|trans }} {{ document }}</span>
+                          data-add="insert_media_document_{{ document.getId }}"> {{ 'Added document:'|trans }} {{ document }}</span> <a href="{{ path('document_fast_delete', {'id': document.id}) }}">({{ "Eliminar"|trans }})</a>
                 </li>
             </ul>
         {% else %}

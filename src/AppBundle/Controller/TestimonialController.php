@@ -48,8 +48,10 @@ class TestimonialController extends Controller
         $breadcrumbs = $this->get("white_october_breadcrumbs");
         $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));
         $breadcrumbs->addItem($this->get('translator')->trans("Testimonios"), $this->get("router")->generate("app_testimonial_index"));
-        $breadcrumbs->addItem($this->get('translator')->trans("Testimonio de ").$testimonial);
-
+        // Lo comento porque también aplica a edificio y no pega. Pasa lo mismo con la línea de arriba, pero no sé como controlarlo y hace falta si o si
+        // $breadcrumbs->addItem($this->get('translator')->trans("Testimonio de ").$testimonial);
+        $breadcrumbs->addItem($testimonial);
+        
         return $this->render('AppBundle:Testimonial:show.html.twig', array(
             'testimonial' => $testimonial
         ));

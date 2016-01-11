@@ -12,7 +12,7 @@
                 <ul>
                 {% for entity in entities %}
                     <li>
-                        <a href="#{{ entity.id }}">{{ entity.getYear }}</a>
+                        <a href="#" data-next="{{ entity.id }}" role="navigation">{{ entity.getYear }}</a>
                     </li>
                 {% endfor %}
                 </ul>
@@ -21,9 +21,9 @@
         <div class="row">
             <section class="timeline">
                 {% for entity in entities %}
-                    <article class="twelve columns history-card" id="{{ entity.id }}">
+                    <article class="twelve columns history-card">
                         <div class="date">
-                            <span class="icon-point">
+                            <span class="icon-point {{ entity.id }}">
                                 <i class="fa fa-calendar-check-o"></i>
                             </span>
                             <h6>{{ entity.getYear }}</h6>

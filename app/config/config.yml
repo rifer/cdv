@@ -207,12 +207,19 @@ liip_imagine:
                 relative_resize: { increase: 400 }
                 crop: { start: [0, 50], size: [700, 420] }
         image_testim_index:
-            quality: 100
-            filters:
-                interlace:
-                    mode: line
-                strip: ~
-                thumbnail: { allow_upscale: true, size: [300, 200], mode: outbound }
+                    quality: 100
+                    filters:
+                        interlace:
+                            mode: line
+                        strip: ~
+                        thumbnail: { allow_upscale: true, size: [300, 200], mode: outbound }
+        image_testim_show_image:
+                    quality: 100
+                    filters:
+                        interlace:
+                            mode: line
+                        strip: ~
+                        thumbnail: { allow_upscale: true, size: [700, 420], mode: outbound }
         image_history:
             quality: 100
             filters:

@@ -31,5 +31,7 @@
     <route id="audio_delete" path="/{id}/delete" methods="POST|DELETE">
         <default key="_controller">AppBundle:Audio:delete</default>
     </route>
-
+    <route id="audio_fast_delete" path="/{id}/delete" methods="GET">
+        <default key="_controller">AppBundle:Audio:fastDelete</default>
+    </route>
 </routes>

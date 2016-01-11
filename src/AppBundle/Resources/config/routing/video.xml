@@ -31,5 +31,7 @@
     <route id="video_delete" path="/{id}/delete" methods="POST|DELETE">
         <default key="_controller">AppBundle:Video:delete</default>
     </route>
-
+    <route id="video_fast_delete" path="/{id}/delete" methods="GET">
+        <default key="_controller">AppBundle:Video:fastDelete</default>
+    </route>
 </routes>

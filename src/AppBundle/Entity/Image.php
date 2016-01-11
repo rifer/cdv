@@ -38,7 +38,7 @@ class Image
      * @ORM\Column(name="object_class", type="string", length=255, nullable=true)
      */
     protected $objectClass;
-
+ 
     /**
      * @var string $foreignKey
      *
@@ -49,9 +49,9 @@ class Image
     /**
      * @var string $title
      * @Assert\NotBlank
-     * @Assert\Length(max="255", min="5")
+     * @Assert\Length(min="5")
      * @Gedmo\Translatable
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="text")
      */
     private $title;
 
