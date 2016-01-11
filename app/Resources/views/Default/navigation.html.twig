@@ -1,19 +1,19 @@
-        <div class="main-nav" id="navigation">
-            <div class="container">
-                <a href="{{path('homepage')}}" class="nav-bar-info show">
-                    <img src="{{ asset('images/logo_xs.png')}}" alt="Logo Carcel de Ventas">
-                    <span>Carcel de Ventas</span>
-                </a>
-                <nav role="navigation">
-                    <i class="fa fa-bars menu-icon"></i>
+<div class="main-nav" id="navigation">
+    <div class="container">
+        <a href="{{ path('homepage') }}" class="nav-bar-info show">
+            <img src="{{ asset('images/logo_xs.png') }}" alt="Logo Carcel de Ventas">
+            <span>Carcel de Ventas</span>
+        </a>
+        <nav role="navigation">
+            <i class="fa fa-bars menu-icon"></i>
                         <span class="menu-wrapper">
-                            <a href="{{path('app_timeline_index')}}">HISTORIA</a>
-                            <a href="{{path('app_testimonial_index')}}">TESTIMONIOS</a>
-                            <a href="{{path('gallery')}}">GALERIAS</a>
-                            <a href="">EL EDIFICIO</a>
-                            <a href="{{path('list')}}">LISTADOS</a>
-                            <a href="">VARIOS</a>
+                            <a href="{{ path('app_timeline_index') }}">HISTORIA</a>
+                            <a href="{{ path('app_testimonial_index') }}">TESTIMONIOS</a>
+                            <a href="{{ path('gallery') }}">GALERIAS</a>
+                            <a href="{{ path('building') }}">EL EDIFICIO</a>
+                            <a href="{{ path('list') }}">LISTADOS</a>
+                            <a href="{{ path('catchall') }}">VARIOS</a>
                         </span>
-                </nav>
-            </div>
-        </div>
+        </nav>
+    </div>
+</div>

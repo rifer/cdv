@@ -38,7 +38,7 @@ class Image
      * @ORM\Column(name="object_class", type="string", length=255, nullable=true)
      */
     protected $objectClass;
- 
+
     /**
      * @var string $foreignKey
      *

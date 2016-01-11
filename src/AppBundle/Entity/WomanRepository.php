@@ -42,6 +42,17 @@ class WomanRepository extends \Doctrine\ORM\EntityRepository
         return $query->getResult();
     }
 
+    public function findDocuments($foreign_key, $object_class)
+    {
+        $em = $this->getEntityManager();
+        $dql = "select g from AppBundle:Document g where g.foreignKey=:foreign_key and g.objectClass=:object_class order by g.created desc";
+        $query = $em->createQuery($dql);
+        $query->setParameter("foreign_key", $foreign_key);
+        $query->setParameter("object_class", $object_class);
+
+        return $query->getResult();
+    }
+
 
     public function findMedia($media_type, $foreign_key, $object_class, $image_type = null)
     {

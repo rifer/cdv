@@ -253,6 +253,9 @@ class WomanController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $entity->setModified(1);
+            $em->persist($entity);
+            $entity->setModified(0);
             $em->flush();
 
             return $this->redirect($this->generateUrl('woman_show', array('id' => $id)));

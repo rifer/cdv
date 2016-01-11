@@ -51,9 +51,11 @@ class TestimonialController extends Controller
         // Lo comento porque también aplica a edificio y no pega. Pasa lo mismo con la línea de arriba, pero no sé como controlarlo y hace falta si o si
         // $breadcrumbs->addItem($this->get('translator')->trans("Testimonio de ").$testimonial);
         $breadcrumbs->addItem($testimonial);
+        $documents=$em->getRepository("AppBundle:Woman")->findDocuments($testimonial->getId(),'woman');
         
         return $this->render('AppBundle:Testimonial:show.html.twig', array(
-            'testimonial' => $testimonial
+            'testimonial' => $testimonial,
+            'documents' => $documents
         ));
     }
 
