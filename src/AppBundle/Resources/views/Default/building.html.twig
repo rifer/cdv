@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+{% block moreStyles %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/plyr/dist/plyr.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/lightgallery/dist/css/lightgallery.min.css') }}"/>
+{% endblock %}
+{% block body %}
+    <div class="main container">
+    	    {{ wo_render_breadcrumbs() }}
+        <div class="row">
+            <main class="nine columns">
+                <article>
+                    <header class="top-article">
+                        <img class="five columns" src="{{asset("uploads/woman/images/" ~ building.image)}}">
+                        <h2 class="seven columns">{{ building }}</h2>
+                    </header>
+                {#    <p class="intro">{{testimonial.biography|raw}}</p> #}
+                    <p class="intro">
+                        {% autoescape false %}
+                            {% set snippets= insert_snippets(building,building.biography|raw) %}
+                                {% for snippet in snippets %}
+                                    {% if snippet is not iterable %}
+                                        {{ snippet }}
+                                    {% else %}
+                                        {{ render(controller('AppBundle:'~snippet[0]|capitalize~':show_snippet',{'id':snippet[1]})) }}
+                                    {% endif %}
+                                {% endfor %}
+                        {% endautoescape %}            
+                    </p>
+                </article>
+            </main>
+            <aside class="three columns">
+ 				<div class="documents">
+                    <h3>{{'Documentation'|trans}}</h3>
+                    <ul>
+                        {% for document in documents %}
+                            <li><a href="{{asset("uploads/documents/" ~ document.document )}}"><i class="fa fa-file-pdf-o"></i>{{ document.content }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        (function (d, u) {
+            var a = new XMLHttpRequest(),
+                    b = d.body;
+            // Check for CORS support
+            // If you're loading from same domain, you can remove the if statement
+            if ("withCredentials" in a) {
+                a.open("GET", u, true);
+                a.send();
+                a.onload = function () {
+                    var c = d.createElement("div");
+                    c.setAttribute("hidden", "");
+                    c.innerHTML = a.responseText;
+                    b.insertBefore(c, b.childNodes[0]);
+                }
+            }
+        })(document, "{{ asset('assets/plyr/dist/sprite.svg')}}");
+    </script>
+    <script type="text/javascript" src="{{ asset('assets/plyr/dist/plyr.js') }}"></script>
+    <script type="text/javascript">plyr.setup({});</script>
+    <script src="{{ asset('assets/lightgallery/dist/js/lightgallery.min.js') }}"></script>
+    <!-- lightgallery plugins -->
+    <script src="{{ asset('assets/lightgallery/dist/js/lg-thumbnail.min.js') }}"></script>
+    <script src="{{ asset('assets/lightgallery/dist/js/lg-fullscreen.min.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".gallery").lightGallery();
+        });
+    </script>
+{% endblock %}

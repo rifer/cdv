@@ -10,7 +10,7 @@
     {% endfor %}#}
     <div class="gallery">
         {% for image in images %}
-            <a href="{{ asset('images/' ~ image.image ) }}" data-sub-html=".caption{{image.id}}">
+            <a href="{{ asset('uploads/gallery/images/' ~ image.image ) }}" data-sub-html=".caption{{image.id}}">
                 <img class="thumbnail" src="{{ asset('uploads/gallery/images/' ~ image.image)| imagine_filter('image_history')  }}"/>
             </a>
         {% endfor %}

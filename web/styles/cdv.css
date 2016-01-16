@@ -3580,7 +3580,7 @@ ul.unstyled {
 .documents {
   margin-top: 2em;
   font-size: 1.4rem;
-  border-top: 10px solid #c3d7df;
+  border-top: 10px solid rgba(169, 159, 93, 0.5);
   padding-top: .7em;
 }
 .documents h3 {

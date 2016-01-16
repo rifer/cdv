@@ -32,10 +32,9 @@
  				<div class="documents">
                     <h3>{{'Documentation'|trans}}</h3>
                     <ul>
-                        <li><a href=""><i class="fa fa-file-archive-o"></i>Archivo personal de Soledad Real López</a>
-                        </li>
-                        <li><a href=""><i class="fa fa-file-text-o"></i>Biografía completa</a></li>
-                        <li><a href=""><i class="fa fa-file-pdf-o"></i>Bibliografía</a></li>
+                        {% for document in documents %}
+                            <li><a href="{{asset("uploads/documents/" ~ document.document )}}"><i class="fa fa-file-pdf-o"></i>{{ document.content }}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
             </aside>
