@@ -10,7 +10,7 @@
             <main class="nine columns">
                 <article>
                     <header class="top-article">
-                        <img class="five columns" src="{{asset("uploads/woman/images/" ~ testimonial.image)}}">
+                        <img class="five columns" src="{{asset("uploads/woman/images/" ~ testimonial.image)| imagine_filter('image_testim_index')}}">
                         <h2 class="seven columns">{{ testimonial }}</h2>
                     </header>
                 {#    <p class="intro">{{testimonial.biography|raw}}</p> #}

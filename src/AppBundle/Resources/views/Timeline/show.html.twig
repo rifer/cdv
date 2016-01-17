@@ -13,7 +13,7 @@
                         </figure>
                         <p class="eight columns main-history-intro">{{ entity.intro }}</p>
                         <div class="twelve columns main-history-content">
-                            {{entity.content|raw}}
+                            {#{{entity.content|raw}}#}
                             {% autoescape false %}
                                 {% set snippets= insert_snippets(entity,entity.content|raw) %}
                                 {% for snippet in snippets %}
